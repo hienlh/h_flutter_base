@@ -15,7 +15,7 @@ void main() async {
     sentry: SentryClient(
       SentryOptions(
         dsn:
-            'https://22054fae83f14f0180e198172b3a4e9c@o494162.ingest.sentry.io/5564533',
+            'https://7bcd66b105624b7989e336259b625fb5@o494162.ingest.sentry.io/5711915',
       ),
     ),
     child: App(),

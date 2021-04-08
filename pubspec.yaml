@@ -15,6 +15,8 @@ dev_dependencies:
     sdk: flutter
   pedantic: 
   get: 
+  get_storage:
+  logger:
   sentry: 4.1.0-nullsafety.1
 
 flutter:
