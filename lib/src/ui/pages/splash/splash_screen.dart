@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/src/base/logger.dart';
+import '../../../base/logger.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
             Text('Loading...'),
             TextButton(
               onPressed: () {
-                logger.e('123');
+                logger.long('123');
               },
               child: Text('log'),
             )

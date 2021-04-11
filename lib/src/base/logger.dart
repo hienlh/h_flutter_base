@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:logger/logger.dart';
 
 import 'app_config.dart';
@@ -25,10 +27,10 @@ class MyLogger {
 
   void e(dynamic message) {
     _logger.e(message);
-    AppConfig.instance.sentry?.captureException(message);
+    AppConfig.shared.sentry?.captureException(message);
   }
 
-  void long(dynamic message) {
-    _logger.wtf(message);
+  void long(dynamic message, [String tag = '']) {
+    log(message.toString(), name: tag);
   }
 }

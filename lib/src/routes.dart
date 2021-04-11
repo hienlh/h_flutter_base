@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'screens/splash/splash_screen.dart';
+import 'ui/pages/splash/splash_screen.dart';
 
 class Routes {
   static const splash = '/splash';
