@@ -103,14 +103,14 @@ packages:
     source: sdk
     version: "0.0.0"
   get:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: get
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.1.1"
   get_storage:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: get_storage
       url: "https://pub.dartlang.org"
@@ -138,7 +138,7 @@ packages:
     source: hosted
     version: "0.17.0"
   logger:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: logger
       url: "https://pub.dartlang.org"
@@ -229,7 +229,7 @@ packages:
     source: hosted
     version: "4.2.1"
   sentry:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: sentry
       url: "https://pub.dartlang.org"
@@ -276,7 +276,7 @@ packages:
     source: hosted
     version: "1.1.0"
   supercharged:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: supercharged
       url: "https://pub.dartlang.org"
@@ -325,7 +325,7 @@ packages:
     source: hosted
     version: "2.1.0"
   velocity_x:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: velocity_x
       url: "https://pub.dartlang.org"

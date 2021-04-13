@@ -8,17 +8,17 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  pedantic:
   get:
   get_storage:
   logger:
   sentry: 4.1.0-nullsafety.1
   supercharged: ^2.0.0
   velocity_x: ^2.6.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic:
 
 flutter:
   uses-material-design: true
