@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AppConfig(
     appName: 'Flutter Base',
-    flavorName: AppFlavor.PRODUCTION,
+    flavorName: AppFlavor.PROD,
     apiUrl: 'https://hienlh.com/api',
     sentry: SentryClient(
       SentryOptions(

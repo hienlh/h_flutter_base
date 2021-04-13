@@ -8,11 +8,11 @@ class AppConfig {
   static late AppConfig _instance;
 
   final String appName;
-  final AppFlavor flavorName;
+  final AppFlavor flavor;
   final String apiUrl;
   final SentryClient? sentry;
 
-  bool get isDev => flavorName == AppFlavor.DEVELOPMENT;
+  bool get isDev => flavor == AppFlavor.DEVELOPMENT;
 
   factory AppConfig({
     required String appName,
@@ -23,13 +23,13 @@ class AppConfig {
       _instance = AppConfig._(
         apiUrl: apiUrl,
         appName: appName,
-        flavorName: flavorName,
+        flavor: flavorName,
         sentry: sentry,
       );
 
   AppConfig._({
     required this.appName,
-    required this.flavorName,
+    required this.flavor,
     required this.apiUrl,
     this.sentry,
   }) {
@@ -50,7 +50,7 @@ class AppConfig {
   }) {
     _instance = AppConfig(
       appName: appName ?? this.appName,
-      flavorName: flavorName ?? this.flavorName,
+      flavorName: flavorName ?? this.flavor,
       apiUrl: apiUrl ?? this.apiUrl,
       sentry: sentry,
     );
@@ -60,4 +60,4 @@ class AppConfig {
   static AppConfig get shared => _instance;
 }
 
-enum AppFlavor { DEVELOPMENT, TEST, PRODUCTION }
+enum AppFlavor { DEVELOPMENT, TEST, PROD }

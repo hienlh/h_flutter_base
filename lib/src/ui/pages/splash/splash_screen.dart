@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../base/logger.dart';
+import 'package:get/get.dart';
+
+import '../../../translations/app_translations.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -9,13 +11,17 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Loading...'),
+            Text('hello'.tr),
             TextButton(
               onPressed: () {
-                logger.long('123');
+                if (Get.locale?.languageCode == 'vi') {
+                  Get.updateLocale(Locale('en', 'US'));
+                } else {
+                  Get.updateLocale(Locale('vi', 'VI'));
+                }
               },
-              child: Text('log'),
-            )
+              child: Text(Get.locale?.title ?? ''),
+            ),
           ],
         ),
       ),
