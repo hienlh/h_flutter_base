@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_utils/get_utils.dart';
 
 import '../../../translations/app_translations.dart';
 
@@ -21,6 +22,16 @@ class SplashScreen extends StatelessWidget {
                 }
               },
               child: Text(Get.locale?.title ?? ''),
+            ),
+            TextButton(
+              onPressed: () {
+                if (Get.theme?.brightness == Brightness.dark) {
+                  Get.changeTheme(ThemeData.light());
+                } else {
+                  Get.changeTheme(ThemeData.dark());
+                }
+              },
+              child: Text('change_theme'.tr),
             ),
           ],
         ),

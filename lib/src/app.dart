@@ -13,7 +13,7 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: AppConfig.shared.flavor != AppFlavor.PROD,
       title: 'Hien Flutter Base',
-      enableLog: false,
+      enableLog: AppConfig.shared.isDev,
       popGesture: true,
       defaultTransition: Transition.cupertino,
       home: SplashScreen(),

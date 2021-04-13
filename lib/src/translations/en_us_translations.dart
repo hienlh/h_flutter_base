@@ -4,4 +4,5 @@ final Map<String, String> enUs = {
   'hello': 'Hello',
   'vietnamese': 'Vietnamese',
   'english': 'English',
+  'change_theme': 'Change theme',
 };
