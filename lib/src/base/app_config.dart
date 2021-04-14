@@ -16,14 +16,14 @@ class AppConfig {
 
   factory AppConfig({
     required String appName,
-    required AppFlavor flavorName,
+    required AppFlavor flavor,
     required String apiUrl,
     SentryClient? sentry,
   }) =>
       _instance = AppConfig._(
         apiUrl: apiUrl,
         appName: appName,
-        flavor: flavorName,
+        flavor: flavor,
         sentry: sentry,
       );
 
@@ -43,14 +43,14 @@ class AppConfig {
 
   AppConfig copyWith({
     String? appName,
-    AppFlavor? flavorName,
+    AppFlavor? flavor,
     String? apiUrl,
     String? wss,
     SentryClient? sentry,
   }) {
     _instance = AppConfig(
       appName: appName ?? this.appName,
-      flavorName: flavorName ?? this.flavor,
+      flavor: flavor ?? this.flavor,
       apiUrl: apiUrl ?? this.apiUrl,
       sentry: sentry,
     );

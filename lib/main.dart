@@ -5,12 +5,14 @@ import 'package:sentry/sentry.dart';
 
 import 'src/app.dart';
 import 'src/base/app_config.dart';
+import 'src/data/services/index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   AppConfig(
     appName: 'Flutter Base',
-    flavorName: AppFlavor.PROD,
+    flavor: AppFlavor.PROD,
     apiUrl: 'https://hienlh.com/api',
     sentry: SentryClient(
       SentryOptions(
@@ -19,6 +21,8 @@ void main() async {
       ),
     ),
   );
+  
+  await initServices();
 
   await runZonedGuarded<Future<void>>(() async {
     runApp(App());
