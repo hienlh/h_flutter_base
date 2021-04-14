@@ -1,13 +1,20 @@
 part of 'index.dart';
 
 class GetHttpService extends GetxService implements IHttpClient {
-  late IStorage _storage;
-  late final GetConnect http;
+  late final IStorage _storage;
+  IConnectivity? _connectivity;
+  late final GetConnect _http;
+  late final String _baseUrl;
 
-  Future<GetHttpService> init(IStorage storage, String baseUrl) async {
+  Future<GetHttpService> init(
+    IStorage storage,
+    String baseUrl, [
+    IConnectivity? connectivity,
+  ]) async {
     _storage = storage;
-    http = GetConnect();
-    http.baseUrl = baseUrl;
+    _connectivity = connectivity;
+    _baseUrl = baseUrl;
+    _http = GetConnect();
     return this;
   }
 
@@ -29,9 +36,20 @@ class GetHttpService extends GetxService implements IHttpClient {
       _headers.addAll(headers);
     }
 
+    // Read from cache when no network connection
+    if (_connectivity != null && !(await _connectivity!.checkConnected())) {
+      if (method == ApiMethod.GET) {
+        final cachedData = await _storage.get(url + query.toString());
+        if (cachedData != null) {
+          return cachedData;
+        }
+      }
+      throw NoNetworkConnectionException();
+    }
+
     try {
-      final response = await http.request(
-        url,
+      final response = await _http.request(
+        url.startsWith('/') ? _baseUrl + url : url,
         method.toString().split('.').last,
         body: body,
         headers: _headers,
@@ -39,6 +57,10 @@ class GetHttpService extends GetxService implements IHttpClient {
       );
 
       if (response.statusCode != null && response.statusCode! < 400) {
+        // Save to cache
+        if (method == ApiMethod.GET) {
+          unawaited(_storage.set(url + query.toString(), response.body));
+        }
         return response.body;
       } else {
         throw 'Error ${response.statusCode}: ${response.statusText}';

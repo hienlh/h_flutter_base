@@ -5,4 +5,5 @@ final Map<String, String> enUs = {
   'vietnamese': 'Vietnamese',
   'english': 'English',
   'change_theme': 'Change theme',
+  'no_network_connection': 'No network connection',
 };

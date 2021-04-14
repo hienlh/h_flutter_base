@@ -6,6 +6,14 @@ class ApiClient {
 
   ApiClient(this._api);
 
+  Future<String> getExternalIp() async {
+    final res = await _api.request(
+      ApiMethod.GET,
+      'https://wtfismyip.com/text',
+    );
+    return res.toString().trim();
+  }
+
   Future<CheckUserPhoneResponse> checkUserPhone(String phone) async {
     final res = await _api.request(
       ApiMethod.POST,

@@ -12,7 +12,7 @@ void main() async {
   );
   final apiClient = ApiClient(http);
 
-  group('Test api about User', () {
+  group('Test api about User:', () {
     test('check user phone number', () async {
       final res = await apiClient.checkUserPhone('0971963777');
       expect(res.data.phone, '0971963777');
