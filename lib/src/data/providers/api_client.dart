@@ -1,27 +1,25 @@
-import 'package:flutter_base/src/base/app_config.dart';
 import 'package:flutter_base/src/data/models/sample.dart';
 import 'package:get/get_connect.dart';
 
-final baseUrl = AppConfig.shared.apiUrl;
+class ApiClient {
+  final GetConnectInterface _api;
 
-class ApiClient extends GetConnect {
-  final api;
-  ApiClient({required this.api});
+  ApiClient(this._api);
 
 // Get request
-  Future<Response> getUser(int id) => get('$baseUrl/users/id');
+  Future<Response> getUser(int id) => _api.get('/users/id');
 // Post request
-  Future<Response> postUser(Map data) => post('$baseUrl/users', data);
+  Future<Response> postUser(Map data) => _api.post('/users', data);
 // Post request with File
   Future<Response<UserModel>> postCases(List<int> image) {
     final form = FormData({
       'file': MultipartFile(image, filename: 'avatar.png'),
       'otherFile': MultipartFile(image, filename: 'cover.png'),
     });
-    return post('$baseUrl/users/upload', form);
+    return _api.post('/users/upload', form);
   }
 
   GetSocket userMessages() {
-    return socket('$baseUrl//users/socket');
+    return _api.socket('/users/socket');
   }
 }
