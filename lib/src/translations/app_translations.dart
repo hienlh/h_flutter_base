@@ -3,15 +3,16 @@ import 'package:get/get.dart';
 
 part 'en_us_translations.dart';
 part 'vi_vi_translations.dart';
-
-enum SupportedLocale { vi, en }
+part 'strings.dart';
 
 class AppTranslation {
   static Map<String, Map<String, String>> translations = {
-    'en_US': enUs,
-    'vi_VI': viVi,
+    'en_US': { for (final e in Strings.values) e.toString() : e.en },
+    'vi_VI': { for (final e in Strings.values) e.toString() : e.vi },
   };
 }
+
+enum SupportedLocale { vi, en }
 
 extension SupportedLocaleExt on SupportedLocale {
   Locale get locale {
@@ -26,9 +27,9 @@ extension SupportedLocaleExt on SupportedLocale {
   String get title {
     switch (this) {
       case SupportedLocale.vi:
-        return 'vietnamese'.tr;
+        return Strings.vietnamese.tr;
       case SupportedLocale.en:
-        return 'english'.tr;
+        return Strings.english.tr;
     }
   }
 }

@@ -1,6 +1,6 @@
-import 'package:get/get.dart';
+import 'package:flutter_base/src/translations/app_translations.dart';
 
 class NoNetworkConnectionException implements Exception {
   @override
-  String toString() => 'no_network_connection'.tr;
+  String toString() => Strings.noNetworkConnection.tr;
 }

@@ -12,7 +12,7 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('hello'.tr),
+            Text(Strings.hello.tr),
             TextButton(
               onPressed: () {
                 if (Get.locale?.languageCode == 'vi') {
@@ -31,7 +31,7 @@ class SplashScreen extends StatelessWidget {
                   Get.changeTheme(ThemeData.dark());
                 }
               },
-              child: Text('change_theme'.tr),
+              child: Text(Strings.changeTheme.tr),
             ),
           ],
         ),
