@@ -47,9 +47,14 @@ class GetHttpService extends GetxService implements IHttpClient {
       throw NoNetworkConnectionException();
     }
 
+    var uri = Uri.parse(url);
+    if (uri.host.isEmpty) {
+      uri = Uri.parse(_baseUrl + url);
+    }
+
     try {
       final response = await _http.request(
-        url.startsWith('/') ? _baseUrl + url : url,
+        uri.toString(),
         method.toString().split('.').last,
         body: body,
         headers: _headers,
