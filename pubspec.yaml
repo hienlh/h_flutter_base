@@ -15,11 +15,13 @@ dependencies:
   supercharged: ^2.0.0
   velocity_x: ^2.6.1
   connectivity:
+  graphql_flutter:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic:
+  mockito:
 
 flutter:
   uses-material-design: true

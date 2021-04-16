@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:sentry/sentry.dart';
 
 import 'src/app.dart';
@@ -22,6 +23,7 @@ void main() async {
     ),
   );
   
+  await initHiveForFlutter();
   await initServices();
 
   await runZonedGuarded<Future<void>>(() async {
