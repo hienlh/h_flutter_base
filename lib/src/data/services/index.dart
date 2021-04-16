@@ -20,8 +20,8 @@ import 'package:http/http.dart' as http;
 import 'package:sentry/sentry.dart';
 
 part 'get_http_service.dart';
-part 'storage_services.dart';
-part 'memory_storage_services.dart';
+part 'storage_service.dart';
+part 'memory_storage_service.dart';
 part 'connectivity_service.dart';
 part 'graphql_service.dart';
 part 'log_service.dart';
