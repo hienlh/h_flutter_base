@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_base/src/data/services/index.dart';
+import 'package:flutter_base/src/data/services/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:http/http.dart' as http;
@@ -28,44 +28,39 @@ Future<void> mockApplicationDocumentsDirectory() async {
 }
 
 void main() {
+  late final GraphQlService _client;
+
   WidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
     await mockApplicationDocumentsDirectory();
     await initHiveForFlutter();
+    _client = GraphQlService(
+      MemoryStorageService(),
+      'https://fakeql.com/graphql/bb32f684c1acebafeb5ad04e9439fa3e',
+      null,
+      null,
+      LogService(),
+    );
   });
 
   test('Test graphql with sample query', () async {
-    final _client = await GraphQlService().init(
-      MemoryStorageService(),
-      'https://fakeql.com/graphql/f1367f05449e351b760c512e710224cc',
-      logger: LogService(),
-    );
-
     final res = await _client.query(queryString: '''{
       user (id: 1) {
           id
           firstname
       }
     }''');
-    expect(res is Map, true);
     expect(res['user'] != null, true);
     expect(res['user']['id'] == '1', true);
   });
 
   test('Test graphql with sample mutation', () async {
-    final _client = await GraphQlService().init(
-      MemoryStorageService(),
-      'https://fakeql.com/graphql/f1367f05449e351b760c512e710224cc',
-      logger: LogService(),
-    );
-
     final res = await _client.mutate(queryString: '''mutation {
       updateUser (id: 1, input: { firstname: "Hien Pro" }) {
         id
         firstname
       }
     }''');
-    expect(res is Map, true);
     expect(res['updateUser'] != null, true);
     expect(res['updateUser']['id'] == '1', true);
     expect(res['updateUser']['firstname'] == 'Hien Pro', true);

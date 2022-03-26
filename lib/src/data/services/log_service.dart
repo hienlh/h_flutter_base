@@ -1,4 +1,4 @@
-part of 'index.dart';
+part of 'services.dart';
 
 class LogService extends GetxService implements ILogger {
   late final SentryClient? _sentry;

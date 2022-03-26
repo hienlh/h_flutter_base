@@ -6,6 +6,7 @@ enum Strings {
   english,
   changeTheme,
   noNetworkConnection,
+  unknownError,
 }
 
 extension StringsExt on Strings {

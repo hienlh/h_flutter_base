@@ -13,6 +13,8 @@ extension _Vi on Strings {
         return 'Đổi giao diện';
       case Strings.noNetworkConnection:
         return 'Không có kết nối mạng';
+      case Strings.unknownError:
+        return 'Đã xảy ra lỗi, vui lòng thử lại';
     }
   }
 }

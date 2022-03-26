@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: AppConfig.shared.flavor != AppFlavor.PROD,
+      debugShowCheckedModeBanner: AppConfig.shared.flavor != AppFlavor.prod,
       title: 'Hien Flutter Base',
       enableLog: AppConfig.shared.isDev,
       popGesture: true,

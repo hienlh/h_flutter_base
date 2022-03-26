@@ -12,7 +12,9 @@ extension _En on Strings {
       case Strings.changeTheme:
         return 'Change theme';
       case Strings.noNetworkConnection:
-        return  'No network connection';
+        return 'No network connection';
+      case Strings.unknownError:
+        return 'Unknown error. Please try again.';
     }
   }
 }

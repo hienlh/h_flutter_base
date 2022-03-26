@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/get_utils.dart';
 
 import '../../../translations/app_translations.dart';
 
@@ -25,7 +24,7 @@ class SplashScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                if (Get.theme?.brightness == Brightness.dark) {
+                if (Get.theme.brightness == Brightness.dark) {
                   Get.changeTheme(ThemeData.light());
                 } else {
                   Get.changeTheme(ThemeData.dark());

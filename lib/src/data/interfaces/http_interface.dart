@@ -1,4 +1,4 @@
-enum ApiMethod { GET, POST, PUT, DELETE }
+enum ApiMethod { get, post, put, delete }
 
 abstract class IHttpClient {
   Future<dynamic> request(
@@ -7,5 +7,7 @@ abstract class IHttpClient {
     Map<String, String>? headers,
     Map<String, String>? query,
     dynamic body,
+    String? contentType,
+    Function(double percent)? uploadProgress,
   });
 }

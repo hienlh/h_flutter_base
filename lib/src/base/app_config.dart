@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:sentry/sentry.dart';
 
 class AppConfig {
@@ -12,7 +11,7 @@ class AppConfig {
   final String apiUrl;
   final SentryClient? sentry;
 
-  bool get isDev => flavor == AppFlavor.DEVELOPMENT;
+  bool get isDev => flavor == AppFlavor.development;
 
   factory AppConfig({
     required String appName,
@@ -60,4 +59,4 @@ class AppConfig {
   static AppConfig get shared => _instance;
 }
 
-enum AppFlavor { DEVELOPMENT, TEST, PROD }
+enum AppFlavor { development, test, prod }

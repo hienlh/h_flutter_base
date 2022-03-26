@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base/src/data/interfaces/connectivity_interface.dart';
 import 'package:flutter_base/src/data/providers/api_client.dart';
-import 'package:flutter_base/src/data/services/index.dart';
+import 'package:flutter_base/src/data/services/services.dart';
 import 'package:flutter_base/src/exceptions/exceptions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -21,14 +21,16 @@ class TestTrueConnectivity implements IConnectivity {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final graphql = GraphQlService(MemoryStorageService(), '');
 
   test('Throw no network connection', () async {
+    final storage = MemoryStorageService();
     final http = await GetHttpService().init(
-      MemoryStorageService(),
+      storage,
       '',
       TestFalseConnectivity(),
     );
-    final apiClient = ApiClient(http);
+    final apiClient = ApiClient(http, graphql, storage);
     try {
       await apiClient.getExternalIp();
     } catch (e) {
@@ -39,11 +41,11 @@ void main() async {
   test('Test cache data in GetHttpService', () async {
     final storage = MemoryStorageService();
     var http = await GetHttpService().init(storage, '', TestTrueConnectivity());
-    var apiClient = ApiClient(http);
+    var apiClient = ApiClient(http, graphql, storage);
     final res = await apiClient.getExternalIp();
 
     http = await GetHttpService().init(storage, '', TestFalseConnectivity());
-    apiClient = ApiClient(http);
+    apiClient = ApiClient(http, graphql, storage);
     final resFromCache = await apiClient.getExternalIp();
     expect(res, resFromCache);
   });

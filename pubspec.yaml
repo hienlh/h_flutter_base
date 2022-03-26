@@ -11,16 +11,17 @@ dependencies:
   get:
   get_storage:
   logger:
-  sentry: 4.1.0-nullsafety.1
+  sentry: ^6.4.0
   supercharged: ^2.0.0
-  velocity_x: ^2.6.1
-  connectivity:
+  velocity_x: ^3.4.0
+  connectivity_plus:
   graphql_flutter:
+  jwt_decoder: ^2.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic:
+  lints:
   mockito:
 
 flutter:

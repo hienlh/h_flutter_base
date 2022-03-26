@@ -1,4 +1,4 @@
-part of 'index.dart';
+part of 'services.dart';
 
 class ConnectivityService extends GetxService implements IConnectivity {
   @override

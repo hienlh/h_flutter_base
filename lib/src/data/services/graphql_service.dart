@@ -1,10 +1,21 @@
-part of 'index.dart';
+part of 'services.dart';
 
 class GraphQlService extends GetxService implements IGraphQlClient {
-  late final GraphQLClient _client;
+  GraphQlService(
+    this._storage,
+    this._api, [
+    this._wss,
+    this._httpClient,
+    this._logger,
+  ]);
+
+  final IStorage _storage;
+  final String _api;
+  final String? _wss;
+  final http.Client? _httpClient;
+  final ILogger? _logger;
+
   WebSocketLink? _socketLink;
-  late final IStorage _storage;
-  late final ILogger? _logger;
 
   final cachePolicies = <CachePolicy, FetchPolicy>{
     CachePolicy.cacheAndNetwork: FetchPolicy.cacheAndNetwork,
@@ -14,29 +25,23 @@ class GraphQlService extends GetxService implements IGraphQlClient {
     CachePolicy.noCache: FetchPolicy.noCache,
   };
 
-  Future<GraphQlService> init(
-    IStorage storage,
-    String api, {
-    ILogger? logger,
-    String? wss,
-    http.Client? httpClient,
-  }) async {
-    _logger = logger;
-    _storage = storage;
+  Future<GraphQLClient> _getClient() async {
     await _socketLink?.dispose();
-    final token = await _storage.get<String>(StorageKey.token);
+    final token = await _storage.get(StorageKey.token);
 
-    final httpLink = HttpLink(api, httpClient: httpClient);
-    final authLink = AuthLink(getToken: () => token);
+    final httpLink = HttpLink(
+      _api,
+      httpClient: _httpClient,
+      defaultHeaders: {
+        'Authorization': 'Bearer $token',
+      },
+    );
+    final authLink = AuthLink(getToken: () => null);
 
-    if (wss != null) {
+    if (_wss != null) {
       _socketLink = WebSocketLink(
-        wss,
-        config: SocketClientConfig(
-          autoReconnect: true,
-          initialPayload:
-              token != null ? {'Authorization': 'Bearer' + token} : null,
-        ),
+        _wss!,
+        config: SocketClientConfig(autoReconnect: true),
       );
     }
 
@@ -46,12 +51,10 @@ class GraphQlService extends GetxService implements IGraphQlClient {
       authLink.concat(httpLink),
     );
 
-    _client = GraphQLClient(
+    return GraphQLClient(
       cache: GraphQLCache(store: HiveStore()),
       link: link,
     );
-
-    return this;
   }
 
   @override
@@ -61,7 +64,9 @@ class GraphQlService extends GetxService implements IGraphQlClient {
     Map<String, dynamic> variables = const {},
     CachePolicy? cachePolicy,
   }) async {
-    return _processQueryResult(await _client.query(QueryOptions(
+    _logger?.i(queryString);
+    _logger?.i(variables);
+    return _processQueryResult(await (await _getClient()).query(QueryOptions(
       document: gql(queryString),
       operationName: operationName,
       variables: variables,
@@ -76,7 +81,10 @@ class GraphQlService extends GetxService implements IGraphQlClient {
     Map<String, dynamic> variables = const {},
     CachePolicy? cachePolicy,
   }) async {
-    return _processQueryResult(await _client.mutate(MutationOptions(
+    _logger?.i(queryString);
+    _logger?.i(variables);
+    return _processQueryResult(
+        await (await _getClient()).mutate(MutationOptions(
       document: gql(queryString),
       operationName: operationName,
       variables: variables,
@@ -91,7 +99,10 @@ class GraphQlService extends GetxService implements IGraphQlClient {
     Map<String, dynamic> variables = const {},
     CachePolicy? cachePolicy,
   }) async* {
-    await for (final result in _client.subscribe(SubscriptionOptions(
+    _logger?.i(queryString);
+    _logger?.i(variables);
+    await for (final result
+        in (await _getClient()).subscribe(SubscriptionOptions(
       document: gql(queryString),
       operationName: operationName,
       variables: variables,
@@ -104,8 +115,14 @@ class GraphQlService extends GetxService implements IGraphQlClient {
   Future<Map> _processQueryResult(QueryResult queryResult) async {
     if (queryResult.hasException) {
       if (queryResult.exception?.linkException != null) {
-        _logger?.e(queryResult.exception!.linkException);
-        throw queryResult.exception!.linkException!;
+        if (queryResult.exception!.linkException is HttpLinkServerException) {
+          final errorBody =
+              (queryResult.exception!.linkException! as HttpLinkServerException)
+                  .response
+                  .body;
+          throw errorBody;
+        }
+        throw UnknownException(error: queryResult.exception!.linkException);
       } else if (queryResult.exception!.graphqlErrors.isNotEmpty) {
         final unauthenticatedError = queryResult.exception!.graphqlErrors
             .firstWhereOrNull(
@@ -120,16 +137,15 @@ class GraphQlService extends GetxService implements IGraphQlClient {
         } else {
           _logger?.e(queryResult.exception!.graphqlErrors[0].message);
           throw UnknownException(
-              queryResult.exception!.graphqlErrors[0].message);
+              message: queryResult.exception!.graphqlErrors[0].message);
         }
       } else {
         _logger?.e(queryResult.exception);
-        throw UnknownException(queryResult.exception.toString());
+        throw UnknownException(message: queryResult.exception.toString());
       }
-    } else {
-      _logger?.i(queryResult.data?.keys);
     }
 
+    _logger?.i(queryResult.data);
     return queryResult.data ?? {};
   }
 }

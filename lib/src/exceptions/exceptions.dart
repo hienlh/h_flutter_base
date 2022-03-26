@@ -1,4 +1,4 @@
-import 'package:flutter_base/src/translations/app_translations.dart';
+import '../translations/app_translations.dart';
 
 class NoNetworkConnectionException implements Exception {
   @override
@@ -8,7 +8,14 @@ class NoNetworkConnectionException implements Exception {
 class UnauthenticatedException implements Exception {}
 
 class UnknownException implements Exception {
-  final String message;
+  final String? message;
+  final dynamic error;
+  final String? code;
 
-  UnknownException(this.message);
+  UnknownException({this.code, this.message, this.error});
+
+  @override
+  String toString() =>
+      message ??
+      '${Strings.unknownError.tr} ${code?.isNotEmpty ?? false ? '($code)' : ''}';
 }

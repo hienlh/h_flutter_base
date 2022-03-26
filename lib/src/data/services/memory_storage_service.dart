@@ -1,4 +1,4 @@
-part of 'index.dart';
+part of 'services.dart';
 
 class MemoryStorageService extends GetxService implements IStorage {
   final Map<String, dynamic> _data = {};

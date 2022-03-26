@@ -1,4 +1,4 @@
-part of 'index.dart';
+part of 'services.dart';
 
 class StorageService extends GetxService implements IStorage {
   late final GetStorage _box;
@@ -16,7 +16,7 @@ class StorageService extends GetxService implements IStorage {
   }
 
   @override
-  Future<T?> delete<T>(String key)  async {
+  Future<T?> delete<T>(String key) async {
     final value = _box.read(key);
     await _box.remove(key);
     return value;

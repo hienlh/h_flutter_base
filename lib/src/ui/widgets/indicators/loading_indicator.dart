@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/src/base/extentions/context_ext.dart';
+import '../../../base/extensions/context_ext.dart';
 
 class LoadingIndicator extends StatelessWidget {
   final double size;
