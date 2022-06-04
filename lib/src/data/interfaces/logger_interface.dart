@@ -1,4 +1,5 @@
 abstract class ILogger {
+  void call(dynamic message);
   void v(dynamic message);
   void d(dynamic message);
   void i(dynamic message);

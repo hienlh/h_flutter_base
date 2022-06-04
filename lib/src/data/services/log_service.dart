@@ -7,23 +7,28 @@ class LogService extends GetxService implements ILogger {
   LogService([this._sentry]);
 
   @override
+  void call(dynamic message) {
+    print(message != null ? message.toString() : 'null');
+  }
+
+  @override
   void v(dynamic message) {
     _logger.v(message.toString());
   }
 
   @override
   void d(dynamic message) {
-    _logger.d(message.toString());
+    log(message.toString());
   }
 
   @override
   void i(dynamic message) {
-    _logger.i(message.toString());
+    print(message.toString());
   }
 
   @override
   void w(dynamic message) {
-    _logger.w(message.toString());
+    print(message.toString());
   }
 
   @override
