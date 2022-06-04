@@ -7,22 +7,38 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   cupertino_icons: ^1.0.2
-  get:
-  get_storage:
-  logger:
+  get: null
+  get_storage: null
+  logger: null
   sentry: ^6.4.0
   supercharged: ^2.0.0
   velocity_x: ^3.4.0
-  connectivity_plus:
-  graphql_flutter:
+  connectivity_plus: null
+  graphql_flutter: null
   jwt_decoder: ^2.0.1
+  flutter_dotenv: ^5.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  lints:
-  mockito:
+  lints: null
+  mockito: null
 
 flutter:
+  generate: true
   uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+    - .env
+    
+flutter_intl:
+  enabled: true
+  class_name: S
+  main_locale: en
+  arb_dir: lib/l10n
+  output_dir: lib/generated
+  use_deferred_loading: false

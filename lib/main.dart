@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:sentry/sentry.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'src/app.dart';
 import 'src/base/app_config.dart';
@@ -10,6 +11,8 @@ import 'src/data/services/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  print('=======> Env: ${dotenv.env}');
 
   AppConfig(
     appName: 'Flutter Base',

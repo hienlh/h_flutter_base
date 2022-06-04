@@ -1,0 +1,9 @@
+{
+    "appName": "App name",
+    "changeTheme": "Đổi giao diện",
+    "helloWorld": "Chào mừng!",
+    "noNetworkConnection": "Không có kết nối mạng",
+    "unknownError": "Đã xảy ra lỗi, vui lòng thử lại",
+    "english": "Tiếng Anh",
+    "vietnamese": "Tiếng Việt"
+}

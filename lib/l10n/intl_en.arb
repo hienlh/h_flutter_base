@@ -1,0 +1,9 @@
+{
+    "appName": "App Name",
+    "changeTheme": "Change theme",
+    "english": "English",
+    "helloWorld": "Hello World!",
+    "noNetworkConnection": "No network connection",
+    "unknownError": "Unknown error. Please try again.",
+    "vietnamese": "Vietnamese"
+}

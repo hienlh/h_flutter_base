@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../translations/app_translations.dart';
+import '../../../../generated/l10n.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -11,16 +11,22 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(Strings.hello.tr),
+            Text(S.current.helloWorld),
             TextButton(
               onPressed: () {
                 if (Get.locale?.languageCode == 'vi') {
-                  Get.updateLocale(Locale('en', 'US'));
+                  S.load(Locale('en', ''));
+                  Get.updateLocale(Locale('en', ''));
                 } else {
-                  Get.updateLocale(Locale('vi', 'VI'));
+                  S.load(Locale('vi', ''));
+                  Get.updateLocale(Locale('vi', ''));
                 }
               },
-              child: Text(Get.locale?.title ?? ''),
+              child: Text(
+                Get.locale?.languageCode == 'vi'
+                    ? S.current.english
+                    : S.current.vietnamese,
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -30,7 +36,7 @@ class SplashScreen extends StatelessWidget {
                   Get.changeTheme(ThemeData.dark());
                 }
               },
-              child: Text(Strings.changeTheme.tr),
+              child: Text(S.current.changeTheme),
             ),
           ],
         ),

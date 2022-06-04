@@ -1,8 +1,8 @@
-import '../translations/app_translations.dart';
+import '../../generated/l10n.dart';
 
 class NoNetworkConnectionException implements Exception {
   @override
-  String toString() => Strings.noNetworkConnection.tr;
+  String toString() => S.current.noNetworkConnection;
 }
 
 class UnauthenticatedException implements Exception {}
@@ -17,5 +17,5 @@ class UnknownException implements Exception {
   @override
   String toString() =>
       message ??
-      '${Strings.unknownError.tr} ${code?.isNotEmpty ?? false ? '($code)' : ''}';
+      '${S.current.unknownError} ${code?.isNotEmpty ?? false ? '($code)' : ''}';
 }
