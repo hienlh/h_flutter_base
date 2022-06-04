@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/src/data/providers/api_client.dart';
-import 'package:flutter_base/src/data/services/services.dart';
+import 'package:trihai_admin_app/src/data/providers/api_client.dart';
+import 'package:trihai_admin_app/src/data/services/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() async {

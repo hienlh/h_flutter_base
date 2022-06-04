@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "helloWorld": MessageLookupByLibrary.simpleMessage("Chào mừng!"),
         "noNetworkConnection":
             MessageLookupByLibrary.simpleMessage("Không có kết nối mạng"),
+        "sendingOtp":
+            MessageLookupByLibrary.simpleMessage("Đang gửi mã xác thực..."),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Đã xảy ra lỗi, vui lòng thử lại"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt")

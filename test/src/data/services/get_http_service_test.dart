@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/src/data/interfaces/connectivity_interface.dart';
-import 'package:flutter_base/src/data/providers/api_client.dart';
-import 'package:flutter_base/src/data/services/services.dart';
-import 'package:flutter_base/src/exceptions/exceptions.dart';
+import 'package:trihai_admin_app/src/data/interfaces/connectivity_interface.dart';
+import 'package:trihai_admin_app/src/data/providers/api_client.dart';
+import 'package:trihai_admin_app/src/data/services/services.dart';
+import 'package:trihai_admin_app/src/exceptions/exceptions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class TestFalseConnectivity implements IConnectivity {

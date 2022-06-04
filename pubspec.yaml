@@ -1,4 +1,4 @@
-name: flutter_base
+name: trihai_admin_app
 description: A new Flutter project.
 version: 1.0.0+1
 environment:
@@ -21,6 +21,16 @@ dependencies:
   jwt_decoder: ^2.0.1
   flutter_dotenv: ^5.0.2
   freezed_annotation: ^2.0.3
+  local_auth: ^2.1.0
+  timeago: ^3.2.2
+  url_launcher: ^6.1.2
+  modal_bottom_sheet: ^2.0.1
+  flutter_svg: ^1.1.0
+  badges: ^2.0.3
+  simple_animations: ^4.0.2
+  http: ^0.13.4
+  intl: ^0.17.0
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   build_runner: ^2.1.11

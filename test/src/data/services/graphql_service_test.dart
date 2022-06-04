@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_base/src/data/services/services.dart';
+import 'package:trihai_admin_app/src/data/services/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:http/http.dart' as http;
@@ -28,13 +28,13 @@ Future<void> mockApplicationDocumentsDirectory() async {
 }
 
 void main() {
-  late final GraphQlService _client;
+  late final GraphQlService client;
 
   WidgetsFlutterBinding.ensureInitialized();
   setUpAll(() async {
     await mockApplicationDocumentsDirectory();
     await initHiveForFlutter();
-    _client = GraphQlService(
+    client = GraphQlService(
       MemoryStorageService(),
       'https://fakeql.com/graphql/bb32f684c1acebafeb5ad04e9439fa3e',
       null,
@@ -44,7 +44,7 @@ void main() {
   });
 
   test('Test graphql with sample query', () async {
-    final res = await _client.query(queryString: '''{
+    final res = await client.query(queryString: '''{
       user (id: 1) {
           id
           firstname
@@ -55,7 +55,7 @@ void main() {
   });
 
   test('Test graphql with sample mutation', () async {
-    final res = await _client.mutate(queryString: '''mutation {
+    final res = await client.mutate(queryString: '''mutation {
       updateUser (id: 1, input: { firstname: "Hien Pro" }) {
         id
         firstname

@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "h_flutter_base",
+            "name": "h_trihai_admin_app",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "h_flutter_base (profile mode)",
+            "name": "h_trihai_admin_app (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "h_flutter_base (release mode)",
+            "name": "h_trihai_admin_app (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"

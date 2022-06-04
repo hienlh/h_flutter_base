@@ -1,4 +1,4 @@
-package com.hienlh.flutter_base
+package com.trihai.admin.app
 
 import io.flutter.embedding.android.FlutterActivity
 

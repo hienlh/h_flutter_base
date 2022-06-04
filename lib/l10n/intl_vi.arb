@@ -5,5 +5,6 @@
     "noNetworkConnection": "Không có kết nối mạng",
     "unknownError": "Đã xảy ra lỗi, vui lòng thử lại",
     "english": "Tiếng Anh",
-    "vietnamese": "Tiếng Việt"
+    "vietnamese": "Tiếng Việt",
+    "sendingOtp": "Đang gửi mã xác thực..."
 }

@@ -7,6 +7,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'src/app.dart';
 import 'src/base/app_config.dart';
+import 'src/controllers/controllers.dart';
 import 'src/data/services/services.dart';
 
 void main() async {
@@ -14,20 +15,21 @@ void main() async {
   await dotenv.load(fileName: ".env");
   print('=======> Env: ${dotenv.env}');
 
+  final apiUrl = dotenv.get('API_URL', fallback: 'https://hienlh.com');
+  final sentryDsn = dotenv.get('SENTRY_DSN', fallback: '');
+
   AppConfig(
-    appName: 'Flutter Base',
+    appName: 'Trí Hải',
     flavor: AppFlavor.prod,
-    apiUrl: 'https://hienlh.com/api',
-    sentry: SentryClient(
-      SentryOptions(
-        dsn:
-            'https://7bcd66b105624b7989e336259b625fb5@o494162.ingest.sentry.io/5711915',
-      ),
-    ),
+    apiUrl: apiUrl,
+    sentry: sentryDsn.isNotEmpty
+        ? SentryClient(SentryOptions(dsn: sentryDsn))
+        : null,
   );
 
   await initHiveForFlutter();
   await initServices();
+  await initControllers();
 
   await runZonedGuarded<Future<void>>(() async {
     runApp(App());

@@ -40,7 +40,7 @@ Future initServices() async {
   );
   Get.put(GraphQlService(
     Get.find<StorageService>(),
-    AppConfig.shared.apiUrl + '/graphql',
+    '${AppConfig.shared.apiUrl}/graphql',
     null,
     null,
     Get.find<LogService>(),

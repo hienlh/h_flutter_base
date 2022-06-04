@@ -1,6 +1,6 @@
 {
-    "name": "flutter_base",
-    "short_name": "flutter_base",
+    "name": "trihai_admin_app",
+    "short_name": "trihai_admin_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

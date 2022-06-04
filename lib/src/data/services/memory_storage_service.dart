@@ -22,8 +22,13 @@ class MemoryStorageService extends GetxService implements IStorage {
   }
 
   @override
-  Future<bool> set<T>(String key, String value) async {
+  Future<bool> set<T>(String key, T value) async {
     _data.addAll({key: value});
     return true;
+  }
+
+  @override
+  Stream<T?> listen<T>(String key) {
+    throw UnimplementedError();
   }
 }

@@ -23,13 +23,26 @@ class StorageService extends GetxService implements IStorage {
   }
 
   @override
-  Future<T?> get<T>(String key) {
+  Future<T?> get<T>(String key) async {
     return _box.read(key);
   }
 
   @override
-  Future<bool> set<T>(String key, String value) async {
+  Future<bool> set<T>(String key, T value) async {
     await _box.write(key, value);
     return true;
+  }
+
+  @override
+  Stream<T?> listen<T>(String key) {
+    final controller = StreamController<T?>();
+
+    _box.listenKey(key, (v) {
+      if (v is T?) {
+        controller.add(v);
+      }
+    });
+
+    return controller.stream;
   }
 }

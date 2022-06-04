@@ -119,6 +119,186 @@ class S {
       args: [],
     );
   }
+
+  /// `Sending the verification code...`
+  String get sendingOtp {
+    return Intl.message(
+      'Sending the verification code...',
+      name: 'sendingOtp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get login {
+    return Intl.message(
+      'Login',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter phone number or email`
+  String get enterPhoneNumberOrEmail {
+    return Intl.message(
+      'Enter phone number or email',
+      name: 'enterPhoneNumberOrEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone or email is incorrect`
+  String get errorPhoneOrEmailIncorrect {
+    return Intl.message(
+      'Phone or email is incorrect',
+      name: 'errorPhoneOrEmailIncorrect',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter name`
+  String get enterName {
+    return Intl.message(
+      'Enter name',
+      name: 'enterName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By clicking subscribe, you are agreeing to our terms, agreements, operating regulations, privacy policy, complaints handling mechanism, ...`
+  String get registerAcceptAgreement {
+    return Intl.message(
+      'By clicking subscribe, you are agreeing to our terms, agreements, operating regulations, privacy policy, complaints handling mechanism, ...',
+      name: 'registerAcceptAgreement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter something`
+  String get errorEmptyField {
+    return Intl.message(
+      'Please enter something',
+      name: 'errorEmptyField',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the code we sent via SMS to your registered phone`
+  String get enterOtp {
+    return Intl.message(
+      'Enter the code we sent via SMS to your registered phone',
+      name: 'enterOtp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I did not receive the verification code?`
+  String get didNotReceiveOtp {
+    return Intl.message(
+      'I did not receive the verification code?',
+      name: 'didNotReceiveOtp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend`
+  String get resendOtp {
+    return Intl.message(
+      'Resend',
+      name: 'resendOtp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message(
+      'Email',
+      name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sent OTP to`
+  String get sentOtpTo {
+    return Intl.message(
+      'Sent OTP to',
+      name: 'sentOtpTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do not receive the verification code?`
+  String get doNotReceiveOtp {
+    return Intl.message(
+      'Do not receive the verification code?',
+      name: 'doNotReceiveOtp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend OTP after`
+  String get resendOtpAfter {
+    return Intl.message(
+      'Resend OTP after',
+      name: 'resendOtpAfter',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
