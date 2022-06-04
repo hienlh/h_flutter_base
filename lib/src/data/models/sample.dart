@@ -1,28 +1,17 @@
-class UserModel {
-  UserModel({
-    this.id = '',
-    this.name = '',
-  });
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 
-  final String id;
-  final String name;
+part 'sample.freezed.dart';
+part 'sample.g.dart';
 
-  UserModel copyWith({
-    String? id,
-    String? name,
-  }) =>
-      UserModel(
-        id: id ?? this.id,
-        name: name ?? this.name,
-      );
+@freezed
+class Person with _$Person {
+  @JsonSerializable(fieldRename: FieldRename.pascal)
+  const factory Person({
+    required String firstName,
+    required String lastName,
+    required int age,
+  }) = _Person;
 
-  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        id: json['id'],
-        name: json['name'],
-      );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-      };
+  factory Person.fromJson(Map<String, Object?> json) => _$PersonFromJson(json);
 }
