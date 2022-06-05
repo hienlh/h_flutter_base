@@ -559,6 +559,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Mật khẩu cũ`
+  String get oldPassword {
+    return Intl.message(
+      'Mật khẩu cũ',
+      name: 'oldPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mật khẩu mới`
+  String get newPassword {
+    return Intl.message(
+      'Mật khẩu mới',
+      name: 'newPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nhập lại mật khẩu mới`
+  String get reEnterNewPassword {
+    return Intl.message(
+      'Nhập lại mật khẩu mới',
+      name: 'reEnterNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mật khẩu mới không được trùng với mật khẩu cũ`
+  String get errorNewPasswordSameWithOldPassword {
+    return Intl.message(
+      'Mật khẩu mới không được trùng với mật khẩu cũ',
+      name: 'errorNewPasswordSameWithOldPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

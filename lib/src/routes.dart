@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:trihai_admin_app/src/ui/pages/main/main_page.dart';
 
 import 'controllers/auth_controller.dart';
 import 'data/models/entities/user_entity.dart';
+import 'ui/pages/change_pass/change_pass_page.dart';
 import 'ui/pages/edit_profile/edit_profile_page.dart';
 import 'ui/pages/login/login_page.dart';
+import 'ui/pages/main/main_page.dart';
 import 'ui/pages/otp/otp_page.dart';
 import 'ui/pages/splash/splash_page.dart';
 
@@ -15,6 +16,7 @@ class Routes {
   static const otp = '/otp';
   static const main = '/main';
   static const editProfile = '/profile/edit';
+  static const changePassword = '/password/change';
 }
 
 final List<SpecialRoute> privateRoutes =
@@ -35,6 +37,11 @@ final List<GetPage> getPages = [
     name: Routes.editProfile,
     page: () => EditProfilePage(),
     binding: EditProfileBinding(),
+  ),
+  GetPage(
+    name: Routes.changePassword,
+    page: () => ChangePassPage(),
+    binding: ChangePassBinding(),
   ),
 ];
 

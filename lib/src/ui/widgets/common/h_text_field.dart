@@ -25,6 +25,7 @@ class CustomTextField extends StatelessWidget {
     this.decoration,
     this.isLoading = false,
     this.onUnfocus,
+    this.autovalidateMode,
   }) : super(key: key) {
     controller.text = initialValue ?? '';
   }
@@ -49,6 +50,7 @@ class CustomTextField extends StatelessWidget {
   final InputDecoration? decoration;
   final bool isLoading;
   final TextEditingController controller = TextEditingController();
+  final AutovalidateMode? autovalidateMode;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +62,7 @@ class CustomTextField extends StatelessWidget {
         }
       },
       child: TextFormField(
+        autovalidateMode: autovalidateMode,
         readOnly: isLoading || !enabled,
         focusNode: focusNode,
         onChanged: onChanged,

@@ -82,4 +82,15 @@ class ApiClient extends IApiClient {
     );
     return FileUploadRes.fromJson(res);
   }
+
+  Future<void> changePassword(String oldPassword, String newPassword) async {
+    await request(
+      ApiMethod.post,
+      '/api/account/my-profile/change-password',
+      body: {
+        'currentPassword': oldPassword,
+        'newPassword': newPassword,
+      },
+    );
+  }
 }

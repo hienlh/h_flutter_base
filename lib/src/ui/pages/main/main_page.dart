@@ -84,7 +84,7 @@ class MainPage extends GetView<AuthController> {
                     context,
                     Assets.icons.key,
                     S.current.changePassword,
-                    () => Get.toNamed(Routes.main),
+                    () => Get.toNamed(Routes.changePassword),
                   ),
                   // 20.heightBox,
                   // _buildRowItem(

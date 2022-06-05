@@ -26,4 +26,7 @@ class UserRepository {
   }
 
   Future<FileUploadRes> uploadAvatar(File file) => _apiClient.uploadFile(file);
+
+  Future<void> changePassword(String oldPassword, String newPassword) =>
+      _apiClient.changePassword(oldPassword, newPassword);
 }

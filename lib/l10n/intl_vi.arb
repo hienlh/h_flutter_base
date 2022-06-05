@@ -49,5 +49,9 @@
     "toMoney": "Thành tiền",
     "accumulatedPoints": "Số điểm tích được",
     "viewCustomerInformation": "Xem thông tin khách hàng",
-    "username": "Tài khoản"
+    "username": "Tài khoản",
+    "oldPassword": "Mật khẩu cũ",
+    "newPassword": "Mật khẩu mới",
+    "reEnterNewPassword": "Nhập lại mật khẩu mới",
+    "errorNewPasswordSameWithOldPassword": "Mật khẩu mới không được trùng với mật khẩu cũ"
 }

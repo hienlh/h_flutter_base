@@ -54,6 +54,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email không đúng"),
         "errorEmptyField":
             MessageLookupByLibrary.simpleMessage("Vui lòng điền thông tin"),
+        "errorNewPasswordSameWithOldPassword":
+            MessageLookupByLibrary.simpleMessage(
+                "Mật khẩu mới không được trùng với mật khẩu cũ"),
         "errorPhoneIncorrect":
             MessageLookupByLibrary.simpleMessage("Số điện thoại không đúng"),
         "errorPhoneOrEmailIncorrect": MessageLookupByLibrary.simpleMessage(
@@ -65,13 +68,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "lastName": MessageLookupByLibrary.simpleMessage("Tên"),
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
         "noNetworkConnection":
             MessageLookupByLibrary.simpleMessage("Không có kết nối mạng"),
+        "oldPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu cũ"),
         "order": MessageLookupByLibrary.simpleMessage("Đơn hàng"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Số điện thoại"),
         "pointHistory":
             MessageLookupByLibrary.simpleMessage("Lịch sử tích điểm"),
+        "reEnterNewPassword":
+            MessageLookupByLibrary.simpleMessage("Nhập lại mật khẩu mới"),
         "resendOtp": MessageLookupByLibrary.simpleMessage("Gửi lại"),
         "resendOtpAfter": MessageLookupByLibrary.simpleMessage("Gửi lại sau"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("Lưu Thay Đổi"),
