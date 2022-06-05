@@ -50,102 +50,76 @@ class LoginPage extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => PrimaryScaffold(
-          appBar: BackAppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            textColor: context.colorScheme.onPrimary,
-          ),
-          backgroundColor: context.colorScheme.primary,
-          isLoading: controller.snsLoadStatus.value == LoadStatus.loading,
-          body: Column(
-            children: [
-              HeaderLogo(),
-              32.heightBox,
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: context.colorScheme.background,
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(40)),
-                  ),
-                  child: SingleChildScrollView(
-                    padding: EdgeInsets.all(40),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AnimatedContainer(
-                          duration: 500.milliseconds,
-                          child: Obx(
-                            () => AnimatedSwitcher(
-                              duration: 500.milliseconds,
-                              reverseDuration: 500.milliseconds,
-                              transitionBuilder: (child, animation) =>
-                                  FadeTransition(
-                                      opacity: animation, child: child),
-                              child: Container(
-                                key: ValueKey(controller.currentPage.value),
-                                child: _buildBody(context),
-                              ),
+    return PrimaryScaffold(
+      appBar: BackAppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        textColor: context.colorScheme.onPrimary,
+      ),
+      backgroundColor: context.colorScheme.primary,
+      isLoading: controller.snsLoadStatus.value == LoadStatus.loading,
+      body: Column(
+        children: [
+          HeaderLogo(),
+          32.heightBox,
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.colorScheme.background,
+                borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
+              ),
+              child: SingleChildScrollView(
+                padding: EdgeInsets.all(40),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AnimatedContainer(
+                      duration: 500.milliseconds,
+                      child: AnimatedSwitcher(
+                        duration: 500.milliseconds,
+                        reverseDuration: 500.milliseconds,
+                        transitionBuilder: (child, animation) =>
+                            FadeTransition(opacity: animation, child: child),
+                        child: Container(
+                          key: ValueKey(controller.currentPage.value),
+                          child: _buildBody(context),
+                        ),
+                      ),
+                    ),
+                    15.heightBox,
+                    Obx(() => Center(
+                          child: Visibility(
+                            visible: controller.currentPage.value !=
+                                LoginPageType.phoneNumber,
+                            maintainState: true,
+                            maintainSize: true,
+                            maintainAnimation: true,
+                            child: InkWell(
+                              onTap: controller.onBack,
+                              child: Icon(Icons.chevron_left),
                             ),
                           ),
-                        ),
-                        15.heightBox,
-                        Obx(() => Center(
-                              child: Visibility(
-                                visible: controller.currentPage.value !=
-                                    LoginPageType.phoneNumber,
-                                maintainState: true,
-                                maintainSize: true,
-                                maintainAnimation: true,
-                                child: InkWell(
-                                  onTap: controller.onBack,
-                                  child: Icon(Icons.chevron_left),
-                                ),
-                              ),
-                            )),
-                      ],
-                    ),
-                  ),
+                        )),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
-        ));
+        ],
+      ),
+    );
   }
 
   Widget _buildBody(BuildContext context) {
     switch (controller.currentPage.value) {
       case LoginPageType.phoneNumber:
-        return _buildPhoneOrEmail(context);
+        return _buildInput(context);
       case LoginPageType.otp:
         return _buildOtp();
     }
   }
 
-  Widget _buildPhoneOrEmail(BuildContext context) {
-    // return _buildInputForm(
-    //   initialValue: controller.username.value,
-    //   label: S.current.login,
-    //   keyboardType: TextInputType.text,
-    //   buttonText: S.current.login,
-    //   formKey: formPhoneKey,
-    //   hint: S.current.enterPhoneNumberOrEmail.tr,
-    //   isLoading: controller.loadStatus.value == LoadStatus.loading,
-    //   onChanged: controller.onChangeUsername,
-    //   onButtonPressed: () {
-    //     if (formPhoneKey.currentState?.validate() ?? false) {
-    //       controller.signIn();
-    //     }
-    //   },
-    //   validator: (v) {
-    //     if (!GetUtils.isPhoneNumber(v ?? '') && !GetUtils.isEmail(v ?? '')) {
-    //       return S.current.errorPhoneOrEmailIncorrect;
-    //     }
-    //     return null;
-    //   },
-    // );
-
+  Widget _buildInput(BuildContext context) {
     return Form(
       key: formKey,
       child: Column(
@@ -182,14 +156,16 @@ class LoginPage extends GetView<LoginController> {
             obscureText: true,
           ),
           20.heightBox,
-          PrimaryButton(
-            text: S.current.login,
-            onPressed: () {
-              if (formKey.currentState?.validate() ?? false) {
-                controller.signIn();
-              }
-            },
-            isLoading: controller.loadStatus.value.isLoading,
+          Obx(
+            () => PrimaryButton(
+              text: S.current.login,
+              onPressed: () {
+                if (formKey.currentState?.validate() ?? false) {
+                  controller.signIn();
+                }
+              },
+              isLoading: controller.loadStatus.value.isLoading,
+            ),
           ),
           15.heightBox,
           Column(

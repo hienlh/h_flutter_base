@@ -39,7 +39,11 @@ class _QrScannerPageState extends State<QrScannerPage> {
     _scannerController = ScannerController(
       scannerResult: (r) async {
         if (r != controller.scanResult.value) {
-          await controller.onChangeScanResult(r);
+          try {
+            await controller.onChangeScanResult(r);
+          } catch (e) {
+            // ignore
+          }
         }
         _scannerController.startCameraPreview();
       },
