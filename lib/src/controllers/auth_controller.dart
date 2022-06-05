@@ -115,7 +115,7 @@ class AuthController extends GetxController {
         // TODO: load unread notifications
       }
       _loadUserStatus.value = LoadStatus.success;
-      _log('Fetched current user profile ${currentUser?.id}');
+      _log('Fetched current user profile ${currentUser?.userName}');
     } catch (e) {
       _loadUserStatus.value = LoadStatus.failure;
       rethrow;

@@ -549,6 +549,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Tài khoản`
+  String get username {
+    return Intl.message(
+      'Tài khoản',
+      name: 'username',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

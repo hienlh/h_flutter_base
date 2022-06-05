@@ -48,5 +48,6 @@
     "date": "Ngày",
     "toMoney": "Thành tiền",
     "accumulatedPoints": "Số điểm tích được",
-    "viewCustomerInformation": "Xem thông tin khách hàng"
+    "viewCustomerInformation": "Xem thông tin khách hàng",
+    "username": "Tài khoản"
 }

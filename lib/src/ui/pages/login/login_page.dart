@@ -40,8 +40,7 @@ class LoginBinding implements Bindings {
 }
 
 class LoginPage extends GetView<LoginController> {
-  final formPhoneKey = GlobalKey<FormState>();
-  final formNameKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
   LoginPage() {
     Get.find<AuthController>().canFaceId().then((value) {
@@ -125,57 +124,107 @@ class LoginPage extends GetView<LoginController> {
   }
 
   Widget _buildPhoneOrEmail(BuildContext context) {
-    return _buildInputForm(
-      initialValue: controller.phoneNumberOrEmail.value,
-      label: S.current.login,
-      keyboardType: TextInputType.text,
-      buttonText: S.current.login,
-      formKey: formPhoneKey,
-      hint: S.current.enterPhoneNumberOrEmail.tr,
-      isLoading: controller.loadStatus.value == LoadStatus.loading,
-      onChanged: controller.onChangePhoneOrEmail,
-      action: Column(
+    // return _buildInputForm(
+    //   initialValue: controller.username.value,
+    //   label: S.current.login,
+    //   keyboardType: TextInputType.text,
+    //   buttonText: S.current.login,
+    //   formKey: formPhoneKey,
+    //   hint: S.current.enterPhoneNumberOrEmail.tr,
+    //   isLoading: controller.loadStatus.value == LoadStatus.loading,
+    //   onChanged: controller.onChangeUsername,
+    //   onButtonPressed: () {
+    //     if (formPhoneKey.currentState?.validate() ?? false) {
+    //       controller.signIn();
+    //     }
+    //   },
+    //   validator: (v) {
+    //     if (!GetUtils.isPhoneNumber(v ?? '') && !GetUtils.isEmail(v ?? '')) {
+    //       return S.current.errorPhoneOrEmailIncorrect;
+    //     }
+    //     return null;
+    //   },
+    // );
+
+    return Form(
+      key: formKey,
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          20.heightBox,
-          Obx(
-            () => Get.find<AuthController>().canLocalAuth
-                ? Column(
-                    children: [
-                      20.heightBox,
-                      Align(
-                        alignment: Alignment.center,
-                        child: CupertinoButton(
-                          onPressed: controller.localAuth,
-                          color: context.colorScheme.primary,
-                          borderRadius: BorderRadius.circular(90),
-                          padding: EdgeInsets.all(14),
-                          minSize: 0,
-                          child: SvgPicture.asset(
-                            Assets.icons.faceId,
-                            color: context.colorScheme.onPrimary,
-                            height: 20,
-                            width: 20,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                : const SizedBox.shrink(),
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          S.current.login.text
+              .size(24)
+              .fontWeight(FontWeight.w600)
+              .makeCentered(),
+          40.heightBox,
+          CustomTextField(
+            initialValue: controller.username.value,
+            hintText: S.current.username,
+            validator: (v) {
+              if (v.isEmptyOrNull) {
+                return S.current.errorEmptyField;
+              }
+              return null;
+            },
+            onChanged: controller.onChangeUsername,
           ),
+          20.heightBox,
+          CustomTextField(
+            initialValue: controller.password.value,
+            hintText: S.current.password,
+            validator: (v) {
+              if (v.isEmptyOrNull) {
+                return S.current.errorEmptyField;
+              }
+              return null;
+            },
+            onChanged: controller.onChangePass,
+            obscureText: true,
+          ),
+          20.heightBox,
+          PrimaryButton(
+            text: S.current.login,
+            onPressed: () {
+              if (formKey.currentState?.validate() ?? false) {
+                controller.signIn();
+              }
+            },
+            isLoading: controller.loadStatus.value.isLoading,
+          ),
+          15.heightBox,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              20.heightBox,
+              Obx(
+                () => Get.find<AuthController>().canLocalAuth
+                    ? Column(
+                        children: [
+                          20.heightBox,
+                          Align(
+                            alignment: Alignment.center,
+                            child: CupertinoButton(
+                              onPressed: controller.localAuth,
+                              color: context.colorScheme.primary,
+                              borderRadius: BorderRadius.circular(90),
+                              padding: EdgeInsets.all(14),
+                              minSize: 0,
+                              child: SvgPicture.asset(
+                                Assets.icons.faceId,
+                                color: context.colorScheme.onPrimary,
+                                height: 20,
+                                width: 20,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    : const SizedBox.shrink(),
+              ),
+            ],
+          )
         ],
       ),
-      onButtonPressed: () {
-        if (formPhoneKey.currentState?.validate() ?? false) {
-          controller.signInPhoneOrEmail();
-        }
-      },
-      validator: (v) {
-        if (!GetUtils.isPhoneNumber(v ?? '') && !GetUtils.isEmail(v ?? '')) {
-          return S.current.errorPhoneOrEmailIncorrect;
-        }
-        return null;
-      },
     );
   }
 
@@ -224,50 +273,6 @@ class LoginPage extends GetView<LoginController> {
                 .makeCentered(),
           ),
           30.heightBox,
-        ],
-      ),
-    );
-  }
-
-  Widget _buildInputForm({
-    GlobalKey<FormState>? formKey,
-    String? hint,
-    String? initialValue,
-    required String label,
-    required String buttonText,
-    Function()? onButtonPressed,
-    Function()? onBackPressed,
-    FormFieldValidator<String>? validator,
-    bool isLoading = false,
-    ValueChanged<String>? onChanged,
-    FocusNode? focusNode,
-    Widget? action,
-    TextInputType? keyboardType,
-  }) {
-    return Form(
-      key: formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          label.text.size(24).fontWeight(FontWeight.w600).makeCentered(),
-          40.heightBox,
-          CustomTextField(
-            initialValue: initialValue,
-            hintText: hint,
-            validator: validator,
-            onChanged: onChanged,
-            focusNode: focusNode,
-            keyboardType: keyboardType ?? TextInputType.number,
-          ),
-          20.heightBox,
-          PrimaryButton(
-            text: buttonText,
-            onPressed: onButtonPressed,
-            isLoading: isLoading,
-          ),
-          15.heightBox,
-          if (action != null) action,
         ],
       ),
     );

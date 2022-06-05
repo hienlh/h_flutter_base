@@ -39,20 +39,20 @@ class EditProfileController extends GetxController {
     String? phone,
     String? email,
   }) {
-    _currentUser.value = currentUser?.copyWith(
-      fullName: fullName ?? currentUser!.fullName,
-      dateOfBirth: dateOfBirth ?? currentUser!.dateOfBirth,
-      address: address ?? currentUser!.address,
-      phone: phone ?? currentUser!.phone,
-      email: email ?? currentUser!.email,
-    );
+    // _currentUser.value = currentUser?.copyWith(
+    //   fullName: fullName ?? currentUser!.fullName,
+    //   dateOfBirth: dateOfBirth ?? currentUser!.dateOfBirth,
+    //   address: address ?? currentUser!.address,
+    //   phone: phone ?? currentUser!.phone,
+    //   email: email ?? currentUser!.email,
+    // );
   }
 
   Future uploadAvatar(File file) async {
     try {
       uploadAvatarStatus.value = LoadStatus.loading;
       final res = await _userRepo.uploadAvatar(file);
-      _currentUser.value = currentUser?.copyWith(avatarUrl: res.fileUrl);
+      // _currentUser.value = currentUser?.copyWith(avatarUrl: res.fileUrl);
       uploadAvatarStatus.value = LoadStatus.success;
     } catch (e) {
       uploadAvatarStatus.value = LoadStatus.failure;
@@ -66,7 +66,7 @@ class EditProfileController extends GetxController {
       if (currentUser == null) return;
       loadStatus.value = LoadStatus.loading;
 
-      await _userRepo.updateProfile(currentUser!);
+      // await _userRepo.updateProfile(currentUser!);
       await _authController.fetchCurrentUserProfile();
       loadStatus.value = LoadStatus.success;
       AppUtils.showSuccess(S.current.success);

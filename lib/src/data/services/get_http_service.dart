@@ -88,6 +88,7 @@ class GetHttpService extends GetxService implements IHttpClient {
       } else {
         if (response.body is Map &&
             response.body['error'] != null &&
+            response.body['error'] is Map &&
             response.body['error']['message'] != null) {
           throw response.body['error']['message'];
         }

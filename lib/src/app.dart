@@ -28,6 +28,7 @@ class App extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      // showPerformanceOverlay: true,
       supportedLocales: S.delegate.supportedLocales,
       routingCallback: handlePrivateRoutes,
       theme: ThemeData(

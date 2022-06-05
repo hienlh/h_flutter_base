@@ -87,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "toMoney": MessageLookupByLibrary.simpleMessage("Thành tiền"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Đã xảy ra lỗi, vui lòng thử lại"),
+        "username": MessageLookupByLibrary.simpleMessage("Tài khoản"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt"),
         "viewCustomerInformation":
             MessageLookupByLibrary.simpleMessage("Xem thông tin khách hàng"),

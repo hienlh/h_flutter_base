@@ -32,17 +32,15 @@ class MainPage extends GetView<AuthController> {
             child: SizedBox(
               width: 80,
               height: 80,
-              child: Obx(
-                () => CustomNetworkImage(
-                  auth.currentUser?.avatarUrl,
-                  isAvatar: true,
-                ),
+              child: CustomNetworkImage(
+                'auth.currentUser?.avatarUrl',
+                isAvatar: true,
               ),
             ),
           ),
           12.heightBox,
           Obx(
-            () => (auth.currentUser?.fullName ?? '')
+            () => (auth.currentUser?.name ?? '')
                 .text
                 .fontWeight(FontWeight.w600)
                 .size(20)
@@ -50,12 +48,13 @@ class MainPage extends GetView<AuthController> {
                 .makeCentered(),
           ),
           Obx(
-            () => (auth.currentUser?.phone ?? '')
-                .text
-                .fontWeight(FontWeight.w400)
-                .color(Colors.white)
-                .size(14)
-                .makeCentered(),
+            () =>
+                (auth.currentUser?.phoneNumber ?? auth.currentUser?.email ?? '')
+                    .text
+                    .fontWeight(FontWeight.w400)
+                    .color(Colors.white)
+                    .size(14)
+                    .makeCentered(),
           ),
           24.heightBox,
           Expanded(
@@ -67,13 +66,13 @@ class MainPage extends GetView<AuthController> {
               child: ListView(
                 padding: EdgeInsets.all(24),
                 children: [
-                  _buildRowItem(
-                    context,
-                    Assets.icons.user,
-                    S.current.editAccount,
-                    () => Get.toNamed(Routes.editProfile),
-                  ),
-                  20.heightBox,
+                  // _buildRowItem(
+                  //   context,
+                  //   Assets.icons.user,
+                  //   S.current.editAccount,
+                  //   () => Get.toNamed(Routes.editProfile),
+                  // ),
+                  // 20.heightBox,
                   _buildRowItem(
                     context,
                     Assets.icons.qr,
@@ -87,13 +86,13 @@ class MainPage extends GetView<AuthController> {
                     S.current.changePassword,
                     () => Get.toNamed(Routes.main),
                   ),
-                  20.heightBox,
-                  _buildRowItem(
-                    context,
-                    Assets.icons.history,
-                    S.current.bookingHistory,
-                    () => Get.toNamed(Routes.main),
-                  ),
+                  // 20.heightBox,
+                  // _buildRowItem(
+                  //   context,
+                  //   Assets.icons.history,
+                  //   S.current.bookingHistory,
+                  //   () => Get.toNamed(Routes.main),
+                  // ),
                   20.heightBox,
                   RoundedButton.outlined(
                     title: S.current.logout,

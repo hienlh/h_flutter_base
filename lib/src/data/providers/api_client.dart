@@ -28,7 +28,7 @@ class ApiClient extends IApiClient {
   }
 
   Future<UserEntity> getMe() async {
-    final res = await request(ApiMethod.get, '/api/customers/my-profile');
+    final res = await request(ApiMethod.get, '/api/account/my-profile');
     return UserEntity.fromJson(res);
   }
 
@@ -39,6 +39,22 @@ class ApiClient extends IApiClient {
       body: {
         'EmailOrPhone': phoneOrEmail,
         'OTP': otp,
+      },
+    );
+    return SignInRes.fromJson(res);
+  }
+
+  Future<SignInRes> signIn(String username, String password) async {
+    final res = await request(
+      ApiMethod.post,
+      '/connect/token',
+      contentType: 'application/x-www-form-urlencoded',
+      body: {
+        'grant_type': 'password',
+        'username': username,
+        'password': password,
+        'client_id': 'TriHai_App',
+        'scope': 'TriHai',
       },
     );
     return SignInRes.fromJson(res);
@@ -65,24 +81,5 @@ class ApiClient extends IApiClient {
       contentType: 'multipart/form-data',
     );
     return FileUploadRes.fromJson(res);
-  }
-
-  Future<UserEntity> updateProfile(UserEntity user) async {
-    final res = await request(
-      ApiMethod.put,
-      '/api/customers/my-profile',
-      body: {
-        'fullName': user.fullName,
-        'email': user.email,
-        'phone': user.phone,
-        'address': user.address,
-        'dateOfBirth': user.dateOfBirth?.toIso8601String(),
-        'avatarUrl': user.avatarUrl,
-        'note': user.note,
-        'customerGroupId': user.customerGroupId,
-        'customerGroupName': user.customerGroupName,
-      },
-    );
-    return UserEntity.fromJson(res);
   }
 }

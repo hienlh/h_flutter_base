@@ -17,12 +17,13 @@ class UserRepository {
     return _apiClient.verifyOtp(phoneOrEmail, otp);
   }
 
+  Future<SignInRes> signIn(String username, String password) async {
+    return _apiClient.signIn(username, password);
+  }
+
   Future<SignInPhoneEmailRes> signInPhoneOrEmail(String phoneOrEmail) {
     return _apiClient.signInPhoneOrEmail(phoneOrEmail);
   }
 
   Future<FileUploadRes> uploadAvatar(File file) => _apiClient.uploadFile(file);
-
-  Future<UserEntity> updateProfile(UserEntity user) =>
-      _apiClient.updateProfile(user);
 }

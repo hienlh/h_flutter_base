@@ -7,18 +7,14 @@ part 'user_entity.g.dart';
 @freezed
 class UserEntity with _$UserEntity {
   const factory UserEntity({
-    String? fullName,
+    String? userName,
     required String email,
-    String? phone,
-    String? address,
-    DateTime? dateOfBirth,
-    String? avatarUrl,
-    String? note,
-    String? customerGroupId,
-    String? customerGroupName,
-    required String id,
-    DateTime? creationTime,
-    DateTime? lastModificationTime,
+    String? name,
+    String? surname,
+    String? phoneNumber,
+    bool? isExternal,
+    bool? hasPassword,
+    String? concurrencyStamp,
   }) = _UserEntity;
 
   factory UserEntity.fromJson(Map<String, Object?> json) =>

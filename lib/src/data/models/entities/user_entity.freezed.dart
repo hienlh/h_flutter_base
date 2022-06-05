@@ -20,18 +20,14 @@ UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserEntity {
-  String? get fullName => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
-  String? get phone => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  DateTime? get dateOfBirth => throw _privateConstructorUsedError;
-  String? get avatarUrl => throw _privateConstructorUsedError;
-  String? get note => throw _privateConstructorUsedError;
-  String? get customerGroupId => throw _privateConstructorUsedError;
-  String? get customerGroupName => throw _privateConstructorUsedError;
-  String get id => throw _privateConstructorUsedError;
-  DateTime? get creationTime => throw _privateConstructorUsedError;
-  DateTime? get lastModificationTime => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  String? get surname => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
+  bool? get isExternal => throw _privateConstructorUsedError;
+  bool? get hasPassword => throw _privateConstructorUsedError;
+  String? get concurrencyStamp => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,18 +41,14 @@ abstract class $UserEntityCopyWith<$Res> {
           UserEntity value, $Res Function(UserEntity) then) =
       _$UserEntityCopyWithImpl<$Res>;
   $Res call(
-      {String? fullName,
+      {String? userName,
       String email,
-      String? phone,
-      String? address,
-      DateTime? dateOfBirth,
-      String? avatarUrl,
-      String? note,
-      String? customerGroupId,
-      String? customerGroupName,
-      String id,
-      DateTime? creationTime,
-      DateTime? lastModificationTime});
+      String? name,
+      String? surname,
+      String? phoneNumber,
+      bool? isExternal,
+      bool? hasPassword,
+      String? concurrencyStamp});
 }
 
 /// @nodoc
@@ -69,68 +61,48 @@ class _$UserEntityCopyWithImpl<$Res> implements $UserEntityCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? fullName = freezed,
+    Object? userName = freezed,
     Object? email = freezed,
-    Object? phone = freezed,
-    Object? address = freezed,
-    Object? dateOfBirth = freezed,
-    Object? avatarUrl = freezed,
-    Object? note = freezed,
-    Object? customerGroupId = freezed,
-    Object? customerGroupName = freezed,
-    Object? id = freezed,
-    Object? creationTime = freezed,
-    Object? lastModificationTime = freezed,
+    Object? name = freezed,
+    Object? surname = freezed,
+    Object? phoneNumber = freezed,
+    Object? isExternal = freezed,
+    Object? hasPassword = freezed,
+    Object? concurrencyStamp = freezed,
   }) {
     return _then(_value.copyWith(
-      fullName: fullName == freezed
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      surname: surname == freezed
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateOfBirth: dateOfBirth == freezed
-          ? _value.dateOfBirth
-          : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      avatarUrl: avatarUrl == freezed
-          ? _value.avatarUrl
-          : avatarUrl // ignore: cast_nullable_to_non_nullable
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      note: note == freezed
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
+      isExternal: isExternal == freezed
+          ? _value.isExternal
+          : isExternal // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      hasPassword: hasPassword == freezed
+          ? _value.hasPassword
+          : hasPassword // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      concurrencyStamp: concurrencyStamp == freezed
+          ? _value.concurrencyStamp
+          : concurrencyStamp // ignore: cast_nullable_to_non_nullable
               as String?,
-      customerGroupId: customerGroupId == freezed
-          ? _value.customerGroupId
-          : customerGroupId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      customerGroupName: customerGroupName == freezed
-          ? _value.customerGroupName
-          : customerGroupName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      creationTime: creationTime == freezed
-          ? _value.creationTime
-          : creationTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      lastModificationTime: lastModificationTime == freezed
-          ? _value.lastModificationTime
-          : lastModificationTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
     ));
   }
 }
@@ -143,18 +115,14 @@ abstract class _$$_UserEntityCopyWith<$Res>
       __$$_UserEntityCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String? fullName,
+      {String? userName,
       String email,
-      String? phone,
-      String? address,
-      DateTime? dateOfBirth,
-      String? avatarUrl,
-      String? note,
-      String? customerGroupId,
-      String? customerGroupName,
-      String id,
-      DateTime? creationTime,
-      DateTime? lastModificationTime});
+      String? name,
+      String? surname,
+      String? phoneNumber,
+      bool? isExternal,
+      bool? hasPassword,
+      String? concurrencyStamp});
 }
 
 /// @nodoc
@@ -169,68 +137,48 @@ class __$$_UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? fullName = freezed,
+    Object? userName = freezed,
     Object? email = freezed,
-    Object? phone = freezed,
-    Object? address = freezed,
-    Object? dateOfBirth = freezed,
-    Object? avatarUrl = freezed,
-    Object? note = freezed,
-    Object? customerGroupId = freezed,
-    Object? customerGroupName = freezed,
-    Object? id = freezed,
-    Object? creationTime = freezed,
-    Object? lastModificationTime = freezed,
+    Object? name = freezed,
+    Object? surname = freezed,
+    Object? phoneNumber = freezed,
+    Object? isExternal = freezed,
+    Object? hasPassword = freezed,
+    Object? concurrencyStamp = freezed,
   }) {
     return _then(_$_UserEntity(
-      fullName: fullName == freezed
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      userName: userName == freezed
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
               as String?,
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      phone: phone == freezed
-          ? _value.phone
-          : phone // ignore: cast_nullable_to_non_nullable
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String?,
-      address: address == freezed
-          ? _value.address
-          : address // ignore: cast_nullable_to_non_nullable
+      surname: surname == freezed
+          ? _value.surname
+          : surname // ignore: cast_nullable_to_non_nullable
               as String?,
-      dateOfBirth: dateOfBirth == freezed
-          ? _value.dateOfBirth
-          : dateOfBirth // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      avatarUrl: avatarUrl == freezed
-          ? _value.avatarUrl
-          : avatarUrl // ignore: cast_nullable_to_non_nullable
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      note: note == freezed
-          ? _value.note
-          : note // ignore: cast_nullable_to_non_nullable
+      isExternal: isExternal == freezed
+          ? _value.isExternal
+          : isExternal // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      hasPassword: hasPassword == freezed
+          ? _value.hasPassword
+          : hasPassword // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      concurrencyStamp: concurrencyStamp == freezed
+          ? _value.concurrencyStamp
+          : concurrencyStamp // ignore: cast_nullable_to_non_nullable
               as String?,
-      customerGroupId: customerGroupId == freezed
-          ? _value.customerGroupId
-          : customerGroupId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      customerGroupName: customerGroupName == freezed
-          ? _value.customerGroupName
-          : customerGroupName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: id == freezed
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      creationTime: creationTime == freezed
-          ? _value.creationTime
-          : creationTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      lastModificationTime: lastModificationTime == freezed
-          ? _value.lastModificationTime
-          : lastModificationTime // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
     ));
   }
 }
@@ -239,50 +187,38 @@ class __$$_UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserEntity with DiagnosticableTreeMixin implements _UserEntity {
   const _$_UserEntity(
-      {this.fullName,
+      {this.userName,
       required this.email,
-      this.phone,
-      this.address,
-      this.dateOfBirth,
-      this.avatarUrl,
-      this.note,
-      this.customerGroupId,
-      this.customerGroupName,
-      required this.id,
-      this.creationTime,
-      this.lastModificationTime});
+      this.name,
+      this.surname,
+      this.phoneNumber,
+      this.isExternal,
+      this.hasPassword,
+      this.concurrencyStamp});
 
   factory _$_UserEntity.fromJson(Map<String, dynamic> json) =>
       _$$_UserEntityFromJson(json);
 
   @override
-  final String? fullName;
+  final String? userName;
   @override
   final String email;
   @override
-  final String? phone;
+  final String? name;
   @override
-  final String? address;
+  final String? surname;
   @override
-  final DateTime? dateOfBirth;
+  final String? phoneNumber;
   @override
-  final String? avatarUrl;
+  final bool? isExternal;
   @override
-  final String? note;
+  final bool? hasPassword;
   @override
-  final String? customerGroupId;
-  @override
-  final String? customerGroupName;
-  @override
-  final String id;
-  @override
-  final DateTime? creationTime;
-  @override
-  final DateTime? lastModificationTime;
+  final String? concurrencyStamp;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserEntity(fullName: $fullName, email: $email, phone: $phone, address: $address, dateOfBirth: $dateOfBirth, avatarUrl: $avatarUrl, note: $note, customerGroupId: $customerGroupId, customerGroupName: $customerGroupName, id: $id, creationTime: $creationTime, lastModificationTime: $lastModificationTime)';
+    return 'UserEntity(userName: $userName, email: $email, name: $name, surname: $surname, phoneNumber: $phoneNumber, isExternal: $isExternal, hasPassword: $hasPassword, concurrencyStamp: $concurrencyStamp)';
   }
 
   @override
@@ -290,18 +226,14 @@ class _$_UserEntity with DiagnosticableTreeMixin implements _UserEntity {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'UserEntity'))
-      ..add(DiagnosticsProperty('fullName', fullName))
+      ..add(DiagnosticsProperty('userName', userName))
       ..add(DiagnosticsProperty('email', email))
-      ..add(DiagnosticsProperty('phone', phone))
-      ..add(DiagnosticsProperty('address', address))
-      ..add(DiagnosticsProperty('dateOfBirth', dateOfBirth))
-      ..add(DiagnosticsProperty('avatarUrl', avatarUrl))
-      ..add(DiagnosticsProperty('note', note))
-      ..add(DiagnosticsProperty('customerGroupId', customerGroupId))
-      ..add(DiagnosticsProperty('customerGroupName', customerGroupName))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('creationTime', creationTime))
-      ..add(DiagnosticsProperty('lastModificationTime', lastModificationTime));
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('surname', surname))
+      ..add(DiagnosticsProperty('phoneNumber', phoneNumber))
+      ..add(DiagnosticsProperty('isExternal', isExternal))
+      ..add(DiagnosticsProperty('hasPassword', hasPassword))
+      ..add(DiagnosticsProperty('concurrencyStamp', concurrencyStamp));
   }
 
   @override
@@ -309,41 +241,32 @@ class _$_UserEntity with DiagnosticableTreeMixin implements _UserEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserEntity &&
-            const DeepCollectionEquality().equals(other.fullName, fullName) &&
+            const DeepCollectionEquality().equals(other.userName, userName) &&
             const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.phone, phone) &&
-            const DeepCollectionEquality().equals(other.address, address) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.surname, surname) &&
             const DeepCollectionEquality()
-                .equals(other.dateOfBirth, dateOfBirth) &&
-            const DeepCollectionEquality().equals(other.avatarUrl, avatarUrl) &&
-            const DeepCollectionEquality().equals(other.note, note) &&
+                .equals(other.phoneNumber, phoneNumber) &&
             const DeepCollectionEquality()
-                .equals(other.customerGroupId, customerGroupId) &&
+                .equals(other.isExternal, isExternal) &&
             const DeepCollectionEquality()
-                .equals(other.customerGroupName, customerGroupName) &&
-            const DeepCollectionEquality().equals(other.id, id) &&
+                .equals(other.hasPassword, hasPassword) &&
             const DeepCollectionEquality()
-                .equals(other.creationTime, creationTime) &&
-            const DeepCollectionEquality()
-                .equals(other.lastModificationTime, lastModificationTime));
+                .equals(other.concurrencyStamp, concurrencyStamp));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(fullName),
+      const DeepCollectionEquality().hash(userName),
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(phone),
-      const DeepCollectionEquality().hash(address),
-      const DeepCollectionEquality().hash(dateOfBirth),
-      const DeepCollectionEquality().hash(avatarUrl),
-      const DeepCollectionEquality().hash(note),
-      const DeepCollectionEquality().hash(customerGroupId),
-      const DeepCollectionEquality().hash(customerGroupName),
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(creationTime),
-      const DeepCollectionEquality().hash(lastModificationTime));
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(surname),
+      const DeepCollectionEquality().hash(phoneNumber),
+      const DeepCollectionEquality().hash(isExternal),
+      const DeepCollectionEquality().hash(hasPassword),
+      const DeepCollectionEquality().hash(concurrencyStamp));
 
   @JsonKey(ignore: true)
   @override
@@ -358,46 +281,34 @@ class _$_UserEntity with DiagnosticableTreeMixin implements _UserEntity {
 
 abstract class _UserEntity implements UserEntity {
   const factory _UserEntity(
-      {final String? fullName,
+      {final String? userName,
       required final String email,
-      final String? phone,
-      final String? address,
-      final DateTime? dateOfBirth,
-      final String? avatarUrl,
-      final String? note,
-      final String? customerGroupId,
-      final String? customerGroupName,
-      required final String id,
-      final DateTime? creationTime,
-      final DateTime? lastModificationTime}) = _$_UserEntity;
+      final String? name,
+      final String? surname,
+      final String? phoneNumber,
+      final bool? isExternal,
+      final bool? hasPassword,
+      final String? concurrencyStamp}) = _$_UserEntity;
 
   factory _UserEntity.fromJson(Map<String, dynamic> json) =
       _$_UserEntity.fromJson;
 
   @override
-  String? get fullName => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
   @override
   String get email => throw _privateConstructorUsedError;
   @override
-  String? get phone => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   @override
-  String? get address => throw _privateConstructorUsedError;
+  String? get surname => throw _privateConstructorUsedError;
   @override
-  DateTime? get dateOfBirth => throw _privateConstructorUsedError;
+  String? get phoneNumber => throw _privateConstructorUsedError;
   @override
-  String? get avatarUrl => throw _privateConstructorUsedError;
+  bool? get isExternal => throw _privateConstructorUsedError;
   @override
-  String? get note => throw _privateConstructorUsedError;
+  bool? get hasPassword => throw _privateConstructorUsedError;
   @override
-  String? get customerGroupId => throw _privateConstructorUsedError;
-  @override
-  String? get customerGroupName => throw _privateConstructorUsedError;
-  @override
-  String get id => throw _privateConstructorUsedError;
-  @override
-  DateTime? get creationTime => throw _privateConstructorUsedError;
-  @override
-  DateTime? get lastModificationTime => throw _privateConstructorUsedError;
+  String? get concurrencyStamp => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_UserEntityCopyWith<_$_UserEntity> get copyWith =>

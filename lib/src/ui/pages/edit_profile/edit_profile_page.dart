@@ -68,7 +68,7 @@ class EditProfilePage extends GetView<EditProfileController> {
                         children: [
                           Positioned.fill(
                             child: CustomNetworkImage(
-                              controller.currentUser?.avatarUrl,
+                              'controller.currentUser?.avatarUrl',
                               isAvatar: true,
                             ),
                           ),
@@ -131,99 +131,10 @@ class EditProfilePage extends GetView<EditProfileController> {
                             contentPadding: EdgeInsets.zero,
                             isDense: true,
                           ),
-                          initialValue: controller.currentUser?.fullName ?? '',
+                          initialValue: controller.currentUser?.name ?? '',
                           textAlign: TextAlign.right,
                           onChanged: (v) {
                             controller.changeValue(fullName: v);
-                          },
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(color: context.colorScheme.surface),
-                    ),
-                    color: context.colorScheme.background,
-                  ),
-                  child: Row(
-                    children: [
-                      S.current.birthDate.text
-                          .size(16)
-                          .color(context.colorScheme.onSurface)
-                          .make(),
-                      10.widthBox,
-                      Expanded(
-                        child: InkWell(
-                          onTap: () async {
-                            final date = await showDatePicker(
-                              context: context,
-                              initialDate:
-                                  controller.currentUser?.dateOfBirth ??
-                                      DateTime.now(),
-                              firstDate: DateTime(1910),
-                              lastDate: DateTime.now(),
-                            );
-
-                            controller.changeValue(dateOfBirth: date);
-                          },
-                          child: IgnorePointer(
-                            child: Obx(
-                              () => CustomTextField(
-                                key: ValueKey<DateTime?>(
-                                    controller.currentUser?.dateOfBirth),
-                                fontSize: 16,
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.zero,
-                                  isDense: true,
-                                ),
-                                initialValue: controller
-                                            .currentUser?.dateOfBirth !=
-                                        null
-                                    ? DateFormat('dd/MM/yyyy').format(
-                                        controller.currentUser!.dateOfBirth!)
-                                    : '',
-                                textAlign: TextAlign.right,
-                                enabled: false,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(color: context.colorScheme.surface),
-                    ),
-                    color: context.colorScheme.background,
-                  ),
-                  child: Row(
-                    children: [
-                      S.current.address.text
-                          .size(16)
-                          .color(context.colorScheme.onSurface)
-                          .make(),
-                      10.widthBox,
-                      Expanded(
-                        child: CustomTextField(
-                          fontSize: 16,
-                          decoration: InputDecoration(
-                            border: InputBorder.none,
-                            contentPadding: EdgeInsets.zero,
-                            isDense: true,
-                          ),
-                          initialValue: controller.currentUser?.address ?? '',
-                          textAlign: TextAlign.right,
-                          onChanged: (v) {
-                            controller.changeValue(address: v);
                           },
                         ),
                       ),
@@ -255,7 +166,8 @@ class EditProfilePage extends GetView<EditProfileController> {
                               contentPadding: EdgeInsets.zero,
                               isDense: true,
                             ),
-                            initialValue: controller.currentUser?.phone ?? '',
+                            initialValue:
+                                controller.currentUser?.phoneNumber ?? '',
                             textAlign: TextAlign.right,
                             onChanged: (v) {
                               controller.changeValue(phone: v);

@@ -20,8 +20,8 @@ class LoginController extends GetxController {
   final verificationId = Rx<String?>(null);
   final isFirstLogin = false.obs;
 
-  final phoneNumberOrEmail = (kReleaseMode ? '' : 'hienlh1298@gmail.com').obs;
-  final name = ''.obs;
+  final username = (kReleaseMode ? '' : 'admin').obs;
+  final password = (kReleaseMode ? '' : '1q2w3E*').obs;
   final otp = ''.obs;
 
   void onBack() {
@@ -30,21 +30,32 @@ class LoginController extends GetxController {
     }
   }
 
-  void onChangePhoneOrEmail(String phone) {
-    phoneNumberOrEmail.value = phone;
+  void onChangeUsername(String phone) {
+    username.value = phone;
   }
 
-  void onChangeName(String nameInput) {
-    name.value = nameInput;
+  void onChangePass(String pass) {
+    password.value = pass;
   }
 
   void onChangeOtp(String otpInput) {
     otp.value = otpInput;
   }
 
-  Future signInPhoneOrEmail() async {
+  Future signIn() async {
     try {
-      await _sendVerificationCode();
+      loadStatus.value = LoadStatus.loading;
+      final res = await _userRepo.signIn(
+        username.value.trim(),
+        password.value.trim(),
+      );
+      if (res.accessToken.isNotEmptyAndNotNull) {
+        await _authController.signIn(res.accessToken!);
+        loadStatus.value = LoadStatus.success;
+        _goToNextPage();
+      } else {
+        throw S.current.unknownError;
+      }
     } catch (e) {
       loadStatus.value = LoadStatus.failure;
       AppUtils.showError(e.toString());
@@ -55,7 +66,7 @@ class LoginController extends GetxController {
   Future verifyOtp() async {
     try {
       loadStatus.value = LoadStatus.loading;
-      await _authController.verifyOtp(phoneNumberOrEmail.value, otp.value);
+      await _authController.verifyOtp(username.value, otp.value);
       loadStatus.value = LoadStatus.success;
       _goToNextPage();
     } catch (e) {
@@ -79,7 +90,7 @@ class LoginController extends GetxController {
   Future _sendVerificationCode() async {
     try {
       loadStatus.value = LoadStatus.loading;
-      final phoneOrEmail = phoneNumberOrEmail.value;
+      final phoneOrEmail = username.value;
 
       Get.rawSnackbar(message: S.current.sendingOtp.tr);
       _log('Sending verification code to $phoneOrEmail');
