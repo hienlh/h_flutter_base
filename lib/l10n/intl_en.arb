@@ -26,5 +26,16 @@
     "resendOtpAfter": "Resend OTP after",
     "yourPoint": "Your point",
     "editAccount": "Edit your account",
-    "logout": "Logout"
+    "logout": "Logout",
+    "saveChanges": "Save changes",
+    "selectPictureFrom": "Select picture from",
+    "camera": "Camera",
+    "gallery": "Gallery",
+    "cancel": "Cancel",
+    "lastName": "Last name",
+    "birthDate": "Birth date",
+    "address": "Address",
+    "errorPhoneIncorrect": "Phone number is incorrect",
+    "errorEmailIncorrect": "Email address is incorrect",
+    "success": "Success"
 }

@@ -1,8 +1,13 @@
+import 'dart:io';
+
+import 'package:get/get.dart';
+
 import '../interfaces/api_client_interface.dart';
 import '../interfaces/graphql_interface.dart';
 import '../interfaces/http_interface.dart';
 import '../interfaces/storage_interface.dart';
 import '../models/entities/user_entity.dart';
+import '../models/responses/file_upload_res.dart';
 import '../models/responses/sign_in_phone_email.dart';
 import '../models/responses/sign_in_res.dart';
 
@@ -48,5 +53,36 @@ class ApiClient extends IApiClient {
       },
     );
     return SignInPhoneEmailRes.fromJson(res);
+  }
+
+  Future<FileUploadRes> uploadFile(File file) async {
+    final res = await request(
+      ApiMethod.post,
+      '/api/files/upload-by-form',
+      body: FormData({
+        'file': MultipartFile(file, filename: file.path),
+      }),
+      contentType: 'multipart/form-data',
+    );
+    return FileUploadRes.fromJson(res);
+  }
+
+  Future<UserEntity> updateProfile(UserEntity user) async {
+    final res = await request(
+      ApiMethod.put,
+      '/api/customers/my-profile',
+      body: {
+        'fullName': user.fullName,
+        'email': user.email,
+        'phone': user.phone,
+        'address': user.address,
+        'dateOfBirth': user.dateOfBirth?.toIso8601String(),
+        'avatarUrl': user.avatarUrl,
+        'note': user.note,
+        'customerGroupId': user.customerGroupId,
+        'customerGroupName': user.customerGroupName,
+      },
+    );
+    return UserEntity.fromJson(res);
   }
 }

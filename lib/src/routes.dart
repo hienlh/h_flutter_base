@@ -4,6 +4,7 @@ import 'package:trihai_admin_app/src/ui/pages/main/main_page.dart';
 
 import 'controllers/auth_controller.dart';
 import 'data/models/entities/user_entity.dart';
+import 'ui/pages/edit_profile/edit_profile_page.dart';
 import 'ui/pages/login/login_page.dart';
 import 'ui/pages/otp/otp_page.dart';
 import 'ui/pages/splash/splash_page.dart';
@@ -30,6 +31,11 @@ final List<GetPage> getPages = [
   GetPage(name: Routes.login, page: () => LoginPage(), binding: LoginBinding()),
   GetPage(name: Routes.otp, page: () => OtpPage()),
   GetPage(name: Routes.main, page: () => MainPage()),
+  GetPage(
+    name: Routes.editProfile,
+    page: () => EditProfilePage(),
+    binding: EditProfileBinding(),
+  ),
 ];
 
 bool handlePrivateRoutes(Routing? r) {

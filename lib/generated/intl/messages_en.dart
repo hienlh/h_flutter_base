@@ -22,7 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
+        "birthDate": MessageLookupByLibrary.simpleMessage("Birth date"),
+        "camera": MessageLookupByLibrary.simpleMessage("Camera"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "changeTheme": MessageLookupByLibrary.simpleMessage("Change theme"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "didNotReceiveOtp": MessageLookupByLibrary.simpleMessage(
@@ -38,12 +42,18 @@ class MessageLookup extends MessageLookupByLibrary {
             "Enter the code we sent via SMS to your registered phone"),
         "enterPhoneNumberOrEmail":
             MessageLookupByLibrary.simpleMessage("Enter phone number or email"),
+        "errorEmailIncorrect":
+            MessageLookupByLibrary.simpleMessage("Email address is incorrect"),
         "errorEmptyField":
             MessageLookupByLibrary.simpleMessage("Please enter something"),
+        "errorPhoneIncorrect":
+            MessageLookupByLibrary.simpleMessage("Phone number is incorrect"),
         "errorPhoneOrEmailIncorrect":
             MessageLookupByLibrary.simpleMessage("Phone or email is incorrect"),
+        "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
         "helloWorld": MessageLookupByLibrary.simpleMessage("Hello World!"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "noNetworkConnection":
@@ -55,9 +65,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "resendOtp": MessageLookupByLibrary.simpleMessage("Resend"),
         "resendOtpAfter":
             MessageLookupByLibrary.simpleMessage("Resend OTP after"),
+        "saveChanges": MessageLookupByLibrary.simpleMessage("Save changes"),
+        "selectPictureFrom":
+            MessageLookupByLibrary.simpleMessage("Select picture from"),
         "sendingOtp": MessageLookupByLibrary.simpleMessage(
             "Sending the verification code..."),
         "sentOtpTo": MessageLookupByLibrary.simpleMessage("Sent OTP to"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Unknown error. Please try again."),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese"),
