@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart' hide TextDirection;
 import 'package:trihai_admin_app/src/base/extensions/context_ext.dart';
 import 'package:trihai_admin_app/src/data/models/entities/customer_entity.dart';
+import 'package:trihai_admin_app/src/routes.dart';
+import 'package:trihai_admin_app/src/ui/pages/point_history/point_history_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../../../generated/l10n.dart';
@@ -44,7 +46,12 @@ class CustomerProfilePage extends GetView<CustomerProfileController> {
           padding: const EdgeInsets.all(10.0),
           child: PrimaryButton(
             text: S.current.pointHistory,
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(
+                Routes.pointHistory,
+                arguments: PointHistoryArgs(data),
+              );
+            },
           ),
         ),
       ),

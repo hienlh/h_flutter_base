@@ -22,13 +22,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accumulatedPoints":
+            MessageLookupByLibrary.simpleMessage("Accumulated points"),
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "appName": MessageLookupByLibrary.simpleMessage("App Name"),
         "birthDate": MessageLookupByLibrary.simpleMessage("Birth date"),
+        "bookingHistory":
+            MessageLookupByLibrary.simpleMessage("Booking history"),
         "camera": MessageLookupByLibrary.simpleMessage("Camera"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "changePassword":
+            MessageLookupByLibrary.simpleMessage("Change password"),
         "changeTheme": MessageLookupByLibrary.simpleMessage("Change theme"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
+        "customer": MessageLookupByLibrary.simpleMessage("Customer"),
+        "customerInformation":
+            MessageLookupByLibrary.simpleMessage("Customer information"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "didNotReceiveOtp": MessageLookupByLibrary.simpleMessage(
             "I did not receive the verification code?"),
         "doNotReceiveOtp": MessageLookupByLibrary.simpleMessage(
@@ -46,6 +56,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email address is incorrect"),
         "errorEmptyField":
             MessageLookupByLibrary.simpleMessage("Please enter something"),
+        "errorNewPasswordSameWithOldPassword":
+            MessageLookupByLibrary.simpleMessage(
+                "The new password is the same with the old password"),
         "errorPhoneIncorrect":
             MessageLookupByLibrary.simpleMessage("Phone number is incorrect"),
         "errorPhoneOrEmailIncorrect":
@@ -54,24 +67,38 @@ class MessageLookup extends MessageLookupByLibrary {
         "helloWorld": MessageLookupByLibrary.simpleMessage("Hello World!"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "lastName": MessageLookupByLibrary.simpleMessage("Last name"),
+        "loading": MessageLookupByLibrary.simpleMessage("Loading"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
         "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+        "newPassword": MessageLookupByLibrary.simpleMessage("New password"),
         "noNetworkConnection":
             MessageLookupByLibrary.simpleMessage("No network connection"),
+        "oldPassword": MessageLookupByLibrary.simpleMessage("Old password"),
+        "order": MessageLookupByLibrary.simpleMessage("Order"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
+        "pointHistory": MessageLookupByLibrary.simpleMessage("Point history"),
+        "reEnterNewPassword":
+            MessageLookupByLibrary.simpleMessage("Re enter new password"),
+        "reScan": MessageLookupByLibrary.simpleMessage("Re Scan"),
         "resendOtp": MessageLookupByLibrary.simpleMessage("Resend"),
         "resendOtpAfter":
             MessageLookupByLibrary.simpleMessage("Resend OTP after"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("Save changes"),
+        "scanQrCode": MessageLookupByLibrary.simpleMessage("Scan Qr Code"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "selectPictureFrom":
             MessageLookupByLibrary.simpleMessage("Select picture from"),
         "sendingOtp": MessageLookupByLibrary.simpleMessage(
             "Sending the verification code..."),
         "sentOtpTo": MessageLookupByLibrary.simpleMessage("Sent OTP to"),
         "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "toMoney": MessageLookupByLibrary.simpleMessage("Total amount"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Unknown error. Please try again."),
+        "username": MessageLookupByLibrary.simpleMessage("User Name"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese"),
+        "viewCustomerInformation":
+            MessageLookupByLibrary.simpleMessage("View customer information"),
         "yourPoint": MessageLookupByLibrary.simpleMessage("Your point")
       };
 }

@@ -86,13 +86,13 @@ class MainPage extends GetView<AuthController> {
                     S.current.changePassword,
                     () => Get.toNamed(Routes.changePassword),
                   ),
-                  // 20.heightBox,
-                  // _buildRowItem(
-                  //   context,
-                  //   Assets.icons.history,
-                  //   S.current.bookingHistory,
-                  //   () => Get.toNamed(Routes.main),
-                  // ),
+                  20.heightBox,
+                  _buildRowItem(
+                    context,
+                    Assets.icons.history,
+                    S.current.bookingHistory,
+                    () => Get.toNamed(Routes.bookingHistory),
+                  ),
                   20.heightBox,
                   RoundedButton.outlined(
                     title: S.current.logout,

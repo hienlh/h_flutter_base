@@ -1,14 +1,18 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:trihai_admin_app/src/data/models/entities/customer_entity.dart';
+import 'package:trihai_admin_app/src/data/models/entities/order_entity.dart';
 
+import '../../constants/constants.dart';
 import '../interfaces/api_client_interface.dart';
 import '../interfaces/graphql_interface.dart';
 import '../interfaces/http_interface.dart';
 import '../interfaces/storage_interface.dart';
 import '../models/entities/user_entity.dart';
 import '../models/responses/file_upload_res.dart';
+import '../models/responses/list_with_total_response.dart';
 import '../models/responses/sign_in_phone_email.dart';
 import '../models/responses/sign_in_res.dart';
 
@@ -98,5 +102,25 @@ class ApiClient extends IApiClient {
   Future<CustomerEntity> getCustomerProfile(String id) async {
     final res = await request(ApiMethod.get, '/api/customers/$id');
     return CustomerEntity.fromJson(res);
+  }
+
+  Future<ListWithTotalResponse<OrderEntity>> getOrders({
+    String? customerId,
+    int page = 1,
+  }) async {
+    final res = await request(
+      ApiMethod.get,
+      '/api/orders',
+      query: {
+        if (customerId != null) 'CustomerId': customerId,
+        'SkipCount': ((page - 1) * kDefaultPageSize).toString(),
+        'MaxResultCount': kDefaultPageSize.toString(),
+      },
+    );
+    final data = ListWithTotalResponse<OrderEntity>.fromJson(
+      res,
+      OrderEntity.fromJson,
+    );
+    return data;
   }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trihai_admin_app/src/ui/pages/booking_history/booking_history_page.dart';
 import 'package:trihai_admin_app/src/ui/pages/customer_profile/customer_profile_page.dart';
+import 'package:trihai_admin_app/src/ui/pages/point_history/point_history_page.dart';
 import 'package:trihai_admin_app/src/ui/pages/qr_scanner/qr_scanner_page.dart';
 
 import 'controllers/auth_controller.dart';
@@ -21,6 +23,8 @@ class Routes {
   static const changePassword = '/password/change';
   static const scanQrCode = '/scanQrCode';
   static const customerProfile = '/customer/:id';
+  static const pointHistory = '/customer/:id/point-history';
+  static const bookingHistory = '/orders';
 }
 
 final List<SpecialRoute> privateRoutes =
@@ -56,6 +60,16 @@ final List<GetPage> getPages = [
     name: Routes.customerProfile,
     page: () => CustomerProfilePage(),
     binding: CustomerProfileBinding(),
+  ),
+  GetPage(
+    name: Routes.pointHistory,
+    page: () => PointHistoryPage(),
+    binding: PointHistoryBinding(),
+  ),
+  GetPage(
+    name: Routes.bookingHistory,
+    page: () => BookingHistoryPage(),
+    binding: BookingHistoryBinding(),
   ),
 ];
 
