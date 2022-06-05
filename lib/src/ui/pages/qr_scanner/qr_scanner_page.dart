@@ -1,16 +1,18 @@
 import 'package:ai_barcode/ai_barcode.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:trihai_admin_app/src/base/extensions/context_ext.dart';
 import 'package:trihai_admin_app/src/constants/assets.dart';
 import 'package:trihai_admin_app/src/data/models/enums/load_status.dart';
+import 'package:trihai_admin_app/src/routes.dart';
+import 'package:trihai_admin_app/src/ui/pages/customer_profile/customer_profile_page.dart';
+import 'package:trihai_admin_app/src/ui/widgets/app_bars/back_app_bar.dart';
 import 'package:trihai_admin_app/src/ui/widgets/common/h_network_image.dart';
+import 'package:trihai_admin_app/src/ui/widgets/common/primary_scaffold.dart';
 import 'package:trihai_admin_app/src/ui/widgets/indicators/loading_indicator.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:get/get.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:trihai_admin_app/src/base/extensions/context_ext.dart';
-import 'package:trihai_admin_app/src/ui/widgets/app_bars/back_app_bar.dart';
-import 'package:trihai_admin_app/src/ui/widgets/common/primary_scaffold.dart';
 
 import '../../../../generated/l10n.dart';
 import 'qr_scanner_controller.dart';
@@ -38,6 +40,7 @@ class _QrScannerPageState extends State<QrScannerPage> {
 
     _scannerController = ScannerController(
       scannerResult: (r) async {
+        if (kDebugMode) r = '9443f38d-116c-2551-9ed1-3a03c2d9e738';
         if (r != controller.scanResult.value) {
           try {
             await controller.onChangeScanResult(r);
@@ -110,49 +113,62 @@ class _QrScannerPageState extends State<QrScannerPage> {
             ),
             40.heightBox,
             Obx(
-              () => Container(
-                padding: EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: context.colorScheme.background,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 64,
-                      height: 64,
-                      child: CustomNetworkImage(
-                        controller.customer.value?.avatarUrl,
-                        borderRadius: BorderRadius.circular(16),
+              () => GestureDetector(
+                onTap: controller.customer.value != null
+                    ? () {
+                        Get.toNamed(
+                          Routes.customerProfile,
+                          arguments:
+                              CustomerProfileArgs(controller.customer.value!),
+                        );
+                      }
+                    : null,
+                child: Container(
+                  padding: EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: context.colorScheme.background,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 64,
+                        height: 64,
+                        child: CustomNetworkImage(
+                          controller.customer.value?.avatarUrl,
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                       ),
-                    ),
-                    10.widthBox,
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          (controller.customer.value?.fullName ??
-                                  S.current.customer)
-                              .text
-                              .bodyText1(context)
-                              .bold
-                              .make(),
-                          10.heightBox,
-                          (controller.customer.value?.phone ?? '').text.make(),
-                        ],
+                      10.widthBox,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            (controller.customer.value?.fullName ??
+                                    S.current.customer)
+                                .text
+                                .bodyText1(context)
+                                .bold
+                                .make(),
+                            10.heightBox,
+                            (controller.customer.value?.phone ?? '')
+                                .text
+                                .make(),
+                          ],
+                        ),
                       ),
-                    ),
-                    controller.loadStatus.value.isLoading
-                        ? LoadingIndicator()
-                        : SvgPicture.asset(
-                            Assets.icons.arrowRight,
-                            color: controller.customer.value != null
-                                ? null
-                                : context.colorScheme.surface,
-                          ),
-                    10.widthBox,
-                  ],
+                      controller.loadStatus.value.isLoading
+                          ? LoadingIndicator()
+                          : SvgPicture.asset(
+                              Assets.icons.arrowRight,
+                              color: controller.customer.value != null
+                                  ? null
+                                  : context.colorScheme.surface,
+                            ),
+                      10.widthBox,
+                    ],
+                  ),
                 ),
               ),
             ),
