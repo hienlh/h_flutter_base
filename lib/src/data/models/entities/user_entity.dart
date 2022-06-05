@@ -6,7 +6,6 @@ part 'user_entity.g.dart';
 
 @freezed
 class UserEntity with _$UserEntity {
-  @JsonSerializable(fieldRename: FieldRename.pascal)
   const factory UserEntity({
     String? fullName,
     required String email,

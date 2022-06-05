@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:trihai_admin_app/src/ui/pages/main/main_page.dart';
 
 import 'controllers/auth_controller.dart';
 import 'data/models/entities/user_entity.dart';
@@ -12,6 +13,7 @@ class Routes {
   static const login = '/login';
   static const otp = '/otp';
   static const main = '/main';
+  static const editProfile = '/profile/edit';
 }
 
 final List<SpecialRoute> privateRoutes =
@@ -27,6 +29,7 @@ final List<GetPage> getPages = [
   ),
   GetPage(name: Routes.login, page: () => LoginPage(), binding: LoginBinding()),
   GetPage(name: Routes.otp, page: () => OtpPage()),
+  GetPage(name: Routes.main, page: () => MainPage()),
 ];
 
 bool handlePrivateRoutes(Routing? r) {

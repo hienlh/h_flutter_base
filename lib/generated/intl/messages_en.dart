@@ -29,6 +29,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "I did not receive the verification code?"),
         "doNotReceiveOtp": MessageLookupByLibrary.simpleMessage(
             "Do not receive the verification code?"),
+        "editAccount":
+            MessageLookupByLibrary.simpleMessage("Edit your account"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterName": MessageLookupByLibrary.simpleMessage("Enter name"),
@@ -43,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "helloWorld": MessageLookupByLibrary.simpleMessage("Hello World!"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "login": MessageLookupByLibrary.simpleMessage("Login"),
+        "logout": MessageLookupByLibrary.simpleMessage("Logout"),
         "noNetworkConnection":
             MessageLookupByLibrary.simpleMessage("No network connection"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
@@ -57,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "sentOtpTo": MessageLookupByLibrary.simpleMessage("Sent OTP to"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Unknown error. Please try again."),
-        "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese")
+        "vietnamese": MessageLookupByLibrary.simpleMessage("Vietnamese"),
+        "yourPoint": MessageLookupByLibrary.simpleMessage("Your point")
       };
 }

@@ -8,7 +8,6 @@ part 'sign_in_res.g.dart';
 
 @freezed
 class SignInRes with _$SignInRes {
-  @JsonSerializable(fieldRename: FieldRename.pascal)
   const factory SignInRes({
     UserEntity? info,
     String? accessToken,

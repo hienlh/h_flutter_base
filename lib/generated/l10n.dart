@@ -299,6 +299,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Your point`
+  String get yourPoint {
+    return Intl.message(
+      'Your point',
+      name: 'yourPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit your account`
+  String get editAccount {
+    return Intl.message(
+      'Edit your account',
+      name: 'editAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

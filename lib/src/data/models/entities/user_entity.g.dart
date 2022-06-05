@@ -8,38 +8,38 @@ part of 'user_entity.dart';
 
 _$_UserEntity _$$_UserEntityFromJson(Map<String, dynamic> json) =>
     _$_UserEntity(
-      fullName: json['FullName'] as String?,
-      email: json['Email'] as String,
-      phone: json['Phone'] as String?,
-      address: json['Address'] as String?,
-      dateOfBirth: json['DateOfBirth'] == null
+      fullName: json['fullName'] as String?,
+      email: json['email'] as String,
+      phone: json['phone'] as String?,
+      address: json['address'] as String?,
+      dateOfBirth: json['dateOfBirth'] == null
           ? null
-          : DateTime.parse(json['DateOfBirth'] as String),
-      avatarUrl: json['AvatarUrl'] as String?,
-      note: json['Note'] as String?,
-      customerGroupId: json['CustomerGroupId'] as String?,
-      customerGroupName: json['CustomerGroupName'] as String?,
-      id: json['Id'] as String,
-      creationTime: json['CreationTime'] == null
+          : DateTime.parse(json['dateOfBirth'] as String),
+      avatarUrl: json['avatarUrl'] as String?,
+      note: json['note'] as String?,
+      customerGroupId: json['customerGroupId'] as String?,
+      customerGroupName: json['customerGroupName'] as String?,
+      id: json['id'] as String,
+      creationTime: json['creationTime'] == null
           ? null
-          : DateTime.parse(json['CreationTime'] as String),
-      lastModificationTime: json['LastModificationTime'] == null
+          : DateTime.parse(json['creationTime'] as String),
+      lastModificationTime: json['lastModificationTime'] == null
           ? null
-          : DateTime.parse(json['LastModificationTime'] as String),
+          : DateTime.parse(json['lastModificationTime'] as String),
     );
 
 Map<String, dynamic> _$$_UserEntityToJson(_$_UserEntity instance) =>
     <String, dynamic>{
-      'FullName': instance.fullName,
-      'Email': instance.email,
-      'Phone': instance.phone,
-      'Address': instance.address,
-      'DateOfBirth': instance.dateOfBirth?.toIso8601String(),
-      'AvatarUrl': instance.avatarUrl,
-      'Note': instance.note,
-      'CustomerGroupId': instance.customerGroupId,
-      'CustomerGroupName': instance.customerGroupName,
-      'Id': instance.id,
-      'CreationTime': instance.creationTime?.toIso8601String(),
-      'LastModificationTime': instance.lastModificationTime?.toIso8601String(),
+      'fullName': instance.fullName,
+      'email': instance.email,
+      'phone': instance.phone,
+      'address': instance.address,
+      'dateOfBirth': instance.dateOfBirth?.toIso8601String(),
+      'avatarUrl': instance.avatarUrl,
+      'note': instance.note,
+      'customerGroupId': instance.customerGroupId,
+      'customerGroupName': instance.customerGroupName,
+      'id': instance.id,
+      'creationTime': instance.creationTime?.toIso8601String(),
+      'lastModificationTime': instance.lastModificationTime?.toIso8601String(),
     };

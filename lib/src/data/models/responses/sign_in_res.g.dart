@@ -7,14 +7,14 @@ part of 'sign_in_res.dart';
 // **************************************************************************
 
 _$_SignInRes _$$_SignInResFromJson(Map<String, dynamic> json) => _$_SignInRes(
-      info: json['Info'] == null
+      info: json['info'] == null
           ? null
-          : UserEntity.fromJson(json['Info'] as Map<String, dynamic>),
-      accessToken: json['AccessToken'] as String?,
+          : UserEntity.fromJson(json['info'] as Map<String, dynamic>),
+      accessToken: json['accessToken'] as String?,
     );
 
 Map<String, dynamic> _$$_SignInResToJson(_$_SignInRes instance) =>
     <String, dynamic>{
-      'Info': instance.info,
-      'AccessToken': instance.accessToken,
+      'info': instance.info,
+      'accessToken': instance.accessToken,
     };

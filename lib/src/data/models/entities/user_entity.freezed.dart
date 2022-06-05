@@ -236,8 +236,7 @@ class __$$_UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.pascal)
+@JsonSerializable()
 class _$_UserEntity with DiagnosticableTreeMixin implements _UserEntity {
   const _$_UserEntity(
       {this.fullName,

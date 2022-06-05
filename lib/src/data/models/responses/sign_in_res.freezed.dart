@@ -116,8 +116,7 @@ class __$$_SignInResCopyWithImpl<$Res> extends _$SignInResCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@JsonSerializable(fieldRename: FieldRename.pascal)
+@JsonSerializable()
 class _$_SignInRes with DiagnosticableTreeMixin implements _SignInRes {
   const _$_SignInRes({this.info, this.accessToken});
 

@@ -13,5 +13,5 @@ Future initControllers() async {
     ).init(),
     permanent: true,
   );
-  Get.put(SystemController(), permanent: true);
+  Get.put(SystemController(Get.find()), permanent: true);
 }

@@ -23,5 +23,8 @@
     "phoneNumber": "Phone number",
     "sentOtpTo": "Sent OTP to",
     "doNotReceiveOtp": "Do not receive the verification code?",
-    "resendOtpAfter": "Resend OTP after"
+    "resendOtpAfter": "Resend OTP after",
+    "yourPoint": "Your point",
+    "editAccount": "Edit your account",
+    "logout": "Logout"
 }
