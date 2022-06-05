@@ -58,32 +58,6 @@ class MainPage extends GetView<AuthController> {
                 .makeCentered(),
           ),
           24.heightBox,
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 24),
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: context.colorScheme.onPrimary,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                '${S.current.yourPoint.tr}:'
-                    .text
-                    .size(16)
-                    .color(context.colorScheme.primary)
-                    .fontWeight(FontWeight.w400)
-                    .make(),
-                '0'
-                    .text
-                    .color(context.colorScheme.primary)
-                    .size(16)
-                    .fontWeight(FontWeight.w600)
-                    .make(),
-              ],
-            ),
-          ),
-          24.heightBox,
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -99,13 +73,27 @@ class MainPage extends GetView<AuthController> {
                     S.current.editAccount,
                     () => Get.toNamed(Routes.editProfile),
                   ),
-                  // 20.heightBox,
-                  // _buildRowItem(
-                  //   context,
-                  //   Assets.icons.percent,
-                  //   Strings.pointHistory.tr,
-                  //   () => Get.toNamed(Routes.pointHistory),
-                  // ),
+                  20.heightBox,
+                  _buildRowItem(
+                    context,
+                    Assets.icons.qr,
+                    S.current.scanQrCode,
+                    () => Get.toNamed(Routes.main),
+                  ),
+                  20.heightBox,
+                  _buildRowItem(
+                    context,
+                    Assets.icons.key,
+                    S.current.changePassword,
+                    () => Get.toNamed(Routes.main),
+                  ),
+                  20.heightBox,
+                  _buildRowItem(
+                    context,
+                    Assets.icons.history,
+                    S.current.bookingHistory,
+                    () => Get.toNamed(Routes.main),
+                  ),
                   20.heightBox,
                   RoundedButton.outlined(
                     title: S.current.logout,
@@ -145,13 +133,6 @@ class MainPage extends GetView<AuthController> {
           ),
           Container(
             padding: EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(90),
-              border: Border.all(
-                color: context.colorScheme.onSurface,
-                width: 1,
-              ),
-            ),
             child: SvgPicture.asset(
               Assets.icons.arrowRight,
               color: context.colorScheme.onBackground,

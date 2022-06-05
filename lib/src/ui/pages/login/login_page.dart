@@ -119,8 +119,6 @@ class LoginPage extends GetView<LoginController> {
     switch (controller.currentPage.value) {
       case LoginPageType.phoneNumber:
         return _buildPhoneOrEmail(context);
-      case LoginPageType.name:
-        return _buildName(context);
       case LoginPageType.otp:
         return _buildOtp();
     }
@@ -181,26 +179,6 @@ class LoginPage extends GetView<LoginController> {
     );
   }
 
-  Widget _buildName(BuildContext context) {
-    return _buildInputForm(
-      label: S.current.enterName,
-      buttonText: S.current.register,
-      formKey: formNameKey,
-      hint: 'VD: Nguyễn Văn A',
-      action: S.current.registerAcceptAgreement.text.size(16).make(),
-      onBackPressed: controller.onBack,
-      isLoading: controller.loadStatus.value == LoadStatus.loading,
-      onChanged: controller.onChangeName,
-      onButtonPressed: () {},
-      validator: (v) {
-        if (v.isEmptyOrNull) {
-          return S.current.errorEmptyField;
-        }
-        return null;
-      },
-    );
-  }
-
   Widget _buildOtp() {
     final formKey = GlobalKey<FormState>();
     return Form(
@@ -244,18 +222,6 @@ class LoginPage extends GetView<LoginController> {
                 .color(Colors.red)
                 .align(TextAlign.center)
                 .makeCentered(),
-          ),
-          30.heightBox,
-          PrimaryButton(
-            text: controller.isFirstLogin.value
-                ? S.current.register
-                : S.current.login,
-            onPressed: () {
-              if (formKey.currentState?.validate() ?? false) {
-                controller.verifyOtp();
-              }
-            },
-            isLoading: controller.loadStatus.value == LoadStatus.loading,
           ),
           30.heightBox,
         ],

@@ -1,6 +1,6 @@
 part of 'login_page.dart';
 
-enum LoginPageType { phoneNumber, name, otp }
+enum LoginPageType { phoneNumber, otp }
 
 class LoginController extends GetxController {
   final AuthController _authController;
@@ -25,8 +25,7 @@ class LoginController extends GetxController {
   final otp = ''.obs;
 
   void onBack() {
-    if (currentPage.value == LoginPageType.name ||
-        currentPage.value == LoginPageType.otp) {
+    if (currentPage.value == LoginPageType.otp) {
       currentPage.value = LoginPageType.phoneNumber;
     }
   }

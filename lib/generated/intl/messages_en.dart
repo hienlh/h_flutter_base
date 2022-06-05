@@ -59,9 +59,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "noNetworkConnection":
             MessageLookupByLibrary.simpleMessage("No network connection"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone number"),
-        "register": MessageLookupByLibrary.simpleMessage("Register"),
-        "registerAcceptAgreement": MessageLookupByLibrary.simpleMessage(
-            "By clicking subscribe, you are agreeing to our terms, agreements, operating regulations, privacy policy, complaints handling mechanism, ..."),
         "resendOtp": MessageLookupByLibrary.simpleMessage("Resend"),
         "resendOtpAfter":
             MessageLookupByLibrary.simpleMessage("Resend OTP after"),

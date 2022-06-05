@@ -50,200 +50,200 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `App Name`
+  /// `App name`
   String get appName {
     return Intl.message(
-      'App Name',
+      'App name',
       name: 'appName',
       desc: '',
       args: [],
     );
   }
 
-  /// `Change theme`
+  /// `Đổi giao diện`
   String get changeTheme {
     return Intl.message(
-      'Change theme',
+      'Đổi giao diện',
       name: 'changeTheme',
       desc: '',
       args: [],
     );
   }
 
-  /// `English`
-  String get english {
-    return Intl.message(
-      'English',
-      name: 'english',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Hello World!`
+  /// `Chào mừng!`
   String get helloWorld {
     return Intl.message(
-      'Hello World!',
+      'Chào mừng!',
       name: 'helloWorld',
       desc: '',
       args: [],
     );
   }
 
-  /// `No network connection`
+  /// `Không có kết nối mạng`
   String get noNetworkConnection {
     return Intl.message(
-      'No network connection',
+      'Không có kết nối mạng',
       name: 'noNetworkConnection',
       desc: '',
       args: [],
     );
   }
 
-  /// `Unknown error. Please try again.`
+  /// `Đã xảy ra lỗi, vui lòng thử lại`
   String get unknownError {
     return Intl.message(
-      'Unknown error. Please try again.',
+      'Đã xảy ra lỗi, vui lòng thử lại',
       name: 'unknownError',
       desc: '',
       args: [],
     );
   }
 
-  /// `Vietnamese`
+  /// `Tiếng Anh`
+  String get english {
+    return Intl.message(
+      'Tiếng Anh',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tiếng Việt`
   String get vietnamese {
     return Intl.message(
-      'Vietnamese',
+      'Tiếng Việt',
       name: 'vietnamese',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sending the verification code...`
+  /// `Đang gửi mã xác thực...`
   String get sendingOtp {
     return Intl.message(
-      'Sending the verification code...',
+      'Đang gửi mã xác thực...',
       name: 'sendingOtp',
       desc: '',
       args: [],
     );
   }
 
-  /// `Home`
+  /// `Trang chủ`
   String get home {
     return Intl.message(
-      'Home',
+      'Trang chủ',
       name: 'home',
       desc: '',
       args: [],
     );
   }
 
-  /// `Login`
+  /// `Đăng nhập`
   String get login {
     return Intl.message(
-      'Login',
+      'Đăng nhập',
       name: 'login',
       desc: '',
       args: [],
     );
   }
 
-  /// `Enter phone number or email`
+  /// `Email hoặc số điện thoại`
   String get enterPhoneNumberOrEmail {
     return Intl.message(
-      'Enter phone number or email',
+      'Email hoặc số điện thoại',
       name: 'enterPhoneNumberOrEmail',
       desc: '',
       args: [],
     );
   }
 
-  /// `Phone or email is incorrect`
+  /// `Mật khẩu`
+  String get password {
+    return Intl.message(
+      'Mật khẩu',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quên Mật Khẩu`
+  String get forgotPassword {
+    return Intl.message(
+      'Quên Mật Khẩu',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Số điện thoại hoặc email không đúng`
   String get errorPhoneOrEmailIncorrect {
     return Intl.message(
-      'Phone or email is incorrect',
+      'Số điện thoại hoặc email không đúng',
       name: 'errorPhoneOrEmailIncorrect',
       desc: '',
       args: [],
     );
   }
 
-  /// `Enter name`
+  /// `Nhập tên`
   String get enterName {
     return Intl.message(
-      'Enter name',
+      'Nhập tên',
       name: 'enterName',
       desc: '',
       args: [],
     );
   }
 
-  /// `Register`
-  String get register {
-    return Intl.message(
-      'Register',
-      name: 'register',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `By clicking subscribe, you are agreeing to our terms, agreements, operating regulations, privacy policy, complaints handling mechanism, ...`
-  String get registerAcceptAgreement {
-    return Intl.message(
-      'By clicking subscribe, you are agreeing to our terms, agreements, operating regulations, privacy policy, complaints handling mechanism, ...',
-      name: 'registerAcceptAgreement',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please enter something`
+  /// `Vui lòng điền thông tin`
   String get errorEmptyField {
     return Intl.message(
-      'Please enter something',
+      'Vui lòng điền thông tin',
       name: 'errorEmptyField',
       desc: '',
       args: [],
     );
   }
 
-  /// `Enter the code we sent via SMS to your registered phone`
+  /// `Nhập mã chúng tôi đã gửi qua SMS đến điện thoại đã đăng ký của bạn`
   String get enterOtp {
     return Intl.message(
-      'Enter the code we sent via SMS to your registered phone',
+      'Nhập mã chúng tôi đã gửi qua SMS đến điện thoại đã đăng ký của bạn',
       name: 'enterOtp',
       desc: '',
       args: [],
     );
   }
 
-  /// `I did not receive the verification code?`
+  /// `Tôi không nhận được mã xác nhận?`
   String get didNotReceiveOtp {
     return Intl.message(
-      'I did not receive the verification code?',
+      'Tôi không nhận được mã xác nhận?',
       name: 'didNotReceiveOtp',
       desc: '',
       args: [],
     );
   }
 
-  /// `Resend`
+  /// `Gửi lại`
   String get resendOtp {
     return Intl.message(
-      'Resend',
+      'Gửi lại',
       name: 'resendOtp',
       desc: '',
       args: [],
     );
   }
 
-  /// `Confirm`
+  /// `Xác nhận`
   String get confirm {
     return Intl.message(
-      'Confirm',
+      'Xác nhận',
       name: 'confirm',
       desc: '',
       args: [],
@@ -260,181 +260,291 @@ class S {
     );
   }
 
-  /// `Phone number`
+  /// `Số điện thoại`
   String get phoneNumber {
     return Intl.message(
-      'Phone number',
+      'Số điện thoại',
       name: 'phoneNumber',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sent OTP to`
+  /// `Chúng tôi đã gửi mã xác nhận đến`
   String get sentOtpTo {
     return Intl.message(
-      'Sent OTP to',
+      'Chúng tôi đã gửi mã xác nhận đến',
       name: 'sentOtpTo',
       desc: '',
       args: [],
     );
   }
 
-  /// `Do not receive the verification code?`
+  /// `Không nhận được mã?`
   String get doNotReceiveOtp {
     return Intl.message(
-      'Do not receive the verification code?',
+      'Không nhận được mã?',
       name: 'doNotReceiveOtp',
       desc: '',
       args: [],
     );
   }
 
-  /// `Resend OTP after`
+  /// `Gửi lại sau`
   String get resendOtpAfter {
     return Intl.message(
-      'Resend OTP after',
+      'Gửi lại sau',
       name: 'resendOtpAfter',
       desc: '',
       args: [],
     );
   }
 
-  /// `Your point`
+  /// `Điểm của bạn`
   String get yourPoint {
     return Intl.message(
-      'Your point',
+      'Điểm của bạn',
       name: 'yourPoint',
       desc: '',
       args: [],
     );
   }
 
-  /// `Edit your account`
+  /// `Chỉnh sửa tài khoản`
   String get editAccount {
     return Intl.message(
-      'Edit your account',
+      'Chỉnh sửa tài khoản',
       name: 'editAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `Logout`
+  /// `Đăng xuất`
   String get logout {
     return Intl.message(
-      'Logout',
+      'Đăng xuất',
       name: 'logout',
       desc: '',
       args: [],
     );
   }
 
-  /// `Save changes`
+  /// `Lưu Thay Đổi`
   String get saveChanges {
     return Intl.message(
-      'Save changes',
+      'Lưu Thay Đổi',
       name: 'saveChanges',
       desc: '',
       args: [],
     );
   }
 
-  /// `Select picture from`
+  /// `Chọn ảnh từ`
   String get selectPictureFrom {
     return Intl.message(
-      'Select picture from',
+      'Chọn ảnh từ',
       name: 'selectPictureFrom',
       desc: '',
       args: [],
     );
   }
 
-  /// `Camera`
+  /// `Máy ảnh`
   String get camera {
     return Intl.message(
-      'Camera',
+      'Máy ảnh',
       name: 'camera',
       desc: '',
       args: [],
     );
   }
 
-  /// `Gallery`
+  /// `Bộ sưu tập`
   String get gallery {
     return Intl.message(
-      'Gallery',
+      'Bộ sưu tập',
       name: 'gallery',
       desc: '',
       args: [],
     );
   }
 
-  /// `Cancel`
+  /// `Hủy`
   String get cancel {
     return Intl.message(
-      'Cancel',
+      'Hủy',
       name: 'cancel',
       desc: '',
       args: [],
     );
   }
 
-  /// `Last name`
+  /// `Tên`
   String get lastName {
     return Intl.message(
-      'Last name',
+      'Tên',
       name: 'lastName',
       desc: '',
       args: [],
     );
   }
 
-  /// `Birth date`
+  /// `Ngày sinh`
   String get birthDate {
     return Intl.message(
-      'Birth date',
+      'Ngày sinh',
       name: 'birthDate',
       desc: '',
       args: [],
     );
   }
 
-  /// `Address`
+  /// `Địa chỉ`
   String get address {
     return Intl.message(
-      'Address',
+      'Địa chỉ',
       name: 'address',
       desc: '',
       args: [],
     );
   }
 
-  /// `Phone number is incorrect`
+  /// `Số điện thoại không đúng`
   String get errorPhoneIncorrect {
     return Intl.message(
-      'Phone number is incorrect',
+      'Số điện thoại không đúng',
       name: 'errorPhoneIncorrect',
       desc: '',
       args: [],
     );
   }
 
-  /// `Email address is incorrect`
+  /// `Email không đúng`
   String get errorEmailIncorrect {
     return Intl.message(
-      'Email address is incorrect',
+      'Email không đúng',
       name: 'errorEmailIncorrect',
       desc: '',
       args: [],
     );
   }
 
-  /// `Success`
+  /// `Thành công`
   String get success {
     return Intl.message(
-      'Success',
+      'Thành công',
       name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quét mã QR`
+  String get scanQrCode {
+    return Intl.message(
+      'Quét mã QR',
+      name: 'scanQrCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Đổi mật khẩu`
+  String get changePassword {
+    return Intl.message(
+      'Đổi mật khẩu',
+      name: 'changePassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lịch sử booking`
+  String get bookingHistory {
+    return Intl.message(
+      'Lịch sử booking',
+      name: 'bookingHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thông Tin Khách Hàng`
+  String get customerInformation {
+    return Intl.message(
+      'Thông Tin Khách Hàng',
+      name: 'customerInformation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lịch sử tích điểm`
+  String get pointHistory {
+    return Intl.message(
+      'Lịch sử tích điểm',
+      name: 'pointHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tìm kiếm`
+  String get search {
+    return Intl.message(
+      'Tìm kiếm',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Đơn hàng`
+  String get order {
+    return Intl.message(
+      'Đơn hàng',
+      name: 'order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ngày`
+  String get date {
+    return Intl.message(
+      'Ngày',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thành tiền`
+  String get toMoney {
+    return Intl.message(
+      'Thành tiền',
+      name: 'toMoney',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Số điểm tích được`
+  String get accumulatedPoints {
+    return Intl.message(
+      'Số điểm tích được',
+      name: 'accumulatedPoints',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Xem thông tin khách hàng`
+  String get viewCustomerInformation {
+    return Intl.message(
+      'Xem thông tin khách hàng',
+      name: 'viewCustomerInformation',
       desc: '',
       args: [],
     );
@@ -446,8 +556,8 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'vi'),
+      Locale.fromSubtags(languageCode: 'en'),
     ];
   }
 

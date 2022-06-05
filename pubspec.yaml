@@ -56,7 +56,7 @@ flutter:
 flutter_intl:
   enabled: true
   class_name: S
-  main_locale: en
+  main_locale: vi
   arb_dir: lib/l10n
   output_dir: lib/generated
   use_deferred_loading: false
