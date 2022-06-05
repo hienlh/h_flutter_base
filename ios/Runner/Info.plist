@@ -43,5 +43,9 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+    <string>Can we access your camera in order to scan QR code?</string>
+	<key>io.flutter.embedded_views_preview</key>
+    <true/>
 </dict>
 </plist>

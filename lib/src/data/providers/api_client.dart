@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:get/get.dart';
+import 'package:trihai_admin_app/src/data/models/entities/customer_entity.dart';
 
 import '../interfaces/api_client_interface.dart';
 import '../interfaces/graphql_interface.dart';
@@ -92,5 +93,10 @@ class ApiClient extends IApiClient {
         'newPassword': newPassword,
       },
     );
+  }
+
+  Future<CustomerEntity> getCustomerProfile(String id) async {
+    final res = await request(ApiMethod.get, '/api/customers/$id');
+    return CustomerEntity.fromJson(res);
   }
 }

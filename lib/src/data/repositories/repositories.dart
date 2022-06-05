@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:trihai_admin_app/src/data/repositories/customer_repository.dart';
 
 import '../providers/api_client.dart';
 import '../services/services.dart';
@@ -14,4 +15,5 @@ Future initRepos() async {
     },
   ));
   Get.put(UserRepository(Get.find()));
+  Get.put(CustomerRepository(Get.find()));
 }

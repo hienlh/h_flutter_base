@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changePassword": MessageLookupByLibrary.simpleMessage("Đổi mật khẩu"),
         "changeTheme": MessageLookupByLibrary.simpleMessage("Đổi giao diện"),
         "confirm": MessageLookupByLibrary.simpleMessage("Xác nhận"),
+        "customer": MessageLookupByLibrary.simpleMessage("Khách hàng"),
         "customerInformation":
             MessageLookupByLibrary.simpleMessage("Thông Tin Khách Hàng"),
         "date": MessageLookupByLibrary.simpleMessage("Ngày"),
@@ -66,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "helloWorld": MessageLookupByLibrary.simpleMessage("Chào mừng!"),
         "home": MessageLookupByLibrary.simpleMessage("Trang chủ"),
         "lastName": MessageLookupByLibrary.simpleMessage("Tên"),
+        "loading": MessageLookupByLibrary.simpleMessage("Đang tải"),
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "newPassword": MessageLookupByLibrary.simpleMessage("Mật khẩu mới"),
@@ -79,6 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lịch sử tích điểm"),
         "reEnterNewPassword":
             MessageLookupByLibrary.simpleMessage("Nhập lại mật khẩu mới"),
+        "reScan": MessageLookupByLibrary.simpleMessage("Quét lại"),
         "resendOtp": MessageLookupByLibrary.simpleMessage("Gửi lại"),
         "resendOtpAfter": MessageLookupByLibrary.simpleMessage("Gửi lại sau"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("Lưu Thay Đổi"),

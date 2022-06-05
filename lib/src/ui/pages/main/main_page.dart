@@ -33,7 +33,7 @@ class MainPage extends GetView<AuthController> {
               width: 80,
               height: 80,
               child: CustomNetworkImage(
-                'auth.currentUser?.avatarUrl',
+                null,
                 isAvatar: true,
               ),
             ),
@@ -77,7 +77,7 @@ class MainPage extends GetView<AuthController> {
                     context,
                     Assets.icons.qr,
                     S.current.scanQrCode,
-                    () => Get.toNamed(Routes.main),
+                    () => Get.toNamed(Routes.scanQrCode),
                   ),
                   20.heightBox,
                   _buildRowItem(

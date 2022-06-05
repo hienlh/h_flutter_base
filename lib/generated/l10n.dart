@@ -599,6 +599,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Khách hàng`
+  String get customer {
+    return Intl.message(
+      'Khách hàng',
+      name: 'customer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Đang tải`
+  String get loading {
+    return Intl.message(
+      'Đang tải',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quét lại`
+  String get reScan {
+    return Intl.message(
+      'Quét lại',
+      name: 'reScan',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

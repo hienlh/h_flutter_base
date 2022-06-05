@@ -53,5 +53,8 @@
     "oldPassword": "Mật khẩu cũ",
     "newPassword": "Mật khẩu mới",
     "reEnterNewPassword": "Nhập lại mật khẩu mới",
-    "errorNewPasswordSameWithOldPassword": "Mật khẩu mới không được trùng với mật khẩu cũ"
+    "errorNewPasswordSameWithOldPassword": "Mật khẩu mới không được trùng với mật khẩu cũ",
+    "customer": "Khách hàng",
+    "loading": "Đang tải",
+    "reScan": "Quét lại"
 }
