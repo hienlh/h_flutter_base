@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       enableLog: AppConfig.shared.isDev,
       popGesture: true,
       defaultTransition: Transition.cupertino,
-      home: SplashScreen(),
+      home: FlavorBanner(child: SplashScreen()),
       getPages: getPages,
       localizationsDelegates: [
         S.delegate,

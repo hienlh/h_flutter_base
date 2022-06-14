@@ -5,21 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "h_flutter_base",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "h_flutter_base (profile mode)",
+            "name": "Dev",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "debug",
+            "program": "lib/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
         },
         {
-            "name": "h_flutter_base (release mode)",
+            "name": "Prod",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "debug",
+            "program": "lib/main_prod.dart",
+            "args": [
+                "--flavor",
+                "prod"
+            ]
         }
     ]
 }

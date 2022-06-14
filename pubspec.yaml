@@ -38,6 +38,7 @@ flutter:
     - assets/icons/
     - assets/images/
     - .env
+    - dev.env
     
 flutter_intl:
   enabled: true

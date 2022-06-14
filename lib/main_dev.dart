@@ -11,12 +11,12 @@ import 'src/data/services/services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: "dev.env");
   print('=======> Env: ${dotenv.env}');
 
   AppConfig(
-    appName: 'Flutter Base',
-    flavor: AppFlavor.prod,
+    appName: 'Hienlh Flutter dev',
+    flavor: AppFlavor.dev,
     apiUrl: 'https://hienlh.com/api',
     sentry: SentryClient(
       SentryOptions(
