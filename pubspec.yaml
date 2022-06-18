@@ -36,7 +36,7 @@ dependencies:
   adaptive_action_sheet: ^2.0.1
   image_picker: ^0.8.5+3
   ai_barcode: ^3.2.0
-  permission_handler: ^9.2.0
+  permission_handler: ^10.0.0
 
 dev_dependencies:
   build_runner: ^2.1.11
