@@ -21,46 +21,68 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+def dartEnvironmentVariables = [
+    APP_NAME                : 'Hienlh',
+    PACKAGE_NAME_SUFFIX     : null,
+    FLAVOR                  : 'production'
+];
+if (project.hasProperty('dart-defines')) {
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+        .split(',')
+        .collectEntries { entry ->
+            def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+            [(pair.first()): pair.last()]
+        }
+}
+
+tasks.register('createGoogleServicesFile', Exec) {
+    def googleServicesFile = rootProject.file("app/firebase/google-services-${dartEnvironmentVariables.FLAVOR}.json")
+    rootProject.file("app/google-services.json").text = googleServicesFile.getText()
+}
+
 apply plugin: 'com.android.application'
+// START: FlutterFire Configuration
+apply plugin: 'com.google.gms.google-services'
+// END: FlutterFire Configuration
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+assemble.dependsOn createGoogleServicesFile
+
 android {
-    compileSdkVersion 30
+    compileSdkVersion flutter.compileSdkVersion
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.hienlh.flutter"
-        minSdkVersion 16
-        targetSdkVersion 30
+        applicationIdSuffix dartEnvironmentVariables.PACKAGE_NAME_SUFFIX
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        resValue "string", "app_name", dartEnvironmentVariables.APP_NAME
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
     }
-    flavorDimensions "app"
-    productFlavors {
-        dev {
-            dimension "app"
-            resValue "string", "app_name", "Hienlh Flutter Dev"
-            versionNameSuffix "-dev"
-        }
-        prod {
-            dimension "app"
-            resValue "string", "app_name", "Hienlh Flutter"
-            applicationId "com.hienlh.flutter"
-        }
-    }
+
+    // productFlavor dartEnvironmentVariables.FLAVOR
 }
 
 flutter {
@@ -69,4 +91,8 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    implementation 'com.google.firebase:firebase-crashlytics'
 }
+
+apply plugin: 'com.google.firebase.crashlytics'

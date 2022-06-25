@@ -8,9 +8,8 @@ import 'package:get_storage/get_storage.dart';
 import 'package:graphql_flutter/graphql_flutter.dart' hide UnknownException;
 import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
-import 'package:sentry/sentry.dart';
 
-import '../../base/app_config.dart';
+import '../../../env.dart';
 import '../../constants/storage_key.dart';
 import '../../exceptions/exceptions.dart';
 import '../interfaces/connectivity_interface.dart';
@@ -34,13 +33,13 @@ Future initServices() async {
   await Get.putAsync(
     () => GetHttpService().init(
       Get.find<StorageService>(),
-      AppConfig.shared.apiUrl,
+      Env.apiUrl,
       Get.find<ConnectivityService>(),
     ),
   );
   Get.put(GraphQlService(
     Get.find<StorageService>(),
-    AppConfig.shared.apiUrl + '/graphql',
+    '${Env.apiUrl}/graphql',
     null,
     null,
     Get.find<LogService>(),

@@ -30,14 +30,14 @@ class GetHttpService extends GetxService implements IHttpClient {
   }) async {
     final token = await _storage.get<String>(StorageKey.token);
 
-    final _headers = {
+    final requestHeaders = {
       if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token'
     };
 
-    final _contentType = contentType ?? 'application/json';
+    final requestContentType = contentType ?? 'application/json';
 
     if (headers != null) {
-      _headers.addAll(headers);
+      requestHeaders.addAll(headers);
     }
     query ??= {};
 
@@ -62,14 +62,14 @@ class GetHttpService extends GetxService implements IHttpClient {
         uri.toString(),
         method.toString().split('.').last,
         body: body,
-        headers: _headers,
+        headers: requestHeaders,
         query: query,
-        contentType: _contentType,
+        contentType: requestContentType,
         uploadProgress: uploadProgress,
       );
 
       log('========> ${method.toString().split('.').last}: ${uri.toString()}');
-      log('Header: $_headers');
+      log('Header: $requestHeaders');
       if (body != null) {
         log('Body: $body');
       }

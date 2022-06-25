@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -37,6 +39,14 @@ class SplashScreen extends StatelessWidget {
                 }
               },
               child: Text(S.current.changeTheme),
+            ),
+            TextButton(
+              onPressed: () {
+                throw Exception(
+                  '${S.current.unknownError} from ${Platform.isIOS ? 'ios' : 'other'}',
+                );
+              },
+              child: Text('Throw exception'),
             ),
           ],
         ),

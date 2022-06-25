@@ -1,19 +1,24 @@
-part of 'app_config.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_base/env.dart';
 
 class FlavorBanner extends StatelessWidget {
   final Widget child;
-  FlavorBanner({required this.child});
+  final bool enable;
+  FlavorBanner({required this.child, this.enable = true});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[child, if (!kReleaseMode) _buildBanner(context)],
-    );
+    return enable
+        ? Stack(
+            children: <Widget>[child, if (!kReleaseMode) _buildBanner(context)],
+          )
+        : child;
   }
 
   BannerConfig _getDefaultBanner() {
     return BannerConfig(
-      bannerName: AppConfig.shared.flavor.name,
+      bannerName: Env.flavor.name.toUpperCase(),
       bannerColor: Colors.red,
     );
   }

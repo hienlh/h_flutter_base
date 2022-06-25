@@ -1,10 +1,9 @@
 part of 'services.dart';
 
 class LogService extends GetxService implements ILogger {
-  late final SentryClient? _sentry;
   final _logger = Logger();
 
-  LogService([this._sentry]);
+  LogService();
 
   @override
   void call(dynamic message) {
@@ -34,7 +33,6 @@ class LogService extends GetxService implements ILogger {
   @override
   void e(dynamic message) {
     _logger.e(message.toString());
-    _sentry?.captureException(message);
   }
 
   @override

@@ -5,25 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dev",
+            "name": "Staging",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "program": "lib/main_dev.dart",
+            "program": "lib/main.dart",
             "args": [
-                "--flavor",
-                "dev"
+                "--dart-define=APP_NAME=Stg Hienlh Flutter",
+                "--dart-define=PACKAGE_NAME_SUFFIX=.stg",
+                "--dart-define=FLAVOR=staging",
+                "--dart-define=API_URL=https://dev.hienlh.com/api/v1/"
             ]
         },
         {
-            "name": "Prod",
+            "name": "Production",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "program": "lib/main_prod.dart",
+            "program": "lib/main.dart",
             "args": [
-                "--flavor",
-                "prod"
+                "--dart-define=APP_NAME=Hienlh Flutter",
+                "--dart-define=FLAVOR=production",
+                "--dart-define=API_URL=https://hienlh.com/api/v1/"
             ]
         }
     ]

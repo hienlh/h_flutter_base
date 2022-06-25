@@ -1,9 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base/env.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 import '../generated/l10n.dart';
-import 'base/app_config.dart';
+import 'base/flavor_banner.dart';
 import 'routes.dart';
 import 'ui/pages/splash/splash_screen.dart';
 
@@ -12,9 +14,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       onGenerateTitle: (context) => S.current.appName,
-      debugShowCheckedModeBanner: AppConfig.shared.flavor != AppFlavor.prod,
-      title: 'Hien Flutter Base',
-      enableLog: AppConfig.shared.isDev,
+      debugShowCheckedModeBanner: Env.flavor != Flavor.production,
+      title: Env.appName,
+      enableLog: kDebugMode,
       popGesture: true,
       defaultTransition: Transition.cupertino,
       home: FlavorBanner(child: SplashScreen()),

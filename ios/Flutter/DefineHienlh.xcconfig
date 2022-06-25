@@ -1,0 +1,4 @@
+APP_NAME=Hienlh Flutter
+FLAVOR=production
+API_URL=https://hienlh.com/api/v1/
+FLUTTER_WEB_AUTO_DETECT=true
