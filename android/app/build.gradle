@@ -35,19 +35,12 @@ if (project.hasProperty('dart-defines')) {
         }
 }
 
-tasks.register('createGoogleServicesFile', Exec) {
-    def googleServicesFile = rootProject.file("app/firebase/google-services-${dartEnvironmentVariables.FLAVOR}.json")
-    rootProject.file("app/google-services.json").text = googleServicesFile.getText()
-}
-
 apply plugin: 'com.android.application'
 // START: FlutterFire Configuration
 apply plugin: 'com.google.gms.google-services'
 // END: FlutterFire Configuration
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
-assemble.dependsOn createGoogleServicesFile
 
 android {
     compileSdkVersion flutter.compileSdkVersion
@@ -68,8 +61,7 @@ android {
 
     defaultConfig {
         applicationId "com.hienlh.flutter"
-        applicationIdSuffix dartEnvironmentVariables.PACKAGE_NAME_SUFFIX
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -82,7 +74,16 @@ android {
         }
     }
 
-    // productFlavor dartEnvironmentVariables.FLAVOR
+    flavorDimensions "app"
+    productFlavors {
+        staging {
+            dimension "app"
+            applicationIdSuffix "stg"
+        }
+        production {
+            dimension "app"
+        }
+    }
 }
 
 flutter {
