@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../base/extensions/context_ext.dart';
+import 'package:get/get.dart';
 
 class LoadingIndicator extends StatelessWidget {
   final double size;
@@ -18,7 +18,7 @@ class LoadingIndicator extends StatelessWidget {
     return Padding(
       padding: padding,
       child: LinearProgressIndicator(
-        color: color ?? context.colorScheme.primary,
+        color: color ?? context.theme.colorScheme.primary,
       ),
     );
   }

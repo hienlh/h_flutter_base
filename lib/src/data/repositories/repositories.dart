@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 
 import '../providers/api_client.dart';
 import '../services/services.dart';
+import 'system_repository.dart';
 import 'user_repository.dart';
 
 Future initRepos() async {
@@ -13,5 +14,6 @@ Future initRepos() async {
       throw UnimplementedError();
     },
   ));
+  Get.put(SystemRepository());
   Get.put(UserRepository(Get.find()));
 }

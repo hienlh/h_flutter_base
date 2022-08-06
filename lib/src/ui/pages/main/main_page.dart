@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../styles/app_style.dart';
 
-class SplashScreen extends StatelessWidget {
+class MainPage extends StatelessWidget {
+  const MainPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.theme.colorScheme.background,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -33,9 +37,9 @@ class SplashScreen extends StatelessWidget {
             TextButton(
               onPressed: () {
                 if (Get.theme.brightness == Brightness.dark) {
-                  Get.changeTheme(ThemeData.light());
+                  AppStyle.setLight();
                 } else {
-                  Get.changeTheme(ThemeData.dark());
+                  AppStyle.setDark();
                 }
               },
               child: Text(S.current.changeTheme),

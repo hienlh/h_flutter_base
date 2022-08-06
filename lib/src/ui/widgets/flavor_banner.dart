@@ -18,7 +18,7 @@ class FlavorBanner extends StatelessWidget {
 
   BannerConfig _getDefaultBanner() {
     return BannerConfig(
-      bannerName: Env.flavor.name.toUpperCase(),
+      bannerName: Env().flavor.name.toUpperCase(),
       bannerColor: Colors.red,
     );
   }

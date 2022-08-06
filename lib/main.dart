@@ -1,8 +1,10 @@
 import 'dart:async';
 
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_base/src/controllers/controller.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 import 'env.dart';
@@ -16,26 +18,30 @@ void main() async {
 
   if (Firebase.apps.isEmpty) {
     FirebaseOptions? firebaseOptions;
-    if (Env.flavor != Flavor.production) {
+    if (Env().flavor != Flavor.production) {
       firebaseOptions = DefaultFirebaseOptionsStg.currentPlatform;
     } else {
       firebaseOptions = DefaultFirebaseOptions.currentPlatform;
     }
     await Firebase.initializeApp(
       options: firebaseOptions,
-      name: Env.flavor.name,
+      name: Env().flavor.name,
     );
   } else {
     Firebase.app();
   }
 
+  await Env().getRemoteConfig();
+
   await initHiveForFlutter();
   await initServices();
+  await initControllers();
+  final savedThemeMode = await AdaptiveTheme.getThemeMode();
 
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
 
   runZonedGuarded<Future<void>>(() async {
-    runApp(App());
+    runApp(App(savedThemeMode: savedThemeMode));
   }, (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
   });

@@ -23,7 +23,6 @@ if (flutterVersionName == null) {
 
 def dartEnvironmentVariables = [
     APP_NAME                : 'Hienlh',
-    PACKAGE_NAME_SUFFIX     : null,
     FLAVOR                  : 'production'
 ];
 if (project.hasProperty('dart-defines')) {

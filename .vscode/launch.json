@@ -12,7 +12,6 @@
             "program": "lib/main.dart",
             "args": [
                 "--dart-define=APP_NAME=Staging Hienlh Flutter",
-                "--dart-define=PACKAGE_NAME_SUFFIX=.stg",
                 "--dart-define=FLAVOR=staging",
                 "--dart-define=API_URL=https://dev.hienlh.com/api/v1/",
                 "--flavor",

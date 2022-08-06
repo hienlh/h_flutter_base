@@ -26,4 +26,20 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  test(
+    'Get color scheme',
+    () {
+      final colorScheme = ColorScheme.fromSeed(
+        seedColor: Color(0xff05944F),
+        brightness: Brightness.light,
+      );
+      print(colorScheme);
+      final colorSchemeDark = ColorScheme.fromSeed(
+        seedColor: Color(0xffFFC043),
+        brightness: Brightness.dark,
+      );
+      print(colorSchemeDark);
+    },
+  );
 }

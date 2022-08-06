@@ -33,13 +33,13 @@ Future initServices() async {
   await Get.putAsync(
     () => GetHttpService().init(
       Get.find<StorageService>(),
-      Env.apiUrl,
+      Env().apiUrl,
       Get.find<ConnectivityService>(),
     ),
   );
   Get.put(GraphQlService(
     Get.find<StorageService>(),
-    '${Env.apiUrl}/graphql',
+    '${Env().apiUrl}/graphql',
     null,
     null,
     Get.find<LogService>(),

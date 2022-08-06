@@ -1,0 +1,3 @@
+class SystemRepository {
+  SystemRepository();
+}
