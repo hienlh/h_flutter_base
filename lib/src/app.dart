@@ -29,22 +29,12 @@ class App extends StatelessWidget {
           seedColor: Colors.blue,
           brightness: Brightness.light,
         ),
-        appBarTheme: AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.dark,
-          ),
-        ),
       ),
       dark: ThemeData(
         brightness: Brightness.dark,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
           brightness: Brightness.dark,
-        ),
-        appBarTheme: AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
-          ),
         ),
       ),
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
