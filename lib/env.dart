@@ -13,7 +13,7 @@ class Env {
   // factory constructor
   factory Env() => _env;
 
-  final appName = String.fromEnvironment(
+  final appName = const String.fromEnvironment(
     'APP_NAME',
     defaultValue: 'Hienlh Flutter',
   );
@@ -23,7 +23,7 @@ class Env {
     defaultValue: 'production',
   ));
 
-  var _apiUrl = String.fromEnvironment(
+  var _apiUrl = const String.fromEnvironment(
     'API_URL',
     defaultValue: 'https://hienlh.com/api/v1/',
   );
