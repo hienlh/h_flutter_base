@@ -20,16 +20,49 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'vi';
 
+  static String m0(privacy, termsAndConditions) =>
+      "Bằng cách nhấn Tiếp tục bạn đã đồng ý với ${termsAndConditions} và ${privacy} của chúng tôi.";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "agreePrivacy": m0,
         "appName": MessageLookupByLibrary.simpleMessage("App name"),
         "changeTheme": MessageLookupByLibrary.simpleMessage("Đổi giao diện"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Xác nhận"),
+        "deleteAccountSuccess":
+            MessageLookupByLibrary.simpleMessage("Đã xóa tài khoản thành công"),
+        "dontReceiveOtp":
+            MessageLookupByLibrary.simpleMessage("Không nhận được mã OTP?"),
+        "email": MessageLookupByLibrary.simpleMessage("Email"),
         "english": MessageLookupByLibrary.simpleMessage("Tiếng Anh"),
+        "enterEmail": MessageLookupByLibrary.simpleMessage("Nhập email"),
+        "errorEmailIncorrect":
+            MessageLookupByLibrary.simpleMessage("Email không đúng"),
+        "errorOtpIsExpired":
+            MessageLookupByLibrary.simpleMessage("Mã OTP đã hết hạn"),
         "helloWorld": MessageLookupByLibrary.simpleMessage("Chào mừng!"),
+        "inDevelopment":
+            MessageLookupByLibrary.simpleMessage("Tính năng đang phát triển"),
+        "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
+        "logout": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "noNetworkConnection":
             MessageLookupByLibrary.simpleMessage("Không có kết nối mạng"),
+        "or": MessageLookupByLibrary.simpleMessage("Hoặc"),
+        "orLoginWith":
+            MessageLookupByLibrary.simpleMessage("Hoặc đăng nhập bằng"),
+        "phoneNumber": MessageLookupByLibrary.simpleMessage("Số điện thoại"),
+        "privacy":
+            MessageLookupByLibrary.simpleMessage("Chính sách quyền riêng tư"),
+        "resendOtp": MessageLookupByLibrary.simpleMessage("Gửi lại"),
+        "resendOtpAfter": MessageLookupByLibrary.simpleMessage("Sau"),
+        "sendingOtp": MessageLookupByLibrary.simpleMessage("Đang gửi mã OTP"),
+        "sentOtpTo": MessageLookupByLibrary.simpleMessage("Đã gửi mã OTP đến"),
+        "termsAndConditions":
+            MessageLookupByLibrary.simpleMessage("Điều khoản dịch vụ"),
         "unknownError": MessageLookupByLibrary.simpleMessage(
             "Đã xảy ra lỗi, vui lòng thử lại"),
+        "useAsGuest":
+            MessageLookupByLibrary.simpleMessage("Dùng ứng dụng như khách"),
         "vietnamese": MessageLookupByLibrary.simpleMessage("Tiếng Việt")
       };
 }

@@ -23,7 +23,7 @@ class StorageService extends GetxService implements IStorage {
   }
 
   @override
-  Future<T?> get<T>(String key) {
+  Future<T?> get<T>(String key) async {
     return _box.read(key);
   }
 

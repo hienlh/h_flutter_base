@@ -24,15 +24,17 @@ class FadeInTranslate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tween = MultiTween<_AniProps>()
-      ..add(_AniProps.opacity, 0.0.tweenTo(1.0), duration.milliseconds)
-      ..add(_AniProps.translateY, startY.tweenTo(0.0), duration.milliseconds);
+    final tween = MovieTween()
+      ..tween(_AniProps.opacity, 0.0.tweenTo(1.0),
+          duration: duration.milliseconds)
+      ..tween(_AniProps.translateY, startY.tweenTo(0.0),
+          duration: duration.milliseconds);
 
-    return PlayAnimation<MultiTweenValues<_AniProps>>(
+    return PlayAnimationBuilder<Movie>(
       delay: Duration(milliseconds: (delayDuration * delay).round()),
       duration: tween.duration,
       tween: tween,
-      builder: (context, child, value) => !enabled
+      builder: (context, value, child) => !enabled
           ? child!
           : Opacity(
               opacity: value.get(_AniProps.opacity),
@@ -56,11 +58,11 @@ class FadeIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PlayAnimation<double>(
+    return PlayAnimationBuilder<double>(
       delay: delay,
       duration: duration.milliseconds,
       tween: 0.0.tweenTo(1.0),
-      builder: (context, child, value) => Opacity(
+      builder: (context, value, child) => Opacity(
         opacity: value,
         child: child,
       ),

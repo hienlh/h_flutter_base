@@ -1,9 +1,40 @@
 {
-    "appName": "App name",
-    "changeTheme": "Đổi giao diện",
-    "helloWorld": "Chào mừng!",
-    "noNetworkConnection": "Không có kết nối mạng",
-    "unknownError": "Đã xảy ra lỗi, vui lòng thử lại",
-    "english": "Tiếng Anh",
-    "vietnamese": "Tiếng Việt"
+  "appName": "App name",
+  "changeTheme": "Đổi giao diện",
+  "helloWorld": "Chào mừng!",
+  "noNetworkConnection": "Không có kết nối mạng",
+  "unknownError": "Đã xảy ra lỗi, vui lòng thử lại",
+  "english": "Tiếng Anh",
+  "vietnamese": "Tiếng Việt",
+  "login": "Đăng nhập",
+  "enterEmail": "Nhập email",
+  "orLoginWith": "Hoặc đăng nhập bằng",
+  "errorEmailIncorrect": "Email không đúng",
+  "inDevelopment": "Tính năng đang phát triển",
+  "sendingOtp": "Đang gửi mã OTP",
+  "errorOtpIsExpired": "Mã OTP đã hết hạn",
+  "confirm": "Xác nhận",
+  "email": "Email",
+  "phoneNumber": "Số điện thoại",
+  "sentOtpTo": "Đã gửi mã OTP đến",
+  "dontReceiveOtp": "Không nhận được mã OTP?",
+  "resendOtp": "Gửi lại",
+  "resendOtpAfter": "Sau",
+  "deleteAccountSuccess": "Đã xóa tài khoản thành công",
+  "or": "Hoặc",
+  "useAsGuest": "Dùng ứng dụng như khách",
+  "privacy": "Chính sách quyền riêng tư",
+  "termsAndConditions": "Điều khoản dịch vụ",
+  "agreePrivacy": "Bằng cách nhấn Tiếp tục bạn đã đồng ý với {termsAndConditions} và {privacy} của chúng tôi.",
+  "@agreePrivacy": {
+    "placeholders": {
+      "privacy": {
+        "type": "String"
+      },
+      "termsAndConditions": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Đăng xuất"
 }

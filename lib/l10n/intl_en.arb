@@ -1,9 +1,41 @@
 {
-    "appName": "App Name",
-    "changeTheme": "Change theme",
-    "english": "English",
-    "helloWorld": "Hello World!",
-    "noNetworkConnection": "No network connection",
-    "unknownError": "Unknown error. Please try again.",
-    "vietnamese": "Vietnamese"
+  "appName": "App Name",
+  "changeTheme": "Change theme",
+  "english": "English",
+  "helloWorld": "Hello World!",
+  "noNetworkConnection": "No network connection",
+  "unknownError": "Unknown error. Please try again.",
+  "vietnamese": "Vietnamese",
+  "login": "Login",
+  "enterEmail": "Enter email",
+  "orLoginWith": "Or login with",
+  "errorEmailIncorrect": "Email is incorrect",
+  "inDevelopment": "In development",
+  "sendingOtp": "Sending OTP",
+  "errorOtpIsExpired": "OTP is expired",
+  "confirm": "Confirm",
+  "email": "Email",
+  "phoneNumber": "Phone number",
+  "sentOtpTo": "Sent OTP to",
+  "dontReceiveOtp": "Don't receive OTP?",
+  "resendOtp": "Resend OTP",
+  "resendOtpAfter": "After",
+  "deleteAccountSuccess": "Delete account success",
+  "or": "Or",
+  "useAsGuest": "Use as guest",
+  "privacy": "Privacy",
+  "termsAndConditions": "Terms and conditions",
+  "byContinue": "By continue, you agree to our",
+  "agreePrivacy": "By continue, you agree to our {termsAndConditions} and {privacy}.",
+  "@agreePrivacy": {
+    "placeholders": {
+      "privacy": {
+        "type": "String"
+      },
+      "termsAndConditions": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Logout"
 }

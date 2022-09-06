@@ -25,13 +25,27 @@ dependencies:
   intl: ^0.17.0
   firebase_remote_config: ^2.0.13
   firebase_analytics: ^9.3.0
-  simple_animations: ^4.2.0
+  simple_animations: ^5.0.0+2
   adaptive_theme: ^3.1.1
   lottie: ^1.4.1
+  firebase_auth: ^3.6.4
+  local_auth: ^2.1.2
+  json_annotation: ^4.6.0
+  flutter_facebook_auth: ^4.4.1
+  sign_in_with_apple: ^4.1.0
+  google_sign_in: ^5.4.1
+  flutter_svg: ^1.1.4
+  modal_bottom_sheet: ^2.1.0
+  awesome_snackbar_content: ^0.0.8
+  timeago: ^3.3.0
+  url_launcher: ^6.1.5
+  crypto: ^3.0.2
+  badges: ^2.0.3
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   build_runner: ^2.1.11
-  flutter_launcher_icons: ^0.9.3
+  flutter_launcher_icons: ^0.10.0
   flutter_test:
     sdk: flutter
   freezed: ^2.0.3+1
@@ -49,7 +63,7 @@ flutter:
 flutter_intl:
   enabled: true
   class_name: S
-  main_locale: en
+  main_locale: vi
   arb_dir: lib/l10n
   output_dir: lib/generated
   use_deferred_loading: false

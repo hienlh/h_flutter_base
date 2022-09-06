@@ -6,6 +6,7 @@ import 'package:flutter_base/env.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
+import 'package:google_fonts/google_fonts.dart';
 import '../generated/l10n.dart';
 import 'ui/widgets/flavor_banner.dart';
 import 'routes.dart';
@@ -29,6 +30,7 @@ class App extends StatelessWidget {
           seedColor: Colors.blue,
           brightness: Brightness.light,
         ),
+        fontFamily: GoogleFonts.varelaRound().fontFamily,
       ),
       dark: ThemeData(
         brightness: Brightness.dark,
@@ -36,6 +38,7 @@ class App extends StatelessWidget {
           seedColor: Colors.blue,
           brightness: Brightness.dark,
         ),
+        fontFamily: GoogleFonts.varelaRound().fontFamily,
       ),
       initial: savedThemeMode ?? AdaptiveThemeMode.system,
       builder: (theme, darkTheme) => GetMaterialApp(
