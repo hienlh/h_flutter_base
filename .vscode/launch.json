@@ -11,9 +11,7 @@
             "flutterMode": "debug",
             "program": "lib/main.dart",
             "args": [
-                "--dart-define=APP_NAME=Staging Hienlh Flutter",
-                "--dart-define=FLAVOR=staging",
-                "--dart-define=API_URL=https://dev.hienlh.com/api/v1/",
+                "--dart-define-from-file=config.staging.json",
                 "--flavor",
                 "staging",
             ]
@@ -25,9 +23,7 @@
             "flutterMode": "debug",
             "program": "lib/main.dart",
             "args": [
-                "--dart-define=APP_NAME=Hienlh Flutter",
-                "--dart-define=FLAVOR=production",
-                "--dart-define=API_URL=https://hienlh.com/api/v1/",
+                "--dart-define-from-file=config.production.json",
                 "--flavor",
                 "production",
             ]

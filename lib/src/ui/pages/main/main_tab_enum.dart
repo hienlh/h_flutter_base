@@ -1,5 +1,5 @@
 import 'package:badges/badges.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Badge;
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart' hide VxContextExtensions;
 
@@ -45,14 +45,19 @@ extension HomeTabEnumExt on MainTabEnum {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Badge(
-                  badgeColor: Colors.red,
-                  elevation: 0,
-                  animationDuration: Duration.zero,
+                  badgeStyle: BadgeStyle(
+                    badgeColor: Colors.red,
+                    elevation: 0,
+                    padding: EdgeInsets.all(
+                      authController.unreadNotiCount > 9 ? 2 : 4,
+                    ),
+                  ),
+                  badgeAnimation: BadgeAnimation.fade(
+                    animationDuration: Duration.zero,
+                  ),
                   showBadge: authController.unreadNotiCount > 0 &&
                       authController.isAuth &&
                       this == MainTabEnum.setting,
-                  padding: EdgeInsets.all(
-                      authController.unreadNotiCount > 9 ? 2 : 4),
                   position: BadgePosition.topStart(start: 16, top: -5),
                   badgeContent: Obx(() => Text(
                         authController.unreadNotiCount > 9

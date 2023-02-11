@@ -16,7 +16,7 @@ class DevPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(S.current.helloWorld, style: context.textTheme.headline3),
+            Text(S.current.helloWorld, style: context.textTheme.bodyLarge),
             TextButton(
               onPressed: () {
                 if (Get.locale?.languageCode == 'vi') {

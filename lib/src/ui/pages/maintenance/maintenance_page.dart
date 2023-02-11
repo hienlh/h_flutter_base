@@ -20,7 +20,7 @@ class MaintenancePage extends StatelessWidget {
               const SizedBox(height: 20),
               Text(
                 Env().maintainingData['title'] ?? 'Under maintenance',
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 20),
               Text(

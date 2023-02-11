@@ -5,7 +5,7 @@ class PinCodeTextField extends StatefulWidget {
   /// The [BuildContext] of the application
   final BuildContext appContext;
 
-  ///Box Shadow for Pincode
+  ///Box Shadow for Pin code
   final List<BoxShadow>? boxShadows;
 
   /// length of how many cells there should be. 3-8 is recommended by me
@@ -79,7 +79,7 @@ class PinCodeTextField extends StatefulWidget {
   /// [TextInputType] for the pin code fields. default is [TextInputType.visiblePassword]
   final TextInputType keyboardType;
 
-  /// If the pin code field should be autofocused or not. Default is [false]
+  /// If the pin code field should be auto focused or not. Default is [false]
   final bool autoFocus;
 
   /// Should pass a [FocusNode] to manage it from the parent
@@ -230,10 +230,10 @@ class PinCodeTextField extends StatefulWidget {
         super(key: key);
 
   @override
-  _PinCodeTextFieldState createState() => _PinCodeTextFieldState();
+  PinCodeTextFieldState createState() => PinCodeTextFieldState();
 }
 
-class _PinCodeTextFieldState extends State<PinCodeTextField>
+class PinCodeTextFieldState extends State<PinCodeTextField>
     with TickerProviderStateMixin {
   TextEditingController? _textEditingController;
   FocusNode? _focusNode;
@@ -590,7 +590,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                 text: TextSpan(
                   text: _dialogConfig.dialogContent,
                   style: TextStyle(
-                    color: Theme.of(context).textTheme.button!.color,
+                    color: Theme.of(context).textTheme.bodySmall!.color,
                   ),
                   children: [
                     TextSpan(
@@ -600,7 +600,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                     TextSpan(
                       text: '?',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.button!.color,
+                        color: Theme.of(context).textTheme.bodySmall!.color,
                       ),
                     )
                   ],
@@ -617,7 +617,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                 text: TextSpan(
                   text: _dialogConfig.dialogContent,
                   style: TextStyle(
-                      color: Theme.of(context).textTheme.button!.color),
+                      color: Theme.of(context).textTheme.bodySmall!.color),
                   children: [
                     TextSpan(
                       text: formattedPastedText,
@@ -626,7 +626,7 @@ class _PinCodeTextFieldState extends State<PinCodeTextField>
                     TextSpan(
                       text: ' ?',
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.button!.color,
+                        color: Theme.of(context).textTheme.bodySmall!.color,
                       ),
                     )
                   ],

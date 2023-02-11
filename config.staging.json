@@ -1,0 +1,5 @@
+{
+    "APP_NAME": "Staging Hienlh Flutter",
+    "FLAVOR": "staging",
+    "API_URL": "https://dev.hienlh.com/api/v1/"
+}
