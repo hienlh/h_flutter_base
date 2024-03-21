@@ -14,33 +14,32 @@ import 'src/app.dart';
 import 'src/data/services/services.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  await runZonedGuarded<Future<void>>(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  if (Firebase.apps.isEmpty) {
-    FirebaseOptions? firebaseOptions;
-    if (Env().flavor != Flavor.production) {
-      firebaseOptions = DefaultFirebaseOptionsStg.currentPlatform;
+    if (Firebase.apps.isEmpty) {
+      FirebaseOptions? firebaseOptions;
+      if (Env().flavor != Flavor.production) {
+        firebaseOptions = DefaultFirebaseOptionsStg.currentPlatform;
+      } else {
+        firebaseOptions = DefaultFirebaseOptions.currentPlatform;
+      }
+      await Firebase.initializeApp(
+        options: firebaseOptions,
+        name: Env().flavor.name,
+      );
     } else {
-      firebaseOptions = DefaultFirebaseOptions.currentPlatform;
+      Firebase.app();
     }
-    await Firebase.initializeApp(
-      options: firebaseOptions,
-      name: Env().flavor.name,
-    );
-  } else {
-    Firebase.app();
-  }
 
-  await Env().getRemoteConfig();
+    await Env().getRemoteConfig();
 
-  await initHiveForFlutter();
-  await initServices();
-  await initControllers();
-  final savedThemeMode = await AdaptiveTheme.getThemeMode();
+    await initHiveForFlutter();
+    await initServices();
+    await initControllers();
+    final savedThemeMode = await AdaptiveTheme.getThemeMode();
 
-  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
-
-  runZonedGuarded<Future<void>>(() async {
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
     runApp(App(savedThemeMode: savedThemeMode));
   }, (error, stack) {
     FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);

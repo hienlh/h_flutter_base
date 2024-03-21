@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
+import 'package:flutter_base/src/routes.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart' hide VxContextExtensions;
 
@@ -7,14 +8,14 @@ import '../../../../generated/l10n.dart';
 import '../../../controllers/auth_controller.dart';
 import '../dev/dev_page.dart';
 
-enum MainTabEnum { menu, search, setting }
+enum MainTabEnum { menu, home, setting }
 
 extension HomeTabEnumExt on MainTabEnum {
   IconData get iconData {
     switch (this) {
       case MainTabEnum.menu:
         return Icons.menu;
-      case MainTabEnum.search:
+      case MainTabEnum.home:
         return Icons.home_outlined;
       case MainTabEnum.setting:
         return Icons.settings_outlined;
@@ -84,15 +85,24 @@ extension HomeTabEnumExt on MainTabEnum {
     switch (this) {
       case MainTabEnum.menu:
         return Container(color: Colors.amber);
-      case MainTabEnum.search:
+      case MainTabEnum.home:
         return Container(
           color: Colors.brown,
           child: Center(
             child: ElevatedButton(
               onPressed: () {
-                Get.find<AuthController>().logout();
+                final auth = Get.find<AuthController>();
+                if (auth.isAuth) {
+                  auth.logout();
+                } else {
+                  Get.toNamed(Routes.login);
+                }
               },
-              child: Text(S.current.logout),
+              child: Text(
+                Get.find<AuthController>().isAuth
+                    ? S.current.logout
+                    : S.current.login,
+              ),
             ),
           ),
         );

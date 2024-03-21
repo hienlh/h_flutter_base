@@ -12,7 +12,7 @@ class MainController extends GetxController
   late final TabController tabController = TabController(
     vsync: this,
     length: MainTabEnum.values.length,
-  )..index = MainTabEnum.search.index;
+  )..index = MainTabEnum.home.index;
 
   final _selectedTab = MainTabEnum.menu.obs;
   MainTabEnum get selectedTab => _selectedTab.value;
