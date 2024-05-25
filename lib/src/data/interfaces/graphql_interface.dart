@@ -37,3 +37,35 @@ abstract class IGraphQlClient {
     CachePolicy? cachePolicy,
   });
 }
+
+class FakeGraphQlClient implements IGraphQlClient {
+  @override
+  Future<Map> query({
+    required String queryString,
+    String? operationName,
+    Map<String, dynamic> variables = const {},
+    CachePolicy? cachePolicy,
+  }) async {
+    return {};
+  }
+
+  @override
+  Future<Map> mutate({
+    required String queryString,
+    String? operationName,
+    Map<String, dynamic> variables = const {},
+    CachePolicy? cachePolicy,
+  }) async {
+    return {};
+  }
+
+  @override
+  Stream<Map> subscribe({
+    required String queryString,
+    String? operationName,
+    Map<String, dynamic> variables = const {},
+    CachePolicy? cachePolicy,
+  }) {
+    return Stream.empty();
+  }
+}

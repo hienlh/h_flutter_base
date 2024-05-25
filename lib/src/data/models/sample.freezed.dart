@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sample.dart';
 
@@ -12,7 +12,7 @@ part of 'sample.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Person _$PersonFromJson(Map<String, dynamic> json) {
   return _Person.fromJson(json);
@@ -32,74 +32,80 @@ mixin _$Person {
 /// @nodoc
 abstract class $PersonCopyWith<$Res> {
   factory $PersonCopyWith(Person value, $Res Function(Person) then) =
-      _$PersonCopyWithImpl<$Res>;
+      _$PersonCopyWithImpl<$Res, Person>;
+  @useResult
   $Res call({String firstName, String lastName, int age});
 }
 
 /// @nodoc
-class _$PersonCopyWithImpl<$Res> implements $PersonCopyWith<$Res> {
+class _$PersonCopyWithImpl<$Res, $Val extends Person>
+    implements $PersonCopyWith<$Res> {
   _$PersonCopyWithImpl(this._value, this._then);
 
-  final Person _value;
   // ignore: unused_field
-  final $Res Function(Person) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? age = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? age = null,
   }) {
     return _then(_value.copyWith(
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_PersonCopyWith<$Res> implements $PersonCopyWith<$Res> {
-  factory _$$_PersonCopyWith(_$_Person value, $Res Function(_$_Person) then) =
-      __$$_PersonCopyWithImpl<$Res>;
+abstract class _$$PersonImplCopyWith<$Res> implements $PersonCopyWith<$Res> {
+  factory _$$PersonImplCopyWith(
+          _$PersonImpl value, $Res Function(_$PersonImpl) then) =
+      __$$PersonImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String firstName, String lastName, int age});
 }
 
 /// @nodoc
-class __$$_PersonCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
-    implements _$$_PersonCopyWith<$Res> {
-  __$$_PersonCopyWithImpl(_$_Person _value, $Res Function(_$_Person) _then)
-      : super(_value, (v) => _then(v as _$_Person));
+class __$$PersonImplCopyWithImpl<$Res>
+    extends _$PersonCopyWithImpl<$Res, _$PersonImpl>
+    implements _$$PersonImplCopyWith<$Res> {
+  __$$PersonImplCopyWithImpl(
+      _$PersonImpl _value, $Res Function(_$PersonImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Person get _value => super._value as _$_Person;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? age = freezed,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? age = null,
   }) {
-    return _then(_$_Person(
-      firstName: firstName == freezed
+    return _then(_$PersonImpl(
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int,
@@ -110,12 +116,12 @@ class __$$_PersonCopyWithImpl<$Res> extends _$PersonCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.pascal)
-class _$_Person with DiagnosticableTreeMixin implements _Person {
-  const _$_Person(
+class _$PersonImpl with DiagnosticableTreeMixin implements _Person {
+  const _$PersonImpl(
       {required this.firstName, required this.lastName, required this.age});
 
-  factory _$_Person.fromJson(Map<String, dynamic> json) =>
-      _$$_PersonFromJson(json);
+  factory _$PersonImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PersonImplFromJson(json);
 
   @override
   final String firstName;
@@ -140,31 +146,30 @@ class _$_Person with DiagnosticableTreeMixin implements _Person {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Person &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
-            const DeepCollectionEquality().equals(other.lastName, lastName) &&
-            const DeepCollectionEquality().equals(other.age, age));
+            other is _$PersonImpl &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.age, age) || other.age == age));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(firstName),
-      const DeepCollectionEquality().hash(lastName),
-      const DeepCollectionEquality().hash(age));
+  int get hashCode => Object.hash(runtimeType, firstName, lastName, age);
 
   @JsonKey(ignore: true)
   @override
-  _$$_PersonCopyWith<_$_Person> get copyWith =>
-      __$$_PersonCopyWithImpl<_$_Person>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PersonImplCopyWith<_$PersonImpl> get copyWith =>
+      __$$PersonImplCopyWithImpl<_$PersonImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PersonToJson(
+    return _$$PersonImplToJson(
       this,
     );
   }
@@ -174,9 +179,9 @@ abstract class _Person implements Person {
   const factory _Person(
       {required final String firstName,
       required final String lastName,
-      required final int age}) = _$_Person;
+      required final int age}) = _$PersonImpl;
 
-  factory _Person.fromJson(Map<String, dynamic> json) = _$_Person.fromJson;
+  factory _Person.fromJson(Map<String, dynamic> json) = _$PersonImpl.fromJson;
 
   @override
   String get firstName;
@@ -186,6 +191,6 @@ abstract class _Person implements Person {
   int get age;
   @override
   @JsonKey(ignore: true)
-  _$$_PersonCopyWith<_$_Person> get copyWith =>
+  _$$PersonImplCopyWith<_$PersonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

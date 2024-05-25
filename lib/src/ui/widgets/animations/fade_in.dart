@@ -13,14 +13,14 @@ class FadeInTranslate extends StatelessWidget {
   final double startY;
 
   FadeInTranslate({
-    Key? key,
+    super.key,
     this.delay = 0,
     required this.child,
     this.enabled = true,
     this.delayDuration = 300,
     this.duration = 500,
     this.startY = 130,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

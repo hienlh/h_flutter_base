@@ -1,27 +1,18 @@
-import 'dart:convert';
-import 'dart:io';
-import 'dart:math';
-
-import 'package:crypto/crypto.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_base/src/ui/styles/size.dart';
+import 'package:flutter_base/src/ui/styles/theme.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:velocity_x/velocity_x.dart' hide VxContextExtensions;
 
 import '../../../../generated/l10n.dart';
 import '../../../controllers/auth_controller.dart';
 import '../../../data/interfaces/logger_interface.dart';
 import '../../../data/models/enums/load_status.dart';
-import '../../../data/models/enums/social_provider.dart';
 import '../../../data/repositories/user_repository.dart';
 import '../../../data/services/services.dart';
-import '../../../routes.dart';
+import '../../../routes/routes.dart';
 import '../../../ui/widgets/buttons/primary_button.dart';
 import '../../../ui/widgets/common/primary_scaffold.dart';
 import '../../../utils/app_utils.dart';
@@ -61,16 +52,13 @@ class LoginPage extends GetView<LoginController> {
           appBar: BackAppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
-            textColor: context.theme.colorScheme.onBackground,
+            textColor: HTheme.d.textColor,
           ),
           body: _buildBody(context),
         ));
   }
 
   Widget _buildBody(BuildContext context) {
-    final socialList = SocialProvider.values
-        .where((e) => Platform.isIOS || e != SocialProvider.apple)
-        .toList();
     final agreePrivacy =
         S.current.agreePrivacy(S.current.privacy, S.current.termsAndConditions);
     return Padding(
@@ -80,11 +68,7 @@ class LoginPage extends GetView<LoginController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            S.current.login.text
-                .headline4(context)
-                .color(context.theme.colorScheme.onBackground)
-                .bold
-                .make(),
+            S.current.login.text.bold.make(),
             30.heightBox,
             CustomTextField(
               borderColor: Color(0xffDADEE3),
@@ -103,8 +87,10 @@ class LoginPage extends GetView<LoginController> {
             16.heightBox,
             RichText(
               text: TextSpan(
-                style: context.textTheme.bodySmall!
-                    .copyWith(color: context.theme.colorScheme.onBackground),
+                style: TextStyle(
+                  color: HTheme.d.textColor,
+                  fontSize: HTextSize.hNormal,
+                ),
                 children: [
                   TextSpan(
                     text:
@@ -146,34 +132,11 @@ class LoginPage extends GetView<LoginController> {
             5.heightBox,
             10.heightBox,
             S.current.orLoginWith.toLowerCase().text.bold.makeCentered(),
-            10.heightBox,
-            ...socialList
-                .asMap()
-                .map(
-                  (i, e) => MapEntry(
-                    i,
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      child: PrimaryButton(
-                        icon: SvgPicture.asset(e.icon, width: 24, height: 24),
-                        text: e.title,
-                        onPressed: () {
-                          controller.loginSns(e);
-                        },
-                        backgroundColor: e.color,
-                      ),
-                    ),
-                  ),
-                )
-                .values
-                ,
             30.heightBox,
             Spacer(),
             Center(
               child: RichText(
                 text: TextSpan(
-                  style: context.textTheme.bodyMedium!
-                      .copyWith(color: context.theme.colorScheme.onBackground),
                   children: [
                     TextSpan(text: S.current.or.toLowerCase()),
                     TextSpan(
@@ -185,7 +148,7 @@ class LoginPage extends GetView<LoginController> {
                           if (Navigator.canPop(context)) {
                             Get.back();
                           } else {
-                            Get.offAllNamed(Routes.main);
+                            Get.offAllNamed(Routes.main.p);
                           }
                         },
                     ),

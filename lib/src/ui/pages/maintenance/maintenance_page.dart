@@ -3,7 +3,7 @@ import 'package:flutter_base/env.dart';
 import 'package:lottie/lottie.dart';
 
 class MaintenancePage extends StatelessWidget {
-  const MaintenancePage({Key? key}) : super(key: key);
+  const MaintenancePage({super.key});
 
   @override
   Widget build(BuildContext context) {

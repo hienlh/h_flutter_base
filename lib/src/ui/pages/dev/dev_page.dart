@@ -7,7 +7,7 @@ import '../../../../generated/l10n.dart';
 import '../../styles/app_style.dart';
 
 class DevPage extends StatelessWidget {
-  const DevPage({Key? key}) : super(key: key);
+  const DevPage({super.key});
 
   @override
   Widget build(BuildContext context) {

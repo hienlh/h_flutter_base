@@ -12,7 +12,7 @@ class LogService extends GetxService implements ILogger {
 
   @override
   void v(dynamic message) {
-    _logger.v(message.toString());
+    _logger.t(message.toString());
   }
 
   @override

@@ -7,11 +7,11 @@ class LoadingIndicator extends StatelessWidget {
   final EdgeInsets padding;
 
   const LoadingIndicator({
-    Key? key,
+    super.key,
     this.size = 50,
     this.color,
     this.padding = EdgeInsets.zero,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

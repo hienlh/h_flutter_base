@@ -12,7 +12,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool enableBack;
 
   const PrimaryAppBar({
-    Key? key,
+    super.key,
     this.title = '',
     this.actions,
     this.elevation,
@@ -20,7 +20,7 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.textColor,
     this.bottom,
     this.enableBack = true,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize =>

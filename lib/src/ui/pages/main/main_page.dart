@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base/src/ui/styles/theme.dart';
 import 'package:get/get.dart';
 
 import '../../widgets/common/primary_scaffold.dart';
@@ -35,11 +36,11 @@ class MainPage extends GetView<MainController> {
 
 class MainBottomNav extends StatelessWidget {
   const MainBottomNav({
-    Key? key,
+    super.key,
     required this.tabController,
     this.onSelected,
     required this.selected,
-  }) : super(key: key);
+  });
 
   final TabController tabController;
   final Function(MainTabEnum selected)? onSelected;
@@ -58,7 +59,7 @@ class MainBottomNav extends StatelessWidget {
             offset: Offset(0, -2),
           ),
         ],
-        color: context.theme.colorScheme.background.withOpacity(0.9),
+        color: HTheme.d.bgColor.withOpacity(0.9),
       ),
       child: SafeArea(
         child: TabBar(
@@ -68,7 +69,7 @@ class MainBottomNav extends StatelessWidget {
             tabController.index = tabController.previousIndex;
             onSelected?.call(MainTabEnum.values[index]);
           },
-          labelColor: context.theme.colorScheme.onBackground,
+          labelColor: HTheme.d.textColor,
           unselectedLabelColor: context.theme.colorScheme.surface,
           tabs: MainTabEnum.values.map((item) {
             return StatefulBuilder(builder: (context, setState) {
@@ -82,8 +83,7 @@ class MainBottomNav extends StatelessWidget {
                   duration: const Duration(milliseconds: 300),
                   child: Icon(
                     item.iconData,
-                    color: context.theme.colorScheme.onBackground
-                        .withOpacity(isSelected ? 1 : 0.5),
+                    color: HTheme.d.textColor.withOpacity(isSelected ? 1 : 0.5),
                     size: 24,
                   ),
                 ),

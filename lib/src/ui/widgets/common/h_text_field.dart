@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
-    Key? key,
+    super.key,
     this.borderColor,
     this.initialValue,
     this.validator,
@@ -25,7 +25,7 @@ class CustomTextField extends StatelessWidget {
     this.inputFormatters,
     this.textAlign = TextAlign.start,
     this.decoration,
-  }) : super(key: key);
+  });
 
   factory CustomTextField.intRange({
     Key? key,

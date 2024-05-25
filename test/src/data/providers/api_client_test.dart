@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_base/src/data/interfaces/graphql_interface.dart';
 import 'package:flutter_base/src/data/providers/api_client.dart';
 import 'package:flutter_base/src/data/services/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -8,12 +9,9 @@ void main() async {
   final storage = MemoryStorageService();
   final http = await GetHttpService().init(
     storage,
-    'https://vietwash.topnguyen.com',
+    'https://hienle.tech/api',
   );
-  final graphql = GraphQlService(
-    storage,
-    'https://vietwash.topnguyen.com',
-  );
+  final graphql = FakeGraphQlClient();
 
   final apiClient = ApiClient(http, graphql, storage);
 

@@ -6,15 +6,15 @@ part of 'user_entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserEntity _$$_UserEntityFromJson(Map<String, dynamic> json) =>
-    _$_UserEntity(
+_$UserEntityImpl _$$UserEntityImplFromJson(Map<String, dynamic> json) =>
+    _$UserEntityImpl(
       id: json['Id'] as String,
       firstName: json['FirstName'] as String,
       lastName: json['LastName'] as String,
-      age: json['Age'] as int,
+      age: (json['Age'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_UserEntityToJson(_$_UserEntity instance) =>
+Map<String, dynamic> _$$UserEntityImplToJson(_$UserEntityImpl instance) =>
     <String, dynamic>{
       'Id': instance.id,
       'FirstName': instance.firstName,

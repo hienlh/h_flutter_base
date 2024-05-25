@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_base/src/data/interfaces/connectivity_interface.dart';
+import 'package:flutter_base/src/data/interfaces/graphql_interface.dart';
 import 'package:flutter_base/src/data/providers/api_client.dart';
 import 'package:flutter_base/src/data/services/services.dart';
 import 'package:flutter_base/src/exceptions/exceptions.dart';
@@ -21,7 +22,7 @@ class TestTrueConnectivity implements IConnectivity {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final graphql = GraphQlService(MemoryStorageService(), '');
+  final graphql = FakeGraphQlClient();
 
   test('Throw no network connection', () async {
     final storage = MemoryStorageService();

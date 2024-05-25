@@ -1,6 +1,7 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart' hide Badge;
-import 'package:flutter_base/src/routes.dart';
+import 'package:flutter_base/src/routes/routes.dart';
+import 'package:flutter_base/src/ui/styles/theme.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart' hide VxContextExtensions;
 
@@ -27,8 +28,7 @@ extension HomeTabEnumExt on MainTabEnum {
     double iconSize = 24,
     Function()? onPressed,
   }) {
-    final color = Get.context!.theme.colorScheme.onBackground
-        .withOpacity(isSelected ? 1 : 0.5);
+    final color = HTheme.d.textColor;
 
     Widget iconWidget = Icon(
       iconData,
@@ -65,7 +65,6 @@ extension HomeTabEnumExt on MainTabEnum {
                             ? '9+'
                             : authController.unreadNotiCount.toString(),
                         style: TextStyle(
-                          color: Get.context!.theme.colorScheme.background,
                           fontSize: 12,
                         ),
                       )),
@@ -95,7 +94,7 @@ extension HomeTabEnumExt on MainTabEnum {
                 if (auth.isAuth) {
                   auth.logout();
                 } else {
-                  Get.toNamed(Routes.login);
+                  Get.toNamed(Routes.login.p);
                 }
               },
               child: Text(

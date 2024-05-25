@@ -1,7 +1,6 @@
 part of 'login_page.dart';
 
 class LoginController extends GetxController {
-  final auth = FirebaseAuth.instance;
   final AuthController _authController;
   final UserRepository _userRepo;
   final ILogger _log;
@@ -25,32 +24,6 @@ class LoginController extends GetxController {
     phoneNumberOrEmail.value = phone;
   }
 
-  Future loginSns(SocialProvider socialProvider) async {
-    AuthCredential authCredential;
-    try {
-      snsLoadStatus.value = LoadStatus.loading;
-      switch (socialProvider) {
-        case SocialProvider.google:
-          // throw 'Error';
-          authCredential = await _signInWithGoogle();
-          break;
-        case SocialProvider.apple:
-          authCredential = await _signInWithApple();
-          break;
-        case SocialProvider.facebook:
-          authCredential = await _signInWithFacebook();
-      }
-      await _onVerificationCompleted(authCredential);
-      snsLoadStatus.value = LoadStatus.success;
-    } catch (e) {
-      snsLoadStatus.value = LoadStatus.failure;
-      if (e.toString().isNotEmpty) {
-        AppUtils.showError(e.toString());
-      }
-      rethrow;
-    }
-  }
-
   Future signInPhoneOrEmail() async {
     await _sendVerificationCode();
   }
@@ -70,7 +43,7 @@ class LoginController extends GetxController {
       _log('Sending verification code to $phoneOrEmail');
       final otpInfo = await _userRepo.signInPhoneOrEmail(phoneOrEmail);
       await Get.toNamed(
-        Routes.otp,
+        Routes.otp.p,
         arguments: OtpPageArgs(
           phoneOrEmail,
           (otp) async {
@@ -93,115 +66,13 @@ class LoginController extends GetxController {
     }
   }
 
-  Future _onVerificationCompleted(AuthCredential credential) async {
-    try {
-      await _authController.signIn(credential);
-      _goToNextPage();
-    } catch (e) {
-      loadStatus.value = LoadStatus.failure;
-      rethrow;
-    }
-  }
-
   void _goToNextPage() {
     if (nextPage != null) {
       Get.offNamed(nextPage!.current, arguments: nextPage!.args);
     } else if (Navigator.canPop(Get.context!)) {
       Get.back();
     } else {
-      Get.offAllNamed(Routes.main);
+      Get.offAllNamed(Routes.main.p);
     }
-  }
-
-  Future<AuthCredential> _signInWithGoogle() async {
-    try {
-      final googleUser = await GoogleSignIn(
-        scopes: ['profile', 'email'],
-      ).signIn();
-      final googleAuth = await googleUser?.authentication;
-      if (googleAuth == null) throw '';
-
-      final credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-      return credential;
-    } on FirebaseAuthException catch (e) {
-      throw e.message ?? S.current.unknownError;
-    } catch (e) {
-      throw e.toString();
-    } finally {
-      GoogleSignIn().signOut();
-    }
-  }
-
-  Future<AuthCredential> _signInWithFacebook() async {
-    try {
-      final loginResult = await FacebookAuth.instance.login(
-        permissions: ['public_profile', 'email'],
-        loginBehavior: LoginBehavior.nativeWithFallback,
-      );
-      assert(loginResult.accessToken != null, '');
-
-      if (loginResult.accessToken == null) {
-        throw '';
-      }
-      return FacebookAuthProvider.credential(loginResult.accessToken!.token);
-    } on FirebaseAuthException catch (e) {
-      throw e.message ?? S.current.unknownError;
-    } on AssertionError catch (e) {
-      throw e.message ?? S.current.unknownError;
-    } catch (e) {
-      throw e.toString();
-    }
-  }
-
-  Future<AuthCredential> _signInWithApple() async {
-    try {
-      final rawNonce = _generateNonce();
-      final nonce = _sha256ofString(rawNonce);
-
-      final result = await SignInWithApple.getAppleIDCredential(
-        scopes: [
-          AppleIDAuthorizationScopes.email,
-          AppleIDAuthorizationScopes.fullName,
-        ],
-        nonce: nonce,
-      );
-
-      final credential = OAuthProvider('apple.com').credential(
-        idToken: result.identityToken,
-        rawNonce: rawNonce,
-      );
-      return credential;
-    } on SignInWithAppleAuthorizationException catch (e) {
-      switch (e.code) {
-        case AuthorizationErrorCode.canceled:
-          throw '';
-        case AuthorizationErrorCode.notHandled:
-        case AuthorizationErrorCode.unknown:
-          throw S.current.unknownError;
-        default:
-          throw e.message;
-      }
-    } on FirebaseAuthException catch (e) {
-      throw e.message ?? S.current.unknownError;
-    } catch (e) {
-      throw e.toString();
-    }
-  }
-
-  String _generateNonce([int length = 32]) {
-    final charset =
-        '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
-    final random = Random.secure();
-    return List.generate(length, (_) => charset[random.nextInt(charset.length)])
-        .join();
-  }
-
-  String _sha256ofString(String input) {
-    final bytes = utf8.encode(input);
-    final digest = sha256.convert(bytes);
-    return digest.toString();
   }
 }

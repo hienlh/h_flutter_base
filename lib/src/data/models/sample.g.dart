@@ -6,13 +6,14 @@ part of 'sample.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Person _$$_PersonFromJson(Map<String, dynamic> json) => _$_Person(
+_$PersonImpl _$$PersonImplFromJson(Map<String, dynamic> json) => _$PersonImpl(
       firstName: json['FirstName'] as String,
       lastName: json['LastName'] as String,
-      age: json['Age'] as int,
+      age: (json['Age'] as num).toInt(),
     );
 
-Map<String, dynamic> _$$_PersonToJson(_$_Person instance) => <String, dynamic>{
+Map<String, dynamic> _$$PersonImplToJson(_$PersonImpl instance) =>
+    <String, dynamic>{
       'FirstName': instance.firstName,
       'LastName': instance.lastName,
       'Age': instance.age,

@@ -1,4 +1,4 @@
-part of pin_code_fields;
+part of '../../pin_code_fields.dart';
 
 class DialogConfig {
   /// title of the [AlertDialog] while pasting the code. Default to [Paste Code]

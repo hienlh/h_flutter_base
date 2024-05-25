@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'sign_in_res.dart';
 
@@ -12,7 +12,7 @@ part of 'sign_in_res.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SignInRes _$SignInResFromJson(Map<String, dynamic> json) {
   return _SignInRes.fromJson(json);
@@ -32,51 +32,58 @@ mixin _$SignInRes {
 /// @nodoc
 abstract class $SignInResCopyWith<$Res> {
   factory $SignInResCopyWith(SignInRes value, $Res Function(SignInRes) then) =
-      _$SignInResCopyWithImpl<$Res>;
+      _$SignInResCopyWithImpl<$Res, SignInRes>;
+  @useResult
   $Res call({String jwt, UserEntity user});
 
   $UserEntityCopyWith<$Res> get user;
 }
 
 /// @nodoc
-class _$SignInResCopyWithImpl<$Res> implements $SignInResCopyWith<$Res> {
+class _$SignInResCopyWithImpl<$Res, $Val extends SignInRes>
+    implements $SignInResCopyWith<$Res> {
   _$SignInResCopyWithImpl(this._value, this._then);
 
-  final SignInRes _value;
   // ignore: unused_field
-  final $Res Function(SignInRes) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? jwt = freezed,
-    Object? user = freezed,
+    Object? jwt = null,
+    Object? user = null,
   }) {
     return _then(_value.copyWith(
-      jwt: jwt == freezed
+      jwt: null == jwt
           ? _value.jwt
           : jwt // ignore: cast_nullable_to_non_nullable
               as String,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserEntity,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $UserEntityCopyWith<$Res> get user {
     return $UserEntityCopyWith<$Res>(_value.user, (value) {
-      return _then(_value.copyWith(user: value));
+      return _then(_value.copyWith(user: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_SignInResCopyWith<$Res> implements $SignInResCopyWith<$Res> {
-  factory _$$_SignInResCopyWith(
-          _$_SignInRes value, $Res Function(_$_SignInRes) then) =
-      __$$_SignInResCopyWithImpl<$Res>;
+abstract class _$$SignInResImplCopyWith<$Res>
+    implements $SignInResCopyWith<$Res> {
+  factory _$$SignInResImplCopyWith(
+          _$SignInResImpl value, $Res Function(_$SignInResImpl) then) =
+      __$$SignInResImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String jwt, UserEntity user});
 
   @override
@@ -84,26 +91,25 @@ abstract class _$$_SignInResCopyWith<$Res> implements $SignInResCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SignInResCopyWithImpl<$Res> extends _$SignInResCopyWithImpl<$Res>
-    implements _$$_SignInResCopyWith<$Res> {
-  __$$_SignInResCopyWithImpl(
-      _$_SignInRes _value, $Res Function(_$_SignInRes) _then)
-      : super(_value, (v) => _then(v as _$_SignInRes));
+class __$$SignInResImplCopyWithImpl<$Res>
+    extends _$SignInResCopyWithImpl<$Res, _$SignInResImpl>
+    implements _$$SignInResImplCopyWith<$Res> {
+  __$$SignInResImplCopyWithImpl(
+      _$SignInResImpl _value, $Res Function(_$SignInResImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SignInRes get _value => super._value as _$_SignInRes;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? jwt = freezed,
-    Object? user = freezed,
+    Object? jwt = null,
+    Object? user = null,
   }) {
-    return _then(_$_SignInRes(
-      jwt: jwt == freezed
+    return _then(_$SignInResImpl(
+      jwt: null == jwt
           ? _value.jwt
           : jwt // ignore: cast_nullable_to_non_nullable
               as String,
-      user: user == freezed
+      user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserEntity,
@@ -113,11 +119,11 @@ class __$$_SignInResCopyWithImpl<$Res> extends _$SignInResCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SignInRes implements _SignInRes {
-  const _$_SignInRes({required this.jwt, required this.user});
+class _$SignInResImpl implements _SignInRes {
+  const _$SignInResImpl({required this.jwt, required this.user});
 
-  factory _$_SignInRes.fromJson(Map<String, dynamic> json) =>
-      _$$_SignInResFromJson(json);
+  factory _$SignInResImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SignInResImplFromJson(json);
 
   @override
   final String jwt;
@@ -130,29 +136,27 @@ class _$_SignInRes implements _SignInRes {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignInRes &&
-            const DeepCollectionEquality().equals(other.jwt, jwt) &&
-            const DeepCollectionEquality().equals(other.user, user));
+            other is _$SignInResImpl &&
+            (identical(other.jwt, jwt) || other.jwt == jwt) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(jwt),
-      const DeepCollectionEquality().hash(user));
+  int get hashCode => Object.hash(runtimeType, jwt, user);
 
   @JsonKey(ignore: true)
   @override
-  _$$_SignInResCopyWith<_$_SignInRes> get copyWith =>
-      __$$_SignInResCopyWithImpl<_$_SignInRes>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SignInResImplCopyWith<_$SignInResImpl> get copyWith =>
+      __$$SignInResImplCopyWithImpl<_$SignInResImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SignInResToJson(
+    return _$$SignInResImplToJson(
       this,
     );
   }
@@ -161,10 +165,10 @@ class _$_SignInRes implements _SignInRes {
 abstract class _SignInRes implements SignInRes {
   const factory _SignInRes(
       {required final String jwt,
-      required final UserEntity user}) = _$_SignInRes;
+      required final UserEntity user}) = _$SignInResImpl;
 
   factory _SignInRes.fromJson(Map<String, dynamic> json) =
-      _$_SignInRes.fromJson;
+      _$SignInResImpl.fromJson;
 
   @override
   String get jwt;
@@ -172,6 +176,6 @@ abstract class _SignInRes implements SignInRes {
   UserEntity get user;
   @override
   @JsonKey(ignore: true)
-  _$$_SignInResCopyWith<_$_SignInRes> get copyWith =>
+  _$$SignInResImplCopyWith<_$SignInResImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

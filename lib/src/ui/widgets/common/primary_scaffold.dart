@@ -1,8 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:get/get.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
+import '../../styles/theme.dart';
 
 class PrimaryScaffold extends StatelessWidget {
   final Widget? body;
@@ -13,7 +13,6 @@ class PrimaryScaffold extends StatelessWidget {
   final Widget? drawer;
   final Widget? floatingActionButton;
   final Function? onBack;
-  final double loadingBackgroundOpacity;
   final bool extendBodyBehindAppBar;
   final bool extendBody;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
@@ -22,7 +21,7 @@ class PrimaryScaffold extends StatelessWidget {
   final Color? backgroundColor;
 
   PrimaryScaffold({
-    Key? key,
+    super.key,
     this.body,
     this.scrollController,
     this.footer,
@@ -31,14 +30,13 @@ class PrimaryScaffold extends StatelessWidget {
     this.drawer,
     this.onBack,
     this.floatingActionButton,
-    this.loadingBackgroundOpacity = 0.5,
     this.extendBodyBehindAppBar = false,
     this.extendBody = false,
     this.floatingActionButtonLocation,
     this.floats = const [],
     this.enableCupertinoScaffold = true,
     this.backgroundColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,8 +54,7 @@ class PrimaryScaffold extends StatelessWidget {
           appBar: appBar,
           extendBodyBehindAppBar: extendBodyBehindAppBar,
           extendBody: extendBody,
-          backgroundColor:
-              backgroundColor ?? context.theme.colorScheme.background,
+          backgroundColor: backgroundColor ?? HTheme.d.bgColor,
           drawer: drawer,
           body: body,
           bottomNavigationBar: bottomNavigationBar,
@@ -69,20 +66,7 @@ class PrimaryScaffold extends StatelessWidget {
 
     return Material(
       child: cupertinoScaffold(
-        body: Stack(
-          children: [
-            if (context.height > context.width && kIsWeb)
-              Center(
-                child: SizedBox(
-                  width: context.height * 9 / 19.5,
-                  child: scaffold,
-                ),
-              )
-            else
-              scaffold,
-            if (floats.isNotEmpty) ...floats,
-          ],
-        ),
+        body: scaffold,
       ),
     );
   }

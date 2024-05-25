@@ -2,12 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base/src/ui/styles/size.dart';
 import 'package:get/get.dart';
 import 'package:velocity_x/velocity_x.dart' hide VxContextExtensions;
 
 import '../../../../generated/l10n.dart';
 import '../../../data/models/responses/sign_in_phone_email.dart';
 import '../../../utils/app_utils.dart';
+import '../../styles/theme.dart';
 import '../../widgets/app_bars/back_app_bar.dart';
 import '../../widgets/common/primary_scaffold.dart';
 import '../../widgets/pin_code/pin_code_fields.dart';
@@ -31,7 +33,7 @@ class OtpPageArgs<T> {
 }
 
 class OtpPage extends StatefulWidget {
-  const OtpPage({Key? key}) : super(key: key);
+  const OtpPage({super.key});
 
   @override
   State<OtpPage> createState() => _OtpPageState();
@@ -141,8 +143,8 @@ class _OtpPageState extends State<OtpPage> {
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   style: TextStyle(
-                    fontSize: 16,
-                    color: context.theme.colorScheme.onBackground,
+                    fontSize: HTextSize.hNormal,
+                    color: HTheme.d.textColor,
                   ),
                   children: [
                     TextSpan(text: '${S.current.dontReceiveOtp} '),

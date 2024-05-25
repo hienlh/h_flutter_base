@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
@@ -17,7 +16,7 @@ import '../data/models/entities/user_entity.dart';
 import '../data/models/enums/load_status.dart';
 import '../data/repositories/user_repository.dart';
 import '../exceptions/exceptions.dart';
-import '../routes.dart';
+import '../routes/routes.dart';
 import '../utils/app_utils.dart';
 
 const kEnableBiometric = false;
@@ -26,7 +25,6 @@ class AuthController extends GetxController {
   final IStorage _storage;
   final ILogger _log;
   final UserRepository _userRepo;
-  final auth = FirebaseAuth.instance;
   final LocalAuthentication _localAuthentication = LocalAuthentication();
   final NotificationInterface? _notificationService;
 
@@ -92,28 +90,12 @@ class AuthController extends GetxController {
 
   Future<bool> requireLoginAction({bool throwError = true}) async {
     if (!isAuth) {
-      await Get.toNamed(Routes.login);
+      await Get.toNamed(Routes.login.p);
       if (!isAuth) {
         throw UnauthenticatedException();
       }
     }
     return isAuth;
-  }
-
-  Future signIn(AuthCredential credential) async {
-    try {
-      final userAuth = await auth.signInWithCredential(credential);
-      final idToken = await userAuth.user?.getIdToken();
-
-      if (!idToken.isEmptyOrNull) {
-        final signInRes = await _userRepo.firebaseSignIn(idToken!);
-        await _setToken(signInRes.jwt);
-        _isLocalAuth.value = true;
-        update();
-      }
-    } on FirebaseAuthException catch (e) {
-      throw e.message ?? S.current.unknownError;
-    }
   }
 
   Future verifyOtp(String phoneOrEmail, String otp) async {
@@ -128,10 +110,9 @@ class AuthController extends GetxController {
   }
 
   Future logout() async {
-    await auth.signOut();
     await _setToken(null);
     update();
-    Get.offAllNamed(Routes.main);
+    Get.offAllNamed(Routes.main.p);
     _notificationService?.onLogout();
   }
 

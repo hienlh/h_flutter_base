@@ -71,7 +71,7 @@ abstract class IApiClient {
   Future checkToken() async {
     final token = await _storage.get<String>(StorageKey.token);
     if (token != null && JwtDecoder.isExpired(token) && _refreshToken != null) {
-      final newToken = await _refreshToken!.call();
+      final newToken = await _refreshToken.call();
       if (newToken != null) {
         await _storage.set(StorageKey.token, newToken);
         log('Refreshed token: $newToken');

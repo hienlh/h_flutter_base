@@ -1,4 +1,4 @@
-part of pin_code_fields;
+part of '../pin_code_fields.dart';
 
 /// Pin code text fields which automatically changes focus and validates
 class PinCodeTextField extends StatefulWidget {
@@ -172,7 +172,7 @@ class PinCodeTextField extends StatefulWidget {
   final bool useExternalAutoFillGroup;
 
   PinCodeTextField({
-    Key? key,
+    super.key,
     required this.appContext,
     required this.length,
     this.controller,
@@ -226,8 +226,7 @@ class PinCodeTextField extends StatefulWidget {
 
     /// Default create internal [AutofillGroup]
     this.useExternalAutoFillGroup = false,
-  })  : assert(obscuringCharacter.isNotEmpty),
-        super(key: key);
+  }) : assert(obscuringCharacter.isNotEmpty);
 
   @override
   PinCodeTextFieldState createState() => PinCodeTextFieldState();
@@ -380,7 +379,7 @@ class PinCodeTextFieldState extends State<PinCodeTextField>
     }
   }
 
-  // Assigning the text controller, if empty assiging a new one.
+  // Assigning the text controller, if empty assigning a new one.
   void _assignController() {
     if (widget.controller == null) {
       _textEditingController = TextEditingController();

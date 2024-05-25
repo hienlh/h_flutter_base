@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'user_entity.dart';
 
@@ -12,7 +12,7 @@ part of 'user_entity.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserEntity _$UserEntityFromJson(Map<String, dynamic> json) {
   return _UserEntity.fromJson(json);
@@ -35,87 +35,91 @@ mixin _$UserEntity {
 abstract class $UserEntityCopyWith<$Res> {
   factory $UserEntityCopyWith(
           UserEntity value, $Res Function(UserEntity) then) =
-      _$UserEntityCopyWithImpl<$Res>;
+      _$UserEntityCopyWithImpl<$Res, UserEntity>;
+  @useResult
   $Res call({String id, String firstName, String lastName, int age});
 }
 
 /// @nodoc
-class _$UserEntityCopyWithImpl<$Res> implements $UserEntityCopyWith<$Res> {
+class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
+    implements $UserEntityCopyWith<$Res> {
   _$UserEntityCopyWithImpl(this._value, this._then);
 
-  final UserEntity _value;
   // ignore: unused_field
-  final $Res Function(UserEntity) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? age = freezed,
+    Object? id = null,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? age = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_UserEntityCopyWith<$Res>
+abstract class _$$UserEntityImplCopyWith<$Res>
     implements $UserEntityCopyWith<$Res> {
-  factory _$$_UserEntityCopyWith(
-          _$_UserEntity value, $Res Function(_$_UserEntity) then) =
-      __$$_UserEntityCopyWithImpl<$Res>;
+  factory _$$UserEntityImplCopyWith(
+          _$UserEntityImpl value, $Res Function(_$UserEntityImpl) then) =
+      __$$UserEntityImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, String firstName, String lastName, int age});
 }
 
 /// @nodoc
-class __$$_UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
-    implements _$$_UserEntityCopyWith<$Res> {
-  __$$_UserEntityCopyWithImpl(
-      _$_UserEntity _value, $Res Function(_$_UserEntity) _then)
-      : super(_value, (v) => _then(v as _$_UserEntity));
+class __$$UserEntityImplCopyWithImpl<$Res>
+    extends _$UserEntityCopyWithImpl<$Res, _$UserEntityImpl>
+    implements _$$UserEntityImplCopyWith<$Res> {
+  __$$UserEntityImplCopyWithImpl(
+      _$UserEntityImpl _value, $Res Function(_$UserEntityImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_UserEntity get _value => super._value as _$_UserEntity;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? firstName = freezed,
-    Object? lastName = freezed,
-    Object? age = freezed,
+    Object? id = null,
+    Object? firstName = null,
+    Object? lastName = null,
+    Object? age = null,
   }) {
-    return _then(_$_UserEntity(
-      id: id == freezed
+    return _then(_$UserEntityImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      firstName: firstName == freezed
+      firstName: null == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
               as String,
-      lastName: lastName == freezed
+      lastName: null == lastName
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
-      age: age == freezed
+      age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int,
@@ -126,15 +130,15 @@ class __$$_UserEntityCopyWithImpl<$Res> extends _$UserEntityCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.pascal)
-class _$_UserEntity with DiagnosticableTreeMixin implements _UserEntity {
-  const _$_UserEntity(
+class _$UserEntityImpl with DiagnosticableTreeMixin implements _UserEntity {
+  const _$UserEntityImpl(
       {required this.id,
       required this.firstName,
       required this.lastName,
       required this.age});
 
-  factory _$_UserEntity.fromJson(Map<String, dynamic> json) =>
-      _$$_UserEntityFromJson(json);
+  factory _$UserEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserEntityImplFromJson(json);
 
   @override
   final String id;
@@ -162,33 +166,31 @@ class _$_UserEntity with DiagnosticableTreeMixin implements _UserEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserEntity &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.firstName, firstName) &&
-            const DeepCollectionEquality().equals(other.lastName, lastName) &&
-            const DeepCollectionEquality().equals(other.age, age));
+            other is _$UserEntityImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.firstName, firstName) ||
+                other.firstName == firstName) &&
+            (identical(other.lastName, lastName) ||
+                other.lastName == lastName) &&
+            (identical(other.age, age) || other.age == age));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(firstName),
-      const DeepCollectionEquality().hash(lastName),
-      const DeepCollectionEquality().hash(age));
+  int get hashCode => Object.hash(runtimeType, id, firstName, lastName, age);
 
   @JsonKey(ignore: true)
   @override
-  _$$_UserEntityCopyWith<_$_UserEntity> get copyWith =>
-      __$$_UserEntityCopyWithImpl<_$_UserEntity>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
+      __$$UserEntityImplCopyWithImpl<_$UserEntityImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserEntityToJson(
+    return _$$UserEntityImplToJson(
       this,
     );
   }
@@ -199,10 +201,10 @@ abstract class _UserEntity implements UserEntity {
       {required final String id,
       required final String firstName,
       required final String lastName,
-      required final int age}) = _$_UserEntity;
+      required final int age}) = _$UserEntityImpl;
 
   factory _UserEntity.fromJson(Map<String, dynamic> json) =
-      _$_UserEntity.fromJson;
+      _$UserEntityImpl.fromJson;
 
   @override
   String get id;
@@ -214,6 +216,6 @@ abstract class _UserEntity implements UserEntity {
   int get age;
   @override
   @JsonKey(ignore: true)
-  _$$_UserEntityCopyWith<_$_UserEntity> get copyWith =>
+  _$$UserEntityImplCopyWith<_$UserEntityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

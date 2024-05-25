@@ -5,16 +5,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_base/env.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-
 import 'package:google_fonts/google_fonts.dart';
+
 import '../generated/l10n.dart';
+import 'exceptions/exception_handler.dart';
+import 'routes/routes.dart';
 import 'ui/widgets/flavor_banner.dart';
-import 'routes.dart';
+import 'utils/screen_util.dart';
 
 class App extends StatelessWidget {
   final AdaptiveThemeMode? savedThemeMode;
 
-  const App({Key? key, this.savedThemeMode}) : super(key: key);
+  const App({super.key, this.savedThemeMode});
 
   @override
   Widget build(BuildContext context) {
@@ -47,16 +49,25 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: Env().appName,
         enableLog: kDebugMode,
-        popGesture: true,
-        defaultTransition: Transition.cupertino,
+        popGesture: !kIsWeb,
+        defaultTransition: kIsWeb ? Transition.fadeIn : Transition.cupertino,
         getPages: getPages,
         theme: theme,
         darkTheme: darkTheme,
-        initialRoute: Routes.splash,
-        builder: (_, w) => FlavorBanner(
-          enable: !kDebugMode || Env().flavor != Flavor.production,
-          child: w ?? const SizedBox.shrink(),
-        ),
+        initialRoute: Routes.splash.p,
+        onInit: () {
+          ExceptionHandler.instance.loaded();
+        },
+        builder: (_, c) {
+          return FlavorBanner(
+            enable: !kReleaseMode || Env().flavor != Flavor.production,
+            child: c?.fixedScreenSize(
+                  context,
+                  designSize: const Size(606, 1280),
+                ) ??
+                const SizedBox.shrink(),
+          );
+        },
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,

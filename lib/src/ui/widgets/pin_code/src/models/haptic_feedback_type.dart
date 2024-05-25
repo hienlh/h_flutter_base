@@ -1,4 +1,4 @@
-part of pin_code_fields;
+part of '../../pin_code_fields.dart';
 
 enum HapticFeedbackTypes {
   heavy,

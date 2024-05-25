@@ -6,7 +6,7 @@ import '../indicators/loading_indicator.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
-    Key? key,
+    super.key,
     this.onPressed,
     this.text,
     this.isLoading = false,
@@ -14,7 +14,7 @@ class PrimaryButton extends StatelessWidget {
     this.icon,
     this.backgroundColor,
     this.textColor,
-  }) : super(key: key);
+  });
 
   final Function()? onPressed;
   final String? text;

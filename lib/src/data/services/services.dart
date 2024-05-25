@@ -5,8 +5,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/exceptions/exceptions.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:graphql_flutter/graphql_flutter.dart' hide UnknownException;
-import 'package:http/http.dart' as http;
 import 'package:logger/logger.dart';
 
 import '../../../env.dart';
@@ -21,7 +19,6 @@ import '../repositories/repositories.dart';
 
 part 'connectivity_service.dart';
 part 'get_http_service.dart';
-part 'graphql_service.dart';
 part 'log_service.dart';
 part 'memory_storage_service.dart';
 part 'storage_service.dart';
@@ -37,13 +34,7 @@ Future initServices() async {
       Get.find<ConnectivityService>(),
     ),
   );
-  Get.put(GraphQlService(
-    Get.find<StorageService>(),
-    '${Env().apiUrl}/graphql',
-    null,
-    null,
-    Get.find<LogService>(),
-  ));
+  Get.put(FakeGraphQlClient());
 
   await initRepos();
 }
