@@ -33,17 +33,6 @@ class ApiClient extends IApiClient {
     // return SignInPhoneEmailRes.fromJson(res);
   }
 
-  Future<SignInRes> firebaseSignIn(String idToken) async {
-    final res = await request(
-      ApiMethod.post,
-      '/api/customers/sign-in-by-firebase-id-token',
-      body: {
-        'IdToken': idToken,
-      },
-    );
-    return SignInRes.fromJson(res);
-  }
-
   Future<SignInRes> verifyOtp(String phoneOrEmail, String otp) async {
     return SignInRes(
       jwt:

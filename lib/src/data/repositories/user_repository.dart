@@ -12,10 +12,6 @@ class UserRepository {
     return _apiClient.signInPhoneOrEmail(phoneOrEmail);
   }
 
-  Future<SignInRes> firebaseSignIn(String idToken) {
-    return _apiClient.firebaseSignIn(idToken);
-  }
-
   Future<SignInRes> verifyOtp(String phoneOrEmail, String otp) {
     return _apiClient.verifyOtp(phoneOrEmail, otp);
   }

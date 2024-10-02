@@ -25,8 +25,6 @@ dependencies:
   lottie: ^3.1.2
   local_auth: ^2.1.2
   json_annotation: ^4.9.0
-  sign_in_with_apple: ^6.1.0
-  google_sign_in: ^6.1.5
   flutter_svg: ^2.0.9
   modal_bottom_sheet: ^3.0.0
   awesome_snackbar_content: ^0.1.0
