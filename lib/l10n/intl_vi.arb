@@ -36,5 +36,6 @@
       }
     }
   },
-  "logout": "Đăng xuất"
+  "logout": "Đăng xuất",
+  "forgotPassword": "Quên mật khẩu?"
 }

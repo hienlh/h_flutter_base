@@ -40,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Email không đúng"),
         "errorOtpIsExpired":
             MessageLookupByLibrary.simpleMessage("Mã OTP đã hết hạn"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
         "helloWorld": MessageLookupByLibrary.simpleMessage("Chào mừng!"),
         "inDevelopment":
             MessageLookupByLibrary.simpleMessage("Tính năng đang phát triển"),

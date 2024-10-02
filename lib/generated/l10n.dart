@@ -329,6 +329,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Quên mật khẩu?`
+  String get forgotPassword {
+    return Intl.message(
+      'Quên mật khẩu?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
